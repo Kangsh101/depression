@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center; 
+  
+}
+.nav-pills-step {
+  display: flex;
+  list-style: none;
+  padding: 20px;
+  justify-content: center;
+  align-items: center; 
+}
+.nav-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.nav-item.active {
+  background-color: #3a3a4a;
+  color: white;
+}
+.num {
+  margin-right: 5px;
+}
+.section-container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  margin-top: 8%;
+} 
+.pscheck-box1{
+  padding-bottom: 15px;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 1%;
+}
+
+
+.pschecks{
+  color: red;
+  font-weight: bold;
+}
+
+
+.nextBtt{
+  margin-top: 20px;
+  background-color:#1877F2;
+  border-radius: 25px;
+}
+
+.Allcheckdss{
+  padding-top: 7px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .section-container{
+    margin-top: 40%;
+  }
+}
+
+@media only screen and (max-width: 200px) {
+  .section-container{
+    margin-top: 12%;
+  }
+}

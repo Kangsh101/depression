@@ -1,0 +1,83 @@
+.cms-confile{
+    display: flex ;
+    
+}
+
+.Cmss-header{
+    margin-top: 3%;
+    margin-left: -3% ;
+}
+.Cmss-content {
+    margin-left: 47%;
+    margin-top: 5%;
+    overflow-x: 100%;
+    max-width: 100%;
+  }
+  
+  .Cmss-content table {
+    width: 80%;
+    min-width: 700px; 
+  }
+  
+
+.sang-contents ,.sang-contents1,.sang-contents2{
+
+    padding: 1% 0% 1% 0;
+    border: 1px solid rgb(161, 160, 160);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+.sang-contents{
+    
+    margin-left: 2%;
+    padding-right: 60%;
+}
+.sang-contents1,.sang-contents2,.sang-contents3{
+    margin-left: 1%;
+}
+.sang-contents3{
+    width: 150px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+/* 작은 화면 크기(모바일)에 대한 스타일 */
+@media (max-width: 768px) {
+    .cms-container {
+      padding: 10px;
+    }
+    .Cmss-header {
+      text-align: center;
+    }
+    .Cmss-options {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .Cmss-select,
+    .Cmss-search,
+    .Cmss-button {
+      width: 100%;
+    }
+    .Cmss-content {
+      overflow-x: auto;
+      padding: 0;
+    }
+    .Cmss-content table {
+      min-width: 300px;
+    }
+    .sidebar {
+        padding-bottom: 50px;
+      }
+  }
+  
+  /* 큰 화면 크기(데스크톱)에 대한 스타일 */
+  @media (min-width: 769px) {
+    .sidebar {
+      width: 200px;
+    }
+    .cms-container {
+      margin-left: 250px;
+    }
+  }
+  

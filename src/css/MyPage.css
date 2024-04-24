@@ -1,0 +1,168 @@
+
+.mypage {
+  margin-top: 250px;
+}
+.sidebar {
+    position: absolute;
+    float: left;
+    background-color: #1877F2;
+    height: 60vh !important;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    opacity: 0.9;
+
+  }
+  
+  .sidebar-title h2 {
+    color: white;
+    font-size: xx-large;
+    text-align: left; 
+    margin-top: 50px;
+    user-select: none;
+    margin-bottom: 30px;
+    margin-left: 40px;
+  }
+  .sidebar-menu li span{
+    margin-left: 20px;
+  }
+  
+  .content {
+    
+    position: relative;
+    margin-left: 15%;
+    float: center;
+    margin-top: -50px;
+    padding: 10px 100px;
+    height: 700px;
+  }
+  
+  .sidebar ul {
+    color: white;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    color: rgb(253, 253, 253);
+    margin-top: 40px;
+    cursor: pointer;
+  }
+
+  .sidebar ul li:hover {
+    color: lightgray;
+  }
+  
+  li.active {
+    font-weight: bold;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -40px;
+    margin-top: 30px;
+  }
+
+  .logo-container span {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .logo-container img {
+    cursor: pointer;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;  
+  }
+
+  .logo-bottombar p {
+    margin-top: 30px;
+    border-bottom: 1px solid whitesmoke;
+    opacity: 0.3;
+  }
+
+/* 폰 사이즈일 때 스타일 */
+@media screen and (max-width: 768px) {
+  .logo-container{
+    margin-top: 5px;
+  }
+  .sidebar-title{
+    margin-top: 10px;
+  }
+
+  .sidebar {
+    
+    position: absolute;
+    float: left;
+    background-color: #1877F2;
+    height: 37vh !important;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+    opacity: 0.9;
+
+  }
+
+  .sidebar-menu li span {
+    margin-left: 0;
+    display: block; 
+    padding: 10px; 
+  }
+
+  .sidebar ul li {
+    margin-top: 10px; 
+  }
+
+  .sidebar ul li:hover {
+    color: white;
+  }
+
+  .content {
+    margin-left: -40px;
+    float: none;
+    margin-top: 0;
+    padding: 10px; 
+    width: 100%;
+  }
+
+  .sidebar-title h2 {
+    height: 0px;
+    margin-top: 0; 
+    margin-bottom: 10px;
+    font-size: small; 
+  }
+
+  .logo-container {
+    margin-left: 0;
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+  }
+
+  .logo-container img {
+    width: 20px; 
+    height: 20px;
+  }
+
+  .logo-container span {
+    font-size: small; 
+  }
+
+  .logo-bottombar p {
+    margin-top: 10px; 
+  }
+
+  .mypage {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .sidebar {
+    order: 1;
+  }
+
+  .content {
+    order: 2; 
+  }
+}

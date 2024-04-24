@@ -1,0 +1,128 @@
+
+.login-container {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    margin-bottom: 50px;
+    padding-top: 15px;
+
+  }
+  
+  .layout {
+    width: 100%;
+    max-width: 100px;
+
+  }
+  
+
+  h2 {
+    text-align: center;
+  }
+  .login-layout{
+    margin-top: 10%;
+  }
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-left: 38%;
+    
+  }
+  
+  .login-box {
+    background-color: #fff;
+    padding: 55px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .custom-label {
+    display: inline-block;
+    margin-bottom: 5px;
+  }
+  
+  .find-group {
+    margin: 2.5em 0;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+}
+  
+  .btn-primary {
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color:#1877F2;
+    margin-left: 89px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .social-login {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .social-icon a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  .social-icon span {
+    display: block;
+    padding: 5px;
+    background-color: #eee;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .findPd{
+    padding-left: 10px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .login-box {
+      width: 80%;
+      padding: 30px;
+    }
+  }
+  
+  @media only screen and (max-width: 576px) {
+    .login-box {
+      width: 90%;
+      padding: 25px;
+      margin-left: -35%;
+    }
+  
+    .btn-primary {
+      margin-left: 0;
+    }
+
+    .login-layout{
+      margin-top: 45%;
+    }
+    .form-group input{
+      margin-left: -10px;
+    }
+    .find-group a{
+      font-size: 11px;
+    }
+    .btn-primary{
+      margin-left: 15%;
+    }
+  }

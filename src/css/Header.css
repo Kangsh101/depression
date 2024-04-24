@@ -1,0 +1,167 @@
+/* #root {
+  width: 100%;
+  height: 100%;
+} */
+
+.header-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1px 20px;
+  background-color:#1877F2;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 80px;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-radius: 6px;
+  border-bottom: 1px solid #b8b7b7;
+  
+}
+
+
+.nav-container {
+  margin-right: 20%;
+  flex: 1;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 0;
+}
+
+nav li {
+  margin: 0;
+  padding-left: 30px;
+  font-size: 15px;
+}
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
+}
+.logo span{
+  color: white;
+  font-size: 20px;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.nav-container ul li {
+  font-size: 17px;
+  font-weight: bold;
+  padding-left: 66px;
+  
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+/* .auth-buttons::before {
+  content: ''; 
+  border-left: 1px solid #ccc;
+  height: 15px;
+  position: absolute;
+  right: 53%; 
+  top: 50%; 
+  transform: translateY(-50%); 
+} */
+
+
+.auth-buttons button {
+  background-color: transparent;
+  border-radius: 15px;
+  font-size: 13px;
+  color: white;
+  border: none;
+}
+
+.dropdown-overlay {
+  position: fixed;
+  top: 80px; 
+  left: 0;
+  width: 100%;
+  height: 33%;
+  background-color: rgba(3, 3, 83, 0.3); 
+  z-index: 2; 
+}
+
+.dropdown {
+  position: absolute;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 3;
+  
+}
+
+.Header-signupbtt a,
+.Header-loginbtt a,
+.Header-nav a{
+  color: white;
+  font-size: 16px;
+}
+
+.Header-signupbtt a:hover,
+.Header-loginbtt a:hover,
+.Header-nav a:hover{
+  color:lightgray;
+}
+
+
+.hadervar-logo{
+  width: 25%;
+  margin-left: 90%;
+}
+
+.Header-loginbtt{
+
+}
+
+@media (max-width: 500px) {
+
+  .hadervar-logo{
+    width: 10px;
+    
+    margin-left: 90%;
+  }
+  .auth-buttons button{
+    margin-right: -30px;
+  }
+  .auth-buttons button a{
+    font-size: 12px;
+    
+  }
+  .Header-loginbtt{
+    margin-left: 70px;
+  }
+
+.Header-nav{
+  font-size: 12px;
+}
+.hadervar-logo {
+  width: 50px; /* 폰 화면 크기에 맞는 적절한 너비로 조정 */
+  height:auto; /* 높이를 자동으로 조정하여 비율 유지 */
+  margin-left: 10px;
+}
+}
+@media (max-width: 960px) {
+  .nav-container {
+    display: none; 
+  }
+
+}

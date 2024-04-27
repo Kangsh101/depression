@@ -1,109 +1,110 @@
+/* Footer.css */
+
 .footer-container {
-  position: absolute;
-  width: 98%;
-  background-color: #f8f8f8;
-  padding:  20px 0px;
-  text-align: left;
-  margin-top: 50px;
-  
+  position: relative;
+  width: 100%;
+  background-color: #FFECF1; 
+  color: #5C3A6B;
+  padding: 30px 0px;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  margin-top: 40px;
 }
 
-.footer-container div {
-  margin-bottom: 27px;
-}
-
-.abcds {
-  margin-left: 21%; 
-  margin-right: 10%; 
+.footer-container div,
+.footer-container p,
+.footer-container a,
+.footer-container span {
+  color: #5C3A6B; 
+  font-size: 1rem;
 }
 
 .babago {
-  margin-right: 25%;
-  font-size: 20px;
   font-weight: bold;
-  color: rgb(244, 124, 124);
+  color: #F78FB3; 
+  text-decoration: none; 
+  transition: color 0.3s ease; 
 }
 
-.upper-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.babago:hover {
+  color: #FC6DAB; 
 }
 
-.upper-section p {
-  margin-right: 10px;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.upper-section::before {
+.upper-section::before,
+.lower-section::before {
   content: '';
-  position: absolute;
-  top: 25%;
-  left: 0;
-  width: 53.3%;
-  height: 0.3px;
-  background-color: #939090;
-  z-index: 1;
-  transform: translateY(-50%);
-  margin-left: 21.7%;
-}
-
-.lower-section {
-  margin-top: 30px;
-  text-align: center;
-  font-size: 12px;
-  display: flex; 
-  justify-content: space-around; 
+  display: block;
+  height: 2px;
+  background-color: #5C3A6B;
+  margin: 20px auto; 
+  width: 80%;
 }
 
 .footit {
-  font-size: 16px;
-  color: #000000;
+  font-weight: bold; 
 }
 
 .fooati {
-  font-size: 19px;
   font-weight: bold;
-  color: rgb(98, 98, 98);
+  font-size: 1.2rem; 
 }
 
-@media only screen and (max-width: 480px) {
+.lower-section span {
+  margin: 0 5px; 
+  cursor: pointer;
+}
+
+.lower-section span:hover {
+  text-decoration: underline; 
+}
+
+@media only screen and (max-width: 768px) {
   .footer-container {
-    padding: 15px;
-    
+    padding: 20px 15px;
   }
 
-  .upper-section::before {
-    width: 90%;
-  }
-
-  .abcds {
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 10px;
-  }
-  
-  
-  .babago {
-    margin-right: 10%;
-    font-size: 14px;
-  }
-
-  .footit {
-    font-size: 14px;
-  }
-
-  .fooati {
-    font-size: 14px;
-  }
-
+  .abcds,
+  .babago,
+  .footit,
+  .fooati,
   .fontwhwjd {
-    font-size: 14px;
+    font-size: 0.9rem; 
+  }
+
+  .upper-section::before,
+  .lower-section::before {
+    width: 95%; 
   }
 }
+/* Footer.css */
+.footer-container {
+  background-color: #FEEAF4;
+  padding: 20px 0;
+  text-align: center;
+}
 
-.fontwhwjd {
-  font-size: 13px;
-  color: #636161;
+.footer-logo {
+  width: 120px; 
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  display: inline-block;
+  margin: 0 15px;
+  color: #5C3A6B;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #883997;
+}
+
+.footer-info {
+  font-size: 14px;
+  color: #5C3A6B;
+  margin-top: 15px;
 }

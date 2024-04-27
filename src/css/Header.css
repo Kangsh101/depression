@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1px 20px;
-  background-color:#1877F2;
+  background-color:rgb(204, 229, 229);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   width: 100%;
   height: 80px;
@@ -112,14 +112,14 @@ nav li {
 .Header-signupbtt a,
 .Header-loginbtt a,
 .Header-nav a{
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 16px;
 }
 
 .Header-signupbtt a:hover,
 .Header-loginbtt a:hover,
 .Header-nav a:hover{
-  color:lightgray;
+  color:rgb(94, 94, 94);
 }
 
 

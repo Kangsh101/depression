@@ -44,7 +44,7 @@ const Login = ({ onLogin }) => {
     <div className='login-container'>
       <div>
         <div className="login-layout">
-          <h2 className='login-lg'>로그인</h2>
+          {/* <h1 className='login-lg'>로그인</h1> */}
           
           <div className="row">
             <div className="login-box col-lg-2">
@@ -71,7 +71,7 @@ const Login = ({ onLogin }) => {
                 </button>
               </form>
               <div className="social-login">
-                <strong>간편 로그인</strong>
+                {/* <strong>간편 로그인</strong> */}
                 <div className="social-icon">
                 </div>
               </div>

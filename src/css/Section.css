@@ -1,3 +1,15 @@
+.section-container {
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #FAE1F6;
+  padding: 20px;
+  border-radius: 15px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-top: 5%; 
+}
 .container {
   display: flex;
   flex-direction: column;
@@ -13,6 +25,7 @@
   padding: 20px;
   justify-content: center;
   align-items: center; 
+  
 }
 .nav-item {
   background-color: #f0f0f0;
@@ -26,7 +39,7 @@
   color: white;
 }
 .num {
-  margin-right: 5px;
+  font-weight: bold; 
 }
 .section-container {
   flex-direction: column;
@@ -43,19 +56,31 @@
   margin-top: 1%;
 }
 
-
+textarea {
+  border-radius: 15px; 
+  border: 1px solid #ccc;
+  padding: 10px; 
+}
 .pschecks{
-  color: red;
+  color: #D10069;
   font-weight: bold;
 }
 
 
-.nextBtt{
-  margin-top: 20px;
-  background-color:#1877F2;
-  border-radius: 25px;
+.nextBtt {
+  background-color: #D10069; 
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 17px; 
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
 }
-
+.nextBtt:hover {
+  background-color: #E64398; 
+}
 .Allcheckdss{
   padding-top: 7px;
   font-size: 18px;
@@ -64,13 +89,26 @@
 
 
 @media only screen and (max-width: 768px) {
-  .section-container{
-    margin-top: 40%;
+  .section-container {
+    margin-top: 20%;
+  }
+
+  .terms-scroll textarea {
+    width: 90%; 
+    margin: 0 auto; 
   }
 }
 
-@media only screen and (max-width: 200px) {
-  .section-container{
-    margin-top: 12%;
+@media only screen and (max-width: 576px) {
+  .login-box {
+    padding: 15px; 
+  }
+
+  .terms-scroll textarea {
+    width: 95%; 
+  }
+
+  .section-container {
+    margin-top: 25%; 
   }
 }

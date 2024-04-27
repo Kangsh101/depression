@@ -46,16 +46,16 @@ function App() {
       <div className="App">
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<><Main /></>} />
           <Route path="/login" element={<Login onLogin={handleLogin}  />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<><Signup /><Footer /></>} />
           <Route path="/Idppl" element={<Idppl />} />
           <Route path="/Passwordppl" element={<Passwordppl />} />
           <Route path="/page2" element={<Page2 />} />
           <Route path="/page3" element={<Page3 />} />
           <Route path="/page4" element={<Page4 />} />
           <Route path="/Page5" element={<Page5 />} />
-          <Route path="/main" element={<Main />} />
+          <Route path="/main" element={<><Main /></>} />
           <Route path="/MyPage" element={<MyPage />} />
           <Route path="/contents" element={<Contents />} />
 
@@ -63,7 +63,7 @@ function App() {
 
           <Route path="/cms/*" element={<CmsLayout />} />
         </Routes>
-        <Footer />
+
       </div>
     </BrowserRouter>
   );

@@ -1,26 +1,17 @@
+// Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Footer.css';
+// import { ReactComponent as LogoIcon } from '../path-to-your-logo.svg'; // 로고 파일 경로는 실제 파일 위치에 맞게 수정
 
 const Footer = () => {
-  
   return (
     <footer className="footer-container">
-      <div className="upper-section">
-        <p className='abcds'>공지사항</p>
-        <Link to="/Page4" className='babago'>바로가기</Link>
-      </div>
-      <div className='abcds'>
-        <span className='fooati'>Dementia Prevention System</span>
-      </div>
-      <div className='abcds'>
-        <span className='footit'>대표</span> <span className='fontwhwjd'>홍길동 </span> <span className='footit'>주소</span> <span className='fontwhwjd'>충북 진천군 진천읍</span> {/* 수정된 부분 */}
-      </div>
-      <div className='abcds'>
-        <span className='footit'>사업자등록번호</span> <span className='fontwhwjd'>113-03222-1132 </span> {/* 수정된 부분 */}
-      </div>
-      <div className="lower-section">
-        <span>이용약관 | 개인정보처리방침 | 이메일 무단 수집거부 | 고객센터</span>
+                {/* <img src={`${process.env.PUBLIC_URL}/images/dndnfwmd123.png`} alt="로고" className="logo2" /> */}
+      <Link to="/terms" className="footer-link">이용약관</Link>
+      <Link to="/privacy" className="footer-link">개인정보 처리방침</Link>
+      <div className="footer-info">
+        © 2024 Your Company. All rights reserved.
       </div>
     </footer>
   );

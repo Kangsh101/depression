@@ -25,13 +25,13 @@
     margin-bottom: 5px;
   }
   
-  .form-group input[type="text"],
+  /* .form-group input[type="text"],
   .form-group textarea {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
-  }
+  } */
   .form-group1 textarea {
     width: 100%;
     padding: 8px;

@@ -27,6 +27,8 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         <ul>
           <li className='Header-nav'><Link to="/contents">프로그램 콘텐츠</Link></li>
           <li className='Header-nav'><Link to="/page2">커뮤니티</Link></li>
+          <li className='Header-nav'><Link to="/Page4">공지사항</Link></li>
+          <li className='Header-nav'><Link to="/support">고객센터</Link></li>
         </ul>
       </nav>
       <div className="auth-buttons">

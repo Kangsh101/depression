@@ -9,7 +9,7 @@ const Main = () => {
     <div className='main-main'>
       <header className='main-header'>
         <img src={`${process.env.PUBLIC_URL}/images/dndnfwmd123.png`} alt="로고" className="logo" />
-        <h1 className="main-title">오늘은 자갈밭이었지만 내일은 다르게</h1>
+        <h1 className="main-title">어제와 내일은 다르게</h1>
         <div className="header-buttons">
           <Link to="/download" className="download-button">Google Play</Link>
           <Link to="/download" className="download-button">App Store</Link>

@@ -3,16 +3,16 @@ import React, { useState, useEffect } from 'react'; // useState와 useEffect 추
 import { Link } from 'react-router-dom';
 import '../css/Main.css';
 import Footer from './Footer';
+import messages from './messages'; // messages.js에서 메시지 배열 가져오기
 
 const Main = () => {
-  const [title, setTitle] = useState('어제와 내일은 다르게'); // 초기 타이틀 설정
-  const messages = [ // 표시될 메시지 배열
-    "어제와 내일은 다르게",
-    "힘든 오늘도, 잘 견뎌냈습니다",
-    "작은 발걸음이 모여 큰 길이 됩니다",
-    "오늘 하루도 당신은 충분히 잘하고 있어요",
-    "어떤 날은 느리게 가도 괜찮아요"
-  ];
+  const [title, setTitle] = useState(getRandomMessage()); // 초기값을 랜덤 메시지로 설정
+
+    // 랜덤 메시지를 반환하는 함수
+    function getRandomMessage() {
+      const index = Math.floor(Math.random() * messages.length);
+      return messages[index];
+    }  
 
   useEffect(() => { // 컴포넌트가 마운트될 때 메시지 변경 로직 시작
     const intervalId = setInterval(() => {

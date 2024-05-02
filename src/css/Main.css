@@ -64,8 +64,15 @@ body {
   font-weight: bold; /* 링크 폰트 두께 */
 }
 
+.content-image{
+  width: 20%;
+  height: auto;
+  margin-top: 20px; /* 이미지 상단 여백 추가 */
+  float: left; /* 이미지를 왼쪽으로 정렬 */
+}
+
 .content-area {
-  padding: 20px; /* 컨텐트 영역 패딩 */
+  padding: 300px; /* 컨텐트 영역 패딩 */
   background-color: white; /* 컨텐트 영역 배경색 */
   margin: 20px; /* 컨텐트 영역 여백 */
   border-radius: 10px; /* 컨텐트 영역 모서리 둥글게 */

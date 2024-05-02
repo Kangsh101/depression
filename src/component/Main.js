@@ -22,6 +22,21 @@ const Main = () => {
         <Link to="/support" className="nav-link">임시4</Link>
       </div>
       <div className="content-area">
+        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 </div>추가 */}
+      </div>
+      <div className="content-area">
+        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
+      </div>
+      <div className="content-area">
+        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
+      </div>
+      <div className="content-area">
+        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
+      </div>
+      <div className="content-area">
+        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
+      </div>
+      <div className="content-area">
         {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
       </div>
       <Footer />

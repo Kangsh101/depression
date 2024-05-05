@@ -1,0 +1,165 @@
+.qna-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 모든 자식 요소를 중앙에 정렬 */
+  width: 100%;
+  max-width: 850px; /* 최대 너비를 900px로 설정 */
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: transparent;
+  
+  
+}
+
+.qna-header {
+  text-align: center; /* 헤더 요소들을 중앙으로 정렬 */
+  width: 100%; /* 너비를 100%로 설정 */
+}
+
+
+.qna-options {
+  flex-grow: 1;
+}
+.QnA-HTitle{
+  font-size: 50px;
+}
+.qna-select{
+  width: 100px;
+  border-radius: 9px;
+  padding: 10px;
+  margin-right: 10px;
+}
+.qna-search{
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.qna-write-button {
+  display: block;
+  width: auto;
+  /* margin-top: 10px; */
+  padding: 10px 10px 10px 10px;
+  background-color: #E9ECEF;
+  color: rgb(0, 0, 0);
+  border: none;
+  cursor: pointer;
+  margin-left: 40em;
+}
+.qna-button{
+  background-color: #E9ECEF;
+  color: rgb(0, 0, 0);
+  border: 1px solid #959696;;
+  padding: 5px 10px 5px 10px;
+}
+
+.qna-button:hover{
+  background-color: #E9ECEF;
+  color: rgb(0, 0, 0);
+  border: 1px solid #959696;;
+  padding: 5px 10px 5px 10px;
+}
+.qna-content {
+  width: 100%;
+  margin-top: 20px;
+  /* overflow-x: auto; */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  border: none; /* 테이블 경계선 제거 */
+}
+
+table th,
+table td {
+  padding: 12px;
+  border-left: none;
+  border-right: none;
+  /* border-bottom: none; */
+  text-align: left;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+.pagebtt {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagebtt button {
+  padding: 6px 18px;
+  margin: 0 4px;
+  background-color: #66cc99;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+
+.pagebtt button:hover {
+  background-color:#47c586;
+}
+.QnA-tdcss td{
+  padding: 0 0 0 0;
+  font-size: 17px;
+}@media (max-width: 1024px) {
+  .qna-page {
+    padding: 10px;
+  }
+
+  .qna-select {
+    width: 90px;
+    padding: 8px;
+  }
+
+  .qna-search {
+    width: 250px;
+    padding: 8px;
+  }
+
+  .qna-write-button {
+    padding: 8px;
+    margin-left: auto; /* 오른쪽 정렬 */
+    margin-right: 20px;
+  }
+}
+
+/* 모바일 디바이스 */
+@media (max-width: 768px) {
+  .qna-page {
+    max-width: 100%;
+  }
+
+  .qna-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qna-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .qna-select, .qna-search, .qna-button, .qna-write-button {
+    width: auto;  /* 너비 자동 조절 */
+    display: block;  /* 블록 레벨 요소로 변경 */
+    margin: 10px auto;  /* 자동 마진으로 중앙 정렬 */
+  }
+
+  .qna-button, .qna-write-button {
+    width: 90%;
+  }
+}
+
+/* 작은 모바일 디바이스 */
+@media (max-width: 480px) {
+  .qna-select, .qna-search {
+    width: 100%;  /* 전체 너비 사용 */
+  }
+
+  .qna-button, .qna-write-button {
+    width: 100%;  /* 버튼 전체 너비 사용 */
+  }
+}

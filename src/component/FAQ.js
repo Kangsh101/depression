@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/Faq.css';
-import '../css/Page5.css';
+import '../css/FAQ.css';
 
-const FaqPage = () => {
+
+const FAQ = () => {
 
   const [answersVisible, setAnswersVisible] = useState([]);
 
@@ -23,16 +23,8 @@ const FaqPage = () => {
   ];
 
   return (
-    <div>
-      <div className="qna-page">
-        <nav className="qna-navigation">
-          <sapn className="qna-nav-ALL">전체</sapn>
-          <Link to="/Page2" className="qna-nav-item">QnA게시판</Link>
-          <Link to="/Page4" className="qna-nav-item">공지사항</Link>
-          <Link to="/Page5" className="qna-nav-item-Q">자주묻는질문</Link>
-        </nav>
-      </div>
-      <div className='page5555'>
+    <div className='faq-page'>
+      {/* <div className='page5555'>
         <div className="qna-header">
           <div className="qna-options">
             <h2 className='aaaaaa'>FAQ</h2>
@@ -44,7 +36,7 @@ const FaqPage = () => {
             <button className="qna-button">검색</button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="faq-content">
         {faqItems.map((item, index) => (
@@ -63,4 +55,4 @@ const FaqPage = () => {
   );
 };
 
-export default FaqPage;
+export default FAQ;

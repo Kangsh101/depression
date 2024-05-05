@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/Page2.css';
-import '../css/Page4.css';
+import '../css/QnA.css';
+import '../css/Notice.css';
 
-const QnAPage = () => {
+const Notice = () => {
   const [posts, setPosts] = useState([
     { id: 1, set:'공지사항', title: '오늘의 공지', author: '매니저', date: '2024-01-01' },
     { id: 2, set:'공지사항', title: '내일의 공지', author: '관리자', date: '2024-01-02' },
@@ -20,29 +20,20 @@ const QnAPage = () => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div>
-      <div className="qna-page">
-        <nav className="qna-navigation">
-          <sapn className="qna-nav-ALL">전체</sapn>
-          <Link to="/Page2" className="qna-nav-item">QnA게시판</Link>
-          <Link to="/Page4" className="qna-nav-item-Q">공지사항</Link>
-          <Link to="/Page5" className="qna-nav-item">자주묻는질문</Link>
-        </nav>
-      </div>
-
-      <div className="qna-header">
-        <div className="qna-options">
-          <h2 className='aaaaaa'>공지사항</h2>
-          <select className="qna-select">
+    <div className='notice-page'>
+      <div className="notice-header">
+        <div className="notice-options">
+          {/* <h2 className='aaaaaa'>공지사항</h2> */}
+          <select className="notice-select">
             <option value="title">제목</option>
             <option value="author">작성자</option>
           </select>
-          <input type="text" placeholder="검색어를 입력하세요" className="qna-search" />
-          <button className="qna-button">검색</button>
+          <input type="text" placeholder="검색어를 입력하세요" className="notice-search" />
+          <button className="notice-button">검색</button>
         </div>
       </div>
       
-      <div className="notice-table">
+      <div className="notice-content">
         <table>
           <thead>
             <tr>
@@ -55,7 +46,7 @@ const QnAPage = () => {
           </thead>
           <tbody>
             {currentPosts.map(post => (
-              <tr key={post.id}>
+              <tr className='notice-tdcss' key={post.id}>
                 <td>{post.id}</td>
                 <td>{post.set}</td>
                 <td>{post.title}</td>
@@ -94,4 +85,4 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   );
 };
 
-export default QnAPage;
+export default Notice;

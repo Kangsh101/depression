@@ -44,7 +44,7 @@ const Login = ({ onLogin }) => {
     <div className='login-container'>
       <div>
         <div className="login-layout">
-          {/* <h1 className='login-lg'>로그인</h1> */}
+          {/* <h1 >로그인</h1> */}
           
           <div className="row">
             <div className="login-box col-lg-2">

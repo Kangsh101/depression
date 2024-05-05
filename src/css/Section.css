@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #FAE1F6;
+  /* background-color: #FAE1F6; */
   padding: 20px;
   border-radius: 15px; 
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
@@ -62,13 +62,13 @@ textarea {
   padding: 10px; 
 }
 .pschecks{
-  color: #D10069;
+  color: red;
   font-weight: bold;
 }
 
 
 .nextBtt {
-  background-color: #D10069; 
+  background-color: rgb(152, 193, 134);
   color: #FFFFFF;
   border: none;
   padding: 10px 20px;
@@ -79,7 +79,7 @@ textarea {
   transition: background-color 0.2s;
 }
 .nextBtt:hover {
-  background-color: #E64398; 
+  background-color:rgb(122, 170, 101);
 }
 .Allcheckdss{
   padding-top: 7px;

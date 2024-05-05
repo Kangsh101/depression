@@ -1,0 +1,57 @@
+.community {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.topbar {
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffee;
+    padding: 65px 0; /* 상하 패딩만 제공 */
+    color: black;
+    border-bottom: 1.5px solid #ccc;
+}
+.topbar-title {
+    /* border-bottom: 0.1em solid #66cc99; */
+    width: 8em;
+    text-align: center;
+    /* margin: 0 auto; */
+    font-size: 30px;
+    color: rgb(42, 42, 42);
+    padding: 0px 60px;
+}
+
+.topbar-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px auto;
+    /* border: 1px solid red; */
+    border-radius: 30px;
+    width: 350px;
+    align-items: center;
+    color: white;
+    background-color: #66cc99;
+    padding: 0.5%;
+}
+
+.topbar-menu li {
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s; /* 부드러운 색상 변화 효과 */
+    border-radius: 15px; /* 둥근 모서리 효과 */
+    font-size: 20px
+}
+
+.topbar-menu li:hover, .topbar-menu li.active {
+    /* background-color: #c5d6ce;  */
+    color: rgb(0, 0, 0); 
+}
+.content {
+    margin-top: 20px; /* 사이드바 높이에 맞춰 조절 */
+    padding: 20px; /* 내용 주위에 공간 추가 */
+}
+/* 추가적인 스타일링 */

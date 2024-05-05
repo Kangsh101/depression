@@ -57,7 +57,7 @@ function App() {
           <Route path="/qnaup" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnAUp /><Footer /></>} />
           <Route path="/notice" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Notice /><Footer /></>} />
           <Route path="/faq" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><FAQ /><Footer /></>} />
-          <Route path="/main" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer /><Footer /></>} />
+          <Route path="/main" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer /></>} />
           <Route path="/MyPage" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><MyPage /><Footer /></>} />
           <Route path="/contents" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Contents /><Footer /></>} />
           <Route path="/community" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Community /><Footer /></>} />

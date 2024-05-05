@@ -5,6 +5,11 @@ import '../css/Main.css';
 import Footer from './Footer';
 import messages from './messages'; // messages.js에서 메시지 배열 가져오기
 
+import Banner1 from "../components/Banner1";
+import Banner2 from "../components/Banner2";
+import Banner3 from "../components/Banner3";
+import Banner4 from "../components/Banner4";
+
 const Main = () => {
   const [title, setTitle] = useState(getRandomMessage()); // 초기값을 랜덤 메시지로 설정
 
@@ -41,24 +46,15 @@ const Main = () => {
         <Link to="/content" className="nav-link">임시3</Link>
         <Link to="/support" className="nav-link">임시4</Link>
       </div>
-      <div className="content-area">
+      <React.Fragment>
+        <Banner1></Banner1>
+        <Banner2></Banner2>
+        <Banner3></Banner3>
+        <Banner4></Banner4>
+      </React.Fragment>
+      {/* <div className="content-area"> */}
         {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 </div>추가 */}
-      </div>
-      <div className="content-area">
-        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
-      </div>
-      <div className="content-area">
-        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
-      </div>
-      <div className="content-area">
-        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
-      </div>
-      <div className="content-area">
-        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
-      </div>
-      <div className="content-area">
-        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 추가 */}
-      </div>
+      {/* </div> */}
       <Footer />
     </div>
   );

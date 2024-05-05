@@ -129,7 +129,7 @@
 
 
 .next-button {
-  background-color:#1877F2;
+  background-color:rgb(152, 193, 134);
   color: rgb(255, 255, 255); 
   border: none; 
   padding: 10px 20px; 
@@ -138,8 +138,11 @@
   display: inline-block; 
   font-size: 16px; 
   cursor: pointer; 
-  border-radius: 5px; 
+  border-radius: 10px; 
   margin-top: 20px;
+}
+.next-button:hover {
+  background-color:rgb(128, 184, 104);;
 }
 
 

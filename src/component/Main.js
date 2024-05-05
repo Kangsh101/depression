@@ -1,9 +1,9 @@
 // Main.jsx
-import React, { useState, useEffect } from 'react'; // useState와 useEffect 추가
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/Main.css';
 import Footer from './Footer';
-import messages from './messages'; // messages.js에서 메시지 배열 가져오기
+import messages from './messages';
 
 import Banner1 from "../components/Banner1";
 import Banner2 from "../components/Banner2";
@@ -11,30 +11,29 @@ import Banner3 from "../components/Banner3";
 import Banner4 from "../components/Banner4";
 
 const Main = () => {
-  const [title, setTitle] = useState(getRandomMessage()); // 초기값을 랜덤 메시지로 설정
+  const [title, setTitle] = useState(getRandomMessage());
 
-    // 랜덤 메시지를 반환하는 함수
-    function getRandomMessage() {
-      const index = Math.floor(Math.random() * messages.length);
-      return messages[index];
-    }  
+  function getRandomMessage() {
+    const index = Math.floor(Math.random() * messages.length);
+    return messages[index];
+  }  
 
-  useEffect(() => { // 컴포넌트가 마운트될 때 메시지 변경 로직 시작
+  useEffect(() => {
     const intervalId = setInterval(() => {
       setTitle(prevTitle => {
         const index = (messages.indexOf(prevTitle) + 1) % messages.length;
-        return messages[index]; // 다음 메시지로 업데이트
+        return messages[index];
       });
-    }, 5000); // 5초마다 메시지 변경
+    }, 5000);
 
-    return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 인터벌 정리
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
     <div className='main-main'>
       <header className='main-header'>
         <img src={`${process.env.PUBLIC_URL}/images/dndnfwmd123.png`} alt="로고" className="logo" />
-        <h1 className="main-title">{title}</h1> {/* 상태로 관리되는 타이틀 사용 */}
+        <h1 className="main-title">{title}</h1>
         <div className="header-buttons">
           <Link to="/download" className="download-button">Google Play</Link>
           <Link to="/download" className="download-button">App Store</Link>
@@ -52,9 +51,6 @@ const Main = () => {
         <Banner3></Banner3>
         <Banner4></Banner4>
       </React.Fragment>
-      {/* <div className="content-area"> */}
-        {/* 상세 내용 구역, 필요한 경우 이미지나 텍스트 </div>추가 */}
-      {/* </div> */}
       <Footer />
     </div>
   );

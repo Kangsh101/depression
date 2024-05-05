@@ -1,0 +1,95 @@
+
+.notice-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 모든 자식 요소를 중앙에 정렬 */
+  width: 100%;
+  max-width: 850px; /* 최대 너비를 900px로 설정 */
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: transparent;
+  
+}
+.notice-header{
+  text-align: center; /* 헤더 요소들을 중앙으로 정렬 */
+  width: 100%; /* 너비를 100%로 설정 */
+}
+.notice-options{
+  flex-grow: 1;
+}
+.notice-select{
+  width: 100px;
+  border-radius: 9px;
+  padding: 10px;
+  margin-right: 10px;
+}
+.notice-search{
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.notice-button{
+  background-color: #E9ECEF;
+  color: rgb(0, 0, 0);
+  border: 1px solid #959696;;
+  padding: 5px 10px 5px 10px;
+}
+.notice-content{
+  width: 100%;
+  margin-top: 20px;
+}
+
+.notice-tdcss td{
+  padding: 0 0 0 0;
+  font-size: 17px;
+}
+
+@media (max-width: 1024px) {
+  .notice-page {
+    padding: 10px;
+  }
+
+  .notice-select {
+    width: 90px;
+    padding: 8px;
+  }
+
+  .notice-search {
+    width: 250px;
+    padding: 8px;
+  }
+
+  .notice-button {
+    padding: 8px 10px;  /* 더 작은 패딩 */
+  }
+}
+
+/* 모바일 디바이스 */
+@media (max-width: 768px) {
+  .notice-page {
+    max-width: 100%;
+  }
+
+  .notice-header, .notice-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .notice-select, .notice-search, .notice-button {
+    width: auto;  /* 너비 자동 조절 */
+    display: block;  /* 블록 레벨 요소로 변경 */
+    margin: 10px auto;  /* 자동 마진으로 중앙 정렬 */
+  }
+}
+
+/* 작은 모바일 디바이스 */
+@media (max-width: 480px) {
+  .notice-select, .notice-search {
+    width: 100%;  /* 전체 너비 사용 */
+  }
+
+  .notice-button {
+    width: 100%;  /* 버튼 전체 너비 사용 */
+  }
+}

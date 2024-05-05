@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/Page3.css'; 
+import '../css/QnAUp.css'; 
 import { Link } from 'react-router-dom';
 
 const Page3 = () => {

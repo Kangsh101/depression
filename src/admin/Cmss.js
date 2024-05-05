@@ -23,13 +23,13 @@ const Cmss = () => {
 
   const location = useLocation(); 
   return (
-    <>
-      <div className="sidebar">
-        <img src="/images/logo192.png" alt="Your Logo" />
-        <h2>관리자 페이지</h2>
+    <div className="cms-container">
+      <div className="cms-sidebar">
+        <h2 className='Cms-Depression'>Depression</h2>
+        <h2>관리자</h2>
         <ul>
           <li className="cms-item"><Link to="/Cmscontents">프로그램 컨텐츠</Link></li>
-          <li className={`cms-item ${location.pathname === "/Cmss" ? "cms-active" : ""}`}><Link to="/Cmss">게시판 관리</Link></li>
+          <li className={`cms-item2 ${location.pathname === "/Cms" ? "cms-active" : ""}`}><Link to="/Cms">게시판 관리</Link></li>
           <li className="cms-item"><Link to="/Cmsuser">사용자 관리</Link></li>
         </ul>
       </div>
@@ -100,7 +100,7 @@ const Cmss = () => {
         />
       </div>
     </div>
-    </>
+    </div>
     
   );
 };

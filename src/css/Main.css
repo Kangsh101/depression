@@ -14,7 +14,7 @@ body {
 }
 
 .main-header {
-  background-color: #ffffee; /* 배경색 수정 */
+  background-color: #fbf7f2; /* 배경색 수정 */
   text-align: center;
   padding: 40px 20px; /* 헤더의 패딩을 상하 40px, 좌우 20px로 조정 */
 }

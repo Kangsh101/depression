@@ -1,168 +1,155 @@
-/* #root {
-  width: 100%;
-  height: 100%;
-} */
-
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+/* 공통 스타일 */
+.header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 1px 20px;
-  background-color:#66cc99;
-  /* background-color:#d2fad2; */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  background-color: #66CC99; /* #f8f9fa */
+  position: fixed;
+  box-shadow: 0 0 10px #000000e6;
   width: 100%;
-  height: 80px;
+  top: 0;
   box-sizing: border-box;
-  z-index: 1000;
-  border-radius: 6px;
   border-bottom: 1px solid #b8b7b7;
-  
+  border-radius: 6px;
+  height: 70px;
 }
 
+.div-logo {
+  order: 1; /* 로고를 오른쪽으로 정렬 */
+  margin-left: 20%; /* 왼쪽의 다른 요소들로부터 로고를 분리 */
+}
+
+/* 중간 크기 화면에서 로고 위치 조정 */
+@media (max-width: 991px) and (min-width: 768px) {
+  .div-logo {
+    margin-left: 10%; /* 로고를 왼쪽으로 조금 이동 */
+  }
+}
+
+/* 모바일 화면에서 로고 위치 조정 */
+@media (max-width: 767px) {
+  .div-logo {
+    margin-left: 1em;; /* 로고를 완전히 왼쪽으로 이동 */
+  }
+}
 
 .nav-container {
-  margin-right: 20%;
-  flex: 1;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 0;
-}
-
-nav li {
-  margin: 0;
-  padding-left: 30px;
-  font-size: 15px;
-}
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-}
-.logo span{
-  color: white;
-  font-size: 20px;
-}
-
-.logo img {
-  width: 50px;
-  height: 50px;
-}
-
-.nav-container ul li {
-  font-size: 17px;
-  font-weight: bold;
-  padding-left: 66px;
-  
+  order: 2; /* 네비게이션을 두 번째 요소로 */
+  flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
 }
 
 .auth-buttons {
+  order: 3; /* 로그인/회원가입 버튼을 네비게이션과 로고 사이에 위치 */
+  margin-right: 20%; /* 로고와의 간격 설정 */
   display: flex;
-  gap: 10px;
-  position: relative;
+  align-items: center;
 }
 
-/* .auth-buttons::before {
-  content: ''; 
-  border-left: 1px solid #ccc;
-  height: 15px;
-  position: absolute;
-  right: 53%; 
-  top: 50%; 
-  transform: translateY(-50%); 
-} */
+/* 중간 크기 화면에서 로고 위치 조정 */
+@media (max-width: 991px) and (min-width: 768px) {
+  .auth-buttons {
+    margin-right: 10%; /* 로고와의 간격 설정 */
+  }
+}
 
+/* 모바일 화면에서 로고 위치 조정 */
+@media (max-width: 767px) {
+  .auth-buttons {
+    margin-right: 1em; /* 로고와의 간격 설정 */
+  }
+}
+
+.hamburger-menu {
+  margin-left: 30px; /* 필요한 간격 추가 */
+}
+
+.div-logo img {
+  height: 40px; /* 로고 이미지의 크기 조정 */
+}
+
+.nav-container ul, .mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  font-weight: 700;
+  justify-content: flex-end; /* Add this line to align items to the right */
+}
+
+.nav-container li, .mobile-menu li {
+  cursor: pointer;
+}
+
+/* 데스크탑 환경 */
+.desktop-header .nav-container {
+  /* display: flex; */
+}
+
+.desktop-header .hamburger-menu {
+  display: none;
+}
+
+/* 모바일 환경 */
+.mobile-header .nav-container {
+  display: none;
+}
+
+.mobile-header .hamburger-menu {
+  font-size: 24px;
+  cursor: pointer;
+  display: block; /* 모바일에서만 햄버거 메뉴 보이기 */
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-menu {
+  display: block;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  left: 0;
+  top: 60px; /* 헤더 바로 아래에 위치 */
+  border-top: 1px solid #ccc;
+}
+
+.mobile-menu ul {
+  flex-direction: column;
+  align-items: center;
+}
 
 .auth-buttons button {
-  background-color: transparent;
-  border-radius: 15px;
-  font-size: 13px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  background-color: #333333;
   color: white;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.dropdown-overlay {
-  position: fixed;
-  top: 80px; 
-  left: 0;
-  width: 100%;
-  height: 33%;
-  background-color: rgba(3, 3, 83, 0.3); 
-  z-index: 2; 
+.auth-buttons a {
+  color: white;
+  text-decoration: none;
 }
 
-.dropdown {
-  position: absolute;
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  z-index: 3;
-  
+/* 버튼 스타일 */
+.Header-nav {
+  background: none;
+  border: none;
+  color: #333;
 }
 
-.Header-signupbtt a,
-.Header-loginbtt a,
-.Header-nav a{
-  color: rgb(0, 0, 0);
-  font-size: 16px;
+.Header-loginbtt, .Header-signupbtt {
+  background-color: #66CC66;
 }
 
-.Header-signupbtt a:hover,
-.Header-loginbtt a:hover,
-.Header-nav a:hover{
-  color:rgb(94, 94, 94);
-}
-
-
-.header-logo{
-  width: 10%;
-  margin-left: 90%;
-}
-
-.Header-loginbtt{
-
-}
-
-@media (max-width: 500px) {
-
-  .header-logo{
-    width: 10px;
-    
-    margin-left: 90%;
-  }
-  .auth-buttons button{
-    margin-right: -30px;
-  }
-  .auth-buttons button a{
-    font-size: 12px;
-    
-  }
-  .Header-loginbtt{
-    margin-left: 70px;
-  }
-
-.Header-nav{
-  font-size: 12px;
-}
-.header-logo {
-  width: 50px; /* 폰 화면 크기에 맞는 적절한 너비로 조정 */
-  height:auto; /* 높이를 자동으로 조정하여 비율 유지 */
-  margin-left: 10px;
-}
-}
-@media (max-width: 960px) {
-  .nav-container {
-    display: none; 
-  }
-
+.Header-loginbtt a, .Header-signupbtt a {
+  color: white;
+  text-decoration: none;
 }

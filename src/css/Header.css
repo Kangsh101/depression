@@ -11,8 +11,10 @@
   top: 0;
   box-sizing: border-box;
   border-bottom: 1px solid #b8b7b7;
-  border-radius: 6px;
-  height: 70px;
+  border-radius: 0px;
+  height: 50px;
+  left: 50%; /* 왼쪽 끝을 기준으로 50% 이동 */
+  transform: translateX(-50%); /* 이동한 만큼 다시 왼쪽으로 이동하여 가운데 정렬 */
 }
 
 .div-logo {
@@ -75,6 +77,7 @@
   display: flex;
   gap: 20px;
   font-weight: 700;
+  font-size: 13px;
   justify-content: flex-end; /* Add this line to align items to the right */
 }
 
@@ -114,7 +117,7 @@
   background-color: white;
   width: 100%;
   left: 0;
-  top: 60px; /* 헤더 바로 아래에 위치 */
+  top: 50px; /* 헤더 바로 아래에 위치 */
   border-top: 1px solid #ccc;
 }
 
@@ -125,12 +128,13 @@
 
 .auth-buttons button {
   margin-left: 10px;
-  padding: 10px 20px;
+  padding: 6px 16px;
   background-color: #333333;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 13px;
 }
 
 .auth-buttons a {

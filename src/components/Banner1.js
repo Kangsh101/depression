@@ -9,7 +9,9 @@ const Banner1 = () => {
         margin: '0px 100px 0px 200px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
+        width: '100%',
+        margin: '0',
     };
 
     const imageStyle = {

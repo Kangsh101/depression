@@ -20,7 +20,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     <header className="header-container">
       <div>
         <Link to="/main">
-          <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='hadervar-logo'/>
+          <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='header-logo'/>
         </Link>
       </div>
       <nav className="nav-container">

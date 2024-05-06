@@ -124,7 +124,7 @@ nav li {
 }
 
 
-.hadervar-logo{
+.header-logo{
   width: 10%;
   margin-left: 90%;
 }
@@ -135,7 +135,7 @@ nav li {
 
 @media (max-width: 500px) {
 
-  .hadervar-logo{
+  .header-logo{
     width: 10px;
     
     margin-left: 90%;
@@ -154,7 +154,7 @@ nav li {
 .Header-nav{
   font-size: 12px;
 }
-.hadervar-logo {
+.header-logo {
   width: 50px; /* 폰 화면 크기에 맞는 적절한 너비로 조정 */
   height:auto; /* 높이를 자동으로 조정하여 비율 유지 */
   margin-left: 10px;

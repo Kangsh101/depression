@@ -58,12 +58,12 @@
 /* 모바일 화면에서 로고 위치 조정 */
 @media (max-width: 767px) {
   .auth-buttons {
-    margin-right: 1em; /* 로고와의 간격 설정 */
+    margin-right: 0.5em; /* 로고와의 간격 설정 */
   }
 }
 
 .hamburger-menu {
-  margin-left: 30px; /* 필요한 간격 추가 */
+  margin-left: 1em; /* 필요한 간격 추가 */
   padding-bottom: 5%;
 }
 

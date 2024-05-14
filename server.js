@@ -1,5 +1,6 @@
+require("dotenv").config();
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -18,21 +19,19 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:5000',
+  origin: 'http://3.37.54.62/',
   credentials: true,
   optionsSuccessStatus: 200, 
 }));
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-
-
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'kangsh',
-  password: '3360',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   port :3306,
-  database: 'aginginplace'
+  database: 'buddy'
 });
 
 app.use((req, res, next) => {
@@ -233,7 +232,7 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-const port = 5000;
+const port = 3001;
 app.listen(port, () => {
   console.log(`서버가 http://localhost:${port}`);
 });

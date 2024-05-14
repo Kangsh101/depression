@@ -73,17 +73,36 @@
 
 .nav-container ul, .mobile-menu ul {
   list-style: none;
-  padding: 0;
+  padding: 2em;
   margin: 0;
   display: flex;
   gap: 20px;
   font-weight: 700;
   font-size: 15px;
-  justify-content: flex-end; /* Add this line to align items to the right */
+  justify-content: flex-start; /* Add this line to align items to the right */
 }
 
-.nav-container li, .mobile-menu li {
+/* 네비게이션 링크 및 버튼 스타일 */
+.nav-container li, .auth-buttons button {
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* 부드러운 색상 변화 */
+}
+
+/* 네비게이션 링크 마우스 오버 효과 */
+.nav-container li:hover, .nav-container a:hover {
+  background-color: #77ccaa; /* 밝은 녹색으로 배경 변경 */
+  color: #ffffff; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 로그인, 로그아웃 버튼 마우스 오버 효과 */
+.auth-buttons button:hover {
+  background-color: #555555; /* 짙은 회색으로 배경 변경 */
+  color: #ffffff; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 마우스 오버 시, 텍스트 밑줄 효과 추가 */
+.nav-container a:hover, .auth-buttons a:hover {
+  text-decoration: underline; /* 밑줄 효과 */
 }
 
 /* 데스크탑 환경 */
@@ -112,19 +131,49 @@
   align-items: center;
 }
 
+/* 모바일 메뉴 스타일 */
 .mobile-menu {
   display: block;
   position: absolute;
-  background-color: white;
+  background-color: #fff; /* 밝은 배경색 */
   width: 100%;
   left: 0;
   top: 50px; /* 헤더 바로 아래에 위치 */
   border-top: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 메뉴에 그림자 효과 추가 */
+  z-index: 1000; /* 다른 요소 위에 오도록 설정 */
 }
 
 .mobile-menu ul {
   flex-direction: column;
   align-items: center;
+  padding: 20px 0; /* 상하 패딩 추가 */
+}
+
+.mobile-menu li {
+  padding: 10px 20px; /* 각 메뉴 아이템 패딩 추가 */
+  width: 100%; /* 전체 너비 사용 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  transition: background-color 0.3s ease; /* 부드러운 배경 색상 변화 효과 */
+}
+
+.mobile-menu li:hover {
+  background-color: #e6fff5; /* 마우스 오버 시 배경색 변경 */
+  cursor: pointer;
+}
+
+.mobile-menu a {
+  color: #333; /* 링크 색상 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  font-size: 16px; /* 글자 크기 설정 */
+  font-weight: bold; /* 글자 두께 설정 */
+}
+
+/* 화면 크기에 따른 메뉴 스타일 */
+@media (max-width: 767px) {
+  .mobile-menu {
+    top: 55px; /* 헤더 높이에 맞춰 조정 */
+  }
 }
 
 .auth-buttons button {

@@ -2,12 +2,13 @@
 const mysql = require('mysql');
 
 
+
 const connection = mysql.createConnection({
-    host: '127.0.0.1',
-    port: '3000',
-    user: 'root',
-    password: '4963',
-    database: 'aginginplace'
+    host: 'fiveguys-dev-rds-1.creoc4kymucz.ap-northeast-2.rds.amazonaws.com',
+    user: 'admin',
+    password: 'awsrds!root2024',
+    port: 3306,
+    database: 'buddy'
 });
  
 connection.connect();
@@ -17,7 +18,7 @@ connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
   console.log('The solution is: ', results[0].solution);
 });
  
-connection.end();
+module.exports =connection;
 
 
 

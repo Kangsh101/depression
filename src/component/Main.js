@@ -39,12 +39,12 @@ const Main = () => {
           <Link to="/download" className="download-button">App Store</Link>
         </div>
       </header>
-      <div className="main-nav">
+      {/* <div className="main-nav">
         <Link to="/community" className="nav-link">임시1</Link>
         <Link to="/news" className="nav-link">임시2</Link>
         <Link to="/content" className="nav-link">임시3</Link>
         <Link to="/support" className="nav-link">임시4</Link>
-      </div>
+      </div> */}
       <React.Fragment>
         <Banner1></Banner1>
         <Banner2></Banner2>

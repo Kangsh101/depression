@@ -19,6 +19,7 @@ import Cmscontents from './admin/Cmscontents';
 import Cmsuser from './admin/Cmsuser';
 import Cmsfaq from './admin/Cmsfaq'
 import Community from './component/Community';
+import Introduction from './component/Introduction';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,6 +62,7 @@ function App() {
           <Route path="/MyPage" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><MyPage /><Footer /></>} />
           <Route path="/contents" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Contents /><Footer /></>} />
           <Route path="/community" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Community /><Footer /></>} />
+          <Route path="/introduction" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Introduction /><Footer /></>} />
           
           <Route path='/cms' element={<Cms />}/>
           <Route path='/cmscontents' element={<Cmscontents />}/>

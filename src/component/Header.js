@@ -65,6 +65,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       {!isMobile && (
         <nav className="nav-container">
           <ul>
+            <li className='Header-nav'><Link to="/introduction">우울증이란</Link></li>
             <li className='Header-nav'><Link to="/contents">프로그램 콘텐츠</Link></li>
             <li className='Header-nav'><Link to="/community">커뮤니티</Link></li>
             <li className='Header-nav'><Link to="/support">고객센터</Link></li>
@@ -74,6 +75,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       {isMobile && menuOpen && (
         <div className="mobile-menu">
           <ul>
+            <li className='Header-nav'><Link to="/introduction">우울증이란</Link></li>
             <li className='Header-nav'><Link to="/contents">프로그램 콘텐츠</Link></li>
             <li className='Header-nav'><Link to="/community">커뮤니티</Link></li>
             <li className='Header-nav'><Link to="/support">고객센터</Link></li>

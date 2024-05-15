@@ -3,6 +3,7 @@ import '../css/Introduction.css';
 
 const Introduction = () => {
   return (
+    <div className='intro-container-main'>
     <div className="intro-container">
       <h1>우울증 이해하기</h1>
       <p>
@@ -49,6 +50,7 @@ const Introduction = () => {
         만약 본인이나 아는 사람이 우울증 증상을 경험하고 있다면, 전문가의 도움을 받는 것이 중요합니다. 
         우울증은 치료가 가능하며, 적절한 지원과 치료를 통해 많은 사람들이 회복하고 건강한 삶을 되찾을 수 있습니다.
       </p>
+    </div>
     </div>
   );
 }

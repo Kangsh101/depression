@@ -82,6 +82,7 @@
   font-weight: 700;
   font-size: 15px;
   justify-content: flex-start; /* Add this line to align items to the right */
+  white-space: nowrap; /* 줄 바꿈 방지 */
 }
 
 /* 네비게이션 링크 및 버튼 스타일 */

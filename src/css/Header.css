@@ -189,6 +189,7 @@
   cursor: pointer;
   font-size: 15px;
   white-space: nowrap; /* 줄 바꿈 방지 */
+  margin-top: 0.5em;
 }
 
 .auth-buttons a {

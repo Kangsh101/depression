@@ -20,12 +20,13 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     <header className="header-container">
       <div>
         <Link to="/main">
-          <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='hadervar-logo'/>
+          {/* <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='hadervar-logo'/> */}
+          <span className='hadervar-logo'>buddy</span>
         </Link>
       </div>
       <nav className="nav-container">
         <ul>
-          <li className='Header-nav'><Link to="/contents">프로그램 콘텐츠</Link></li>
+          <li className='Header-nav'><Link to="/newcontent">프로그램 콘텐츠</Link></li>
           <li className='Header-nav'><Link to="/community">커뮤니티</Link></li>
           {/* <li className='Header-nav'><Link to="/notice">공지사항</Link></li> */}
           <li className='Header-nav'><Link to="/support">고객센터</Link></li>

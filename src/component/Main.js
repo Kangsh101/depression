@@ -51,7 +51,7 @@ const Main = () => {
         <Banner3></Banner3>
         <Banner4></Banner4>
       </React.Fragment>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

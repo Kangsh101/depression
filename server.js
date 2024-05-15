@@ -1,5 +1,6 @@
+require("dotenv").config();
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -18,21 +19,19 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:5000',
+  origin: 'http://3.37.54.62/',
   credentials: true,
   optionsSuccessStatus: 200, 
 }));
 
 app.use(express.static(path.join(__dirname, 'build')));
 
-
-
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'kangsh',
-  password: '3360',
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
   port :3306,
-  database: 'aginginplace'
+  database: 'buddy'
 });
 
 app.use((req, res, next) => {
@@ -51,11 +50,11 @@ connection.connect((err) => {
 
 //회원가입
 app.post('/api/signup', (req, res) => {
-  const { username, password, email, name, birthdate, gender, phoneNumber,role} = req.body;
+  const { username, password, email, name, birthdate, gender, phoneNumber} = req.body;
 
-  const query = `INSERT INTO members (username, password, email, name, birthdate, gender, phoneNumber,role) VALUES (?,?, ?, ?, ?, ?, ?, ?)`;
+  const query = `INSERT INTO members (username, password, email, name, birthdate, gender, phoneNumber ,is_active) VALUES (?,?, ?, ?, ?, ?, ? , 1)`;
 
-  connection.query(query, [username, password, email, name, birthdate, gender,  phoneNumber,role], (err, result) => {
+  connection.query(query, [username, password, email, name, birthdate, gender,  phoneNumber], (err, result) => {
     if (err) {
       console.error('회원가입 실패: ' + err.stack);
       res.status(500).send('회원가입 실패');
@@ -83,7 +82,11 @@ app.post('/api/login', (req, res) => {
       return;
     }
     const user = result[0];
-    req.session.userId = user.id; 
+    if (user.is_active !== 1) {
+      res.status(401).send('비활성화된 계정입니다');
+      return;
+    }
+    req.session.userId = user.id;
 
     console.log('세션에 저장된 기본키:', req.session.userId);
 
@@ -97,7 +100,7 @@ app.get('/api/customers', (req, res) => {
   const userId = req.session.userId; 
 
   connection.query(
-    "SELECT gender, name, role, phoneNumber, birthdate FROM members WHERE id = ?;",
+    "SELECT gender, name, phoneNumber, birthdate FROM members WHERE id = ?;",
     [userId], 
     (err, rows, fields) => {
       if (err) {
@@ -111,6 +114,19 @@ app.get('/api/customers', (req, res) => {
 });
 
 
+app.get('/api/cmsusers', (req, res) => {
+  connection.query(
+    "SELECT id, username, email, name, birthdate, gender, phoneNumber, joinDate FROM members",
+    (err, rows, fields) => {
+      if (err) {
+        console.error('사용자 정보 조회 실패: ' + err.stack);
+        res.status(500).send('사용자 정보 조회 실패');
+        return;
+      }
+      res.json(rows);
+    }
+  );
+});
 
 
 
@@ -147,8 +163,40 @@ app.post('/findUserPhone', (req, res) => {
   });
 });
 
-// 비번
+// 유저 비활성하
+app.put('/api/deactivateUser/:userId', (req, res) => {
+  const userId = req.params.userId;
 
+  const query = `UPDATE members SET is_active = 0 WHERE id = ?`;
+
+  connection.query(query, [userId], (err, result) => {
+    if (err) {
+      console.error('비활성화 오류:', err);
+      res.status(500).send('서버 오류');
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+// 유저 활성화
+app.put('/api/activateUser/:userId', (req, res) => {
+  const userId = req.params.userId;
+
+  const query = `UPDATE members SET is_active = 1 WHERE id = ?`;
+
+  connection.query(query, [userId], (err, result) => {
+    if (err) {
+      console.error('활성화 오류:', err);
+      res.status(500).send('서버 오류');
+    } else {
+      res.sendStatus(200); 
+    }
+  });
+});
+
+
+
+// 비번
 app.post('/findUser1', (req, res) => {
   console.log("sadad")
   const { name, email } = req.body;
@@ -208,23 +256,6 @@ app.post('/api/logout', (req, res) => {
   });
 });
 
-
-
-
-
-// app.get('/api/userinfo', (req, res) => {
-//   res.send([
-//     {
-//     'gender' : '여자',
-//     'name' : '강암이',
-//     'role' : '환자',
-//     'phoneNumber': '01033402939',
-//     'birthdate' : '2010-01-12'
-//   }])
-    
-// });
-
-
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
@@ -233,7 +264,7 @@ app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-const port = 5000;
+const port = 3001;
 app.listen(port, () => {
   console.log(`서버가 http://localhost:${port}`);
 });

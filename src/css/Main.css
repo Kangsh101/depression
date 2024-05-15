@@ -8,19 +8,19 @@ body {
 }
 
 .main-main {
-  background-color: #f4f4f4; /* 전체 배경색 */
+  background-color: #f4f4f4; /* 전체 배경색(원래 배경색: f4f4f4) */
   font-family: 'Arial', sans-serif; /* 기본 폰트 설정 */
   color: #333;
 }
 
 .main-header {
-  background-color: #ffffee; /* 배경색 수정 */
+  background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98); /* 자연스럽고 편안한 그라데이션 */
   text-align: center;
   padding: 40px 20px; /* 헤더의 패딩을 상하 40px, 좌우 20px로 조정 */
 }
 
 .logo {
-  width: 300px; 
+  width: 250px; 
   height: auto; 
   border-radius: 20%; 
   object-fit: cover;
@@ -31,24 +31,38 @@ body {
 }
 
 .main-title {
-  font-size: 24px; /* 타이틀 폰트 크기 */
-  color: #333; /* 타이틀 색상 */
+  font-size: 24px; /* 폰트 크기 */
+  font-weight: bold; /* 폰트 두께 */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 텍스트 그림자 */
+  animation: color-change 5s infinite alternate; /* 색상 변경 애니메이션 */
+}
+/* 애니메이션 추가 */
+@keyframes color-change {
+  0% { color: #5A9A68; } /* 짙은 녹색 */
+  50% { color: #F08080; } /* 라이트 코랄 */
+  100% { color: #5A9A68; } /* 짙은 녹색 */
 }
 
 .header-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
   margin-top: 20px; /* 버튼 상단 여백 추가 */
 }
 
 .download-button {
-  background-color: #66cc99;
-  color: white;
+  background-color: white;
+  color: #333;
   padding: 10px 20px;
-  border-radius: 20px;
   text-decoration: none;
-  font-size: 16px; /* 버튼 폰트 크기 */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.download-button:hover {
+  background-color: #333;
+  color: white;
 }
 
 .main-nav {

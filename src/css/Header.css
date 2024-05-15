@@ -1,22 +1,14 @@
-/* #root {
-  width: 100%;
-  height: 100%;
-} */
-
-.header-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+/* 공통 스타일 */
+.header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 1px 20px;
   background-color:#66cc99;
   /* background-color:#d2fad2; */
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); */
   width: 100%;
-  height: 80px;
+  top: 0;
   box-sizing: border-box;
   z-index: 1000;
   /* border-radius: 6px; */
@@ -24,103 +16,195 @@
   
 }
 
+.div-logo {
+  order: 1; /* 로고를 오른쪽으로 정렬 */
+  margin-left: 20%; /* 왼쪽의 다른 요소들로부터 로고를 분리 */
+}
+
+/* 중간 크기 화면에서 로고 위치 조정 */
+@media (max-width: 991px) and (min-width: 768px) {
+  .div-logo {
+    margin-left: 10%; /* 로고를 왼쪽으로 조금 이동 */
+  }
+}
+
+/* 모바일 화면에서 로고 위치 조정 */
+@media (max-width: 767px) {
+  .div-logo {
+    margin-left: 1em;; /* 로고를 완전히 왼쪽으로 이동 */
+  }
+}
 
 .nav-container {
-  margin-right: 20%;
-  flex: 1;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin: 0;
-}
-
-nav li {
-  margin: 0;
-  padding-left: 30px;
-  font-size: 15px;
-}
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
-}
-.logo span{
-  color: white;
-  font-size: 20px;
-}
-
-.logo img {
-  width: 50px;
-  height: 50px;
-}
-
-.nav-container ul li {
-  font-size: 17px;
-  font-weight: bold;
-  padding-left: 66px;
-  
+  order: 2; /* 네비게이션을 두 번째 요소로 */
+  flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
 }
 
 .auth-buttons {
+  order: 3; /* 로그인/회원가입 버튼을 네비게이션과 로고 사이에 위치 */
+  margin-right: 20%; /* 로고와의 간격 설정 */
   display: flex;
-  gap: 10px;
-  position: relative;
+  align-items: center;
 }
 
-/* .auth-buttons::before {
-  content: ''; 
-  border-left: 1px solid #ccc;
-  height: 15px;
-  position: absolute;
-  right: 53%; 
-  top: 50%; 
-  transform: translateY(-50%); 
-} */
+/* 중간 크기 화면에서 로고 위치 조정 */
+@media (max-width: 991px) and (min-width: 768px) {
+  .auth-buttons {
+    margin-right: 10%; /* 로고와의 간격 설정 */
+  }
+}
 
+/* 모바일 화면에서 로고 위치 조정 */
+@media (max-width: 767px) {
+  .auth-buttons {
+    margin-right: 0.5em; /* 로고와의 간격 설정 */
+  }
+}
+
+.hamburger-menu {
+  margin-left: 1em; /* 필요한 간격 추가 */
+  padding-bottom: 5%;
+}
+
+.div-logo img {
+  height: 40px; /* 로고 이미지의 크기 조정 */
+}
+
+.nav-container ul, .mobile-menu ul {
+  list-style: none;
+  padding: 2em;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  justify-content: flex-start; /* Add this line to align items to the right */
+}
+
+/* 네비게이션 링크 및 버튼 스타일 */
+.nav-container li, .auth-buttons button {
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* 부드러운 색상 변화 */
+}
+
+/* 네비게이션 링크 마우스 오버 효과 */
+.nav-container li:hover, .nav-container a:hover {
+  background-color: #77ccaa; /* 밝은 녹색으로 배경 변경 */
+  color: #ffffff; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 로그인, 로그아웃 버튼 마우스 오버 효과 */
+.auth-buttons button:hover {
+  background-color: #555555; /* 짙은 회색으로 배경 변경 */
+  color: #ffffff; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+/* 마우스 오버 시, 텍스트 밑줄 효과 추가 */
+.nav-container a:hover, .auth-buttons a:hover {
+  text-decoration: underline; /* 밑줄 효과 */
+}
+
+/* 데스크탑 환경 */
+.desktop-header .nav-container {
+  /* display: flex; */
+}
+
+.desktop-header .hamburger-menu {
+  display: none;
+}
+
+/* 모바일 환경 */
+.mobile-header .nav-container {
+  display: none;
+}
+
+.mobile-header .hamburger-menu {
+  font-size: 24px;
+  cursor: pointer;
+  display: block; /* 모바일에서만 햄버거 메뉴 보이기 */
+}
+
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 모바일 메뉴 스타일 */
+.mobile-menu {
+  display: block;
+  position: absolute;
+  background-color: #fff; /* 밝은 배경색 */
+  width: 100%;
+  left: 0;
+  top: 50px; /* 헤더 바로 아래에 위치 */
+  border-top: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 메뉴에 그림자 효과 추가 */
+  z-index: 1000; /* 다른 요소 위에 오도록 설정 */
+}
+
+.mobile-menu ul {
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0; /* 상하 패딩 추가 */
+}
+
+.mobile-menu li {
+  padding: 10px 20px; /* 각 메뉴 아이템 패딩 추가 */
+  width: 100%; /* 전체 너비 사용 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  transition: background-color 0.3s ease; /* 부드러운 배경 색상 변화 효과 */
+}
+
+.mobile-menu li:hover {
+  background-color: #e6fff5; /* 마우스 오버 시 배경색 변경 */
+  cursor: pointer;
+}
+
+.mobile-menu a {
+  color: #333; /* 링크 색상 설정 */
+  text-decoration: none; /* 밑줄 제거 */
+  font-size: 16px; /* 글자 크기 설정 */
+  font-weight: bold; /* 글자 두께 설정 */
+}
+
+/* 화면 크기에 따른 메뉴 스타일 */
+@media (max-width: 767px) {
+  .mobile-menu {
+    top: 55px; /* 헤더 높이에 맞춰 조정 */
+  }
+}
 
 .auth-buttons button {
-  background-color: transparent;
-  border-radius: 15px;
-  font-size: 13px;
+  margin-left: 10px;
+  padding: 6px 16px;
+  background-color: #333333;
   color: white;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
 }
 
-.dropdown-overlay {
-  position: fixed;
-  top: 80px; 
-  left: 0;
-  width: 100%;
-  height: 33%;
-  background-color: rgba(3, 3, 83, 0.3); 
-  z-index: 2; 
+.auth-buttons a {
+  color: white;
+  text-decoration: none;
 }
 
-.dropdown {
-  position: absolute;
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-  z-index: 3;
-  
+/* 버튼 스타일 */
+.Header-nav {
+  background: none;
+  border: none;
+  color: #333;
 }
 
-.Header-signupbtt a,
-.Header-loginbtt a,
-.Header-nav a{
-  color: rgb(0, 0, 0);
-  font-size: 16px;
+.Header-loginbtt, .Header-signupbtt {
+  background-color: #66CC66;
 }
 
-.Header-signupbtt a:hover,
-.Header-loginbtt a:hover,
-.Header-nav a:hover{
-  color:rgb(94, 94, 94);
+.Header-loginbtt a, .Header-signupbtt a {
+  color: white;
+  text-decoration: none;
 }
 
 

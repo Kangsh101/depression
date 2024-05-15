@@ -21,12 +21,11 @@ body {
 
 .logo-container {
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .logo-container img {
   width: 100px;
-  margin-bottom: 10px;
+  margin-top: 2.5em;
 }
 
 .sidebar-title h2 {

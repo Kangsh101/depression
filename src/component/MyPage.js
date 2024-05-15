@@ -30,8 +30,8 @@ function MyPage() {
         <div className="mypage">
             <div className="sidebar">
                 <div className="logo-container">
-                    {/* <img src="/images/logo-small.png" alt="로고" /> */}
-                    <span>Aging In Place</span>
+                    <img src="/images/mascot.png" alt="로고" />
+                    {/* <span>Aging In Place</span> */}
                 </div>
                 <div className="sidebar-title">
                     <h2>마이페이지</h2>

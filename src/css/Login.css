@@ -9,7 +9,7 @@
     padding-top: 15px;
     /* background-color: #FAE1F6;  */
   }
-  
+
   .layout {
     width: 100%;
     max-width: 100px;
@@ -23,6 +23,7 @@
   }
   .login-layout{
     margin-top: 10%;
+    
   }
   .row {
     display: flex;
@@ -32,21 +33,24 @@
   }
   
   .login-box {
-    background-color: #ffffee;
+    background-color: #f5f5f5; 
     border: 1px solid #fbfbd5;
     padding: 55px;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    border: 5px solid  #e2e2e2;
+    border-top: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
   }
-  
+
   .form-group {
     margin-bottom: 15px;
     
   }
   
   .form-control {
-    border: 2px solid rgb(152, 193, 134);
-    border-radius: 25px; 
+    border: 1px solid #cdcdcd;
+    border-radius: 6px; 
     padding: 12px 20px;
     font-size: 14px;
     width: 80%;
@@ -66,15 +70,15 @@
   
 .btn-primary {
   width: 100%; 
-  border-radius: 25px; 
-  padding: 12px 0;
-  background-color: rgb(152, 193, 134);
+  border-radius: 7px; 
+  padding: 10px 0;
+  background-color: #0e787c;
   border: none;
   margin-top: 1rem;
 }
   
 .btn-primary:hover {
-  background-color: rgb(140, 197, 115);
+  background-color:#0b7074;
 }
   
   .social-login {

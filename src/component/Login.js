@@ -46,7 +46,7 @@ const Login = ({ onLogin }) => {
         <div className="login-layout">
           {/* <h1 >로그인</h1> */}
           
-          <div className="row">
+          <div className="row">       
             <div className="login-box col-lg-2">
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -70,11 +70,6 @@ const Login = ({ onLogin }) => {
                   로그인
                 </button>
               </form>
-              <div className="social-login">
-                {/* <strong>간편 로그인</strong> */}
-                <div className="social-icon">
-                </div>
-              </div>
             </div>
           </div>
         </div>

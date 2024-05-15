@@ -14,7 +14,7 @@ body {
 }
 
 .main-header {
-  background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98); /* 자연스럽고 편안한 그라데이션 */
+  background: #F4F4F4;
   text-align: center;
   padding: 40px 20px; /* 헤더의 패딩을 상하 40px, 좌우 20px로 조정 */
 }
@@ -34,14 +34,15 @@ body {
   font-size: 24px; /* 폰트 크기 */
   font-weight: bold; /* 폰트 두께 */
   margin-bottom: 20px;
+  color: #000; /* 기본 검은색 */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 텍스트 그림자 */
   animation: color-change 5s infinite alternate; /* 색상 변경 애니메이션 */
 }
 /* 애니메이션 추가 */
 @keyframes color-change {
-  0% { color: #5A9A68; } /* 짙은 녹색 */
-  50% { color: #F08080; } /* 라이트 코랄 */
-  100% { color: #5A9A68; } /* 짙은 녹색 */
+  0% { color: #006400; } /* 다크 그린 */
+  50% { color: #FFD700; } /* 골드 */
+  100% { color: #006400; } /* 다크 그린 */
 }
 
 .header-buttons {

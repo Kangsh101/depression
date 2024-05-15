@@ -3,18 +3,18 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1px 20px;
-  background-color:#66cc99;
-  /* background-color:#d2fad2; */
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); */
+  padding: 20px;
+  background-color: #66CC99; /* #f8f9fa */
+  position: fixed;
+  box-shadow: 0 0 10px #000000e6;
   width: 100%;
+  top: 0;
   box-sizing: border-box;
-  z-index: 1000;
-  /* margin-left: -3%; */
-  margin-top: -0.5%;
-  /* border-radius: 6px; */
-  border-bottom: 1.5px solid rgb(104, 104, 104);
-  
+  border-bottom: 1px solid #b8b7b7;
+  border-radius: 0px;
+  height: 55px;
+  left: 50%; /* 왼쪽 끝을 기준으로 50% 이동 */
+  transform: translateX(-50%); /* 이동한 만큼 다시 왼쪽으로 이동하여 가운데 정렬 */
 }
 
 .div-logo {
@@ -206,48 +206,4 @@
 .Header-loginbtt a, .Header-signupbtt a {
   color: white;
   text-decoration: none;
-}
-
-
-.hadervar-logo{
-  width: 10%;
-  margin-left: 90%;
-}
-
-.Header-loginbtt{
-
-}
-
-@media (max-width: 500px) {
-
-  .hadervar-logo{
-    width: 10px;
-    
-    margin-left: 90%;
-  }
-  .auth-buttons button{
-    margin-right: -30px;
-  }
-  .auth-buttons button a{
-    font-size: 12px;
-    
-  }
-  .Header-loginbtt{
-    margin-left: 70px;
-  }
-
-.Header-nav{
-  font-size: 12px;
-}
-.hadervar-logo {
-  width: 50px; 
-  height:auto; 
-  margin-left: 10px;
-}
-}
-@media (max-width: 960px) {
-  .nav-container {
-    display: none; 
-  }
-
 }

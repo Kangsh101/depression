@@ -20,9 +20,6 @@ function MyInfo({ userInfo }) {
                             <p><strong>이름</strong> <span>{user.name}</span> </p>
                         </div>
                         <div>
-                            <p><strong>역할</strong><span>{user.role}</span></p>                 
-                        </div>
-                        <div>
                             <p><strong>번호</strong> <span>{user.phoneNumber}</span> </p>    
                         </div>
                         <div>

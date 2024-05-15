@@ -7,6 +7,7 @@ import EditProfile from './EditProfile';
 import Footer from './Footer';
 function MyPage() {
     const [selectedSection, setSelectedSection] = useState('myinfo');
+    
     const [userInfo, setUserInfo] = useState('');
     const [userId, setUserId] = useState(null);
 

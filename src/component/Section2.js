@@ -7,8 +7,8 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
   const [emailDomain, setEmailDomain] = useState('');
   const [showCustomDomain, setShowCustomDomain] = useState(false);
   const [customDomain, setCustomDomain] = useState('');
-  const [gender, setGender] = useState('male');
-  const [role, setRole] = useState('patient');
+  const [gender, setGender] = useState('');
+  // const [role, setRole] = useState('patient');
 
   const isFormComplete = () => {
     return (
@@ -17,7 +17,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
       userData.confirmPassword !== '' &&
       userData.name !== '' &&
       userData.birthdate !== '' &&
-      userData.role !== '' &&
       userData.phoneNumber !== ''
     );
   };
@@ -30,7 +29,7 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
       }
       const email = showCustomDomain ? `${emailId}@${customDomain}` : `${emailId}@${emailDomain}`;
       handleInputChange({ target: { name: 'email', value: email } });
-      handleInputChange({ target: { name: 'role', value: role } }); 
+      // handleInputChange({ target: { name: 'role', value: role } }); 
       handleNext(); 
     } else {
       if (userData.username === '') {
@@ -70,14 +69,15 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
   };
 
   const handleGenderChange = (e) => {
-    setGender(e.target.value);
-    handleInputChange({ target: { name: 'gender', value: e.target.value } });
+    const selectedGender = e.target.value;
+    setGender(selectedGender);
+    handleInputChange({ target: { name: 'gender', value: selectedGender } });
   };
 
-  const handleRoleChange = (e) => {
-    setRole(e.target.value);
-    handleInputChange({ target: { name: 'role', value: e.target.value } });
-  };
+  // const handleRoleChange = (e) => {
+  //   setRole(e.target.value);
+  //   handleInputChange({ target: { name: 'role', value: e.target.value } });
+  // };
 
   return (
     <div className='section-container'>
@@ -118,21 +118,17 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
               </select>
             )}
           </div>
-          {/* <div className='genderradio-container'>
-            <div className='gender-radio1'>
-              <label>
-                <input type="radio" name="gender" value="male" checked={gender === 'male'} onChange={handleGenderChange} />
-                남자
-              </label>
-            </div>
-            <div className='gender-radio'>
-              <label>
-                <input type="radio" name="gender" value="female" checked={gender === 'female'} onChange={handleGenderChange} />
-                여자
-              </label>
+          <div className='genderradio-container'>
+            <div className="row gtr-uniform gtr-50">
+              <div className="col-4 col-12-medium">
+                <input type="radio" id="priority-low" name="gender" value="남성" checked={gender === "남성"} onChange={handleGenderChange} />
+                <label htmlFor="priority-low">남성</label>
+                <input type="radio" id="priority-normal" name="gender" value="여성" checked={gender === '여성'} onChange={handleGenderChange} />
+                <label htmlFor="priority-normal">여성</label>
+              </div>
             </div>
           </div>
-          <div className='typeradio-container'>
+          {/* <div className='typeradio-container'>
             <div className='type-radio1'>
               <label>
                 <input type="radio" name="role" value="patient" checked={role === 'patient'} onChange={handleRoleChange} />

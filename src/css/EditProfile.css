@@ -1,66 +1,90 @@
-/* EditProfile.css */
-.editprofile-container {
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 3em;
-    max-width: 800px; /* 최대 너비 설정 */
-    margin-left: auto; /* 중앙 정렬 */
-    margin-right: auto; /* 중앙 정렬 */
-  }
-  
-  .editprofile-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .editprofile-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .editprofile-row {
-    margin-bottom: 10px;
-    margin-right: 1em;
-  }
-  
-  .editprofile-row label {
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .editprofile-row input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  button {
-    background-color: #5cb85c;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #4cae4c;
-  }
-  
-  /* 반응형 디자인 추가 */
+.EditProfile-section-content {
+  background-color: #E6F3E6;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0em auto;
+  text-align: center;
+}
+
+.EditProfile-section-content .section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.EditProfile-section-content .info-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.EditProfile-section-content .info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center; /* Center align items vertically */
+}
+
+.EditProfile-section-content .info-item:last-child {
+  border-bottom: none;
+}
+
+.EditProfile-section-content .info-label {
+  font-weight: bold;
+  color: #666;
+}
+
+.EditProfile-section-content .info-value {
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 70%;
+  margin-top: 12px;
+}
+
+.EditProfile-section-content .submit-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.EditProfile-section-content .submit-btn:hover {
+  background-color: #45a049;
+}
+
 @media (max-width: 768px) {
-    .editprofile-container {
-      padding: 15px;
-      max-width: 90%; /* 작은 화면에서는 최대 너비 90% */
-    }
+  .EditProfile-section-content .section-content {
+      padding: 1rem;
   }
-  
-  @media (max-width: 480px) {
-    .editprofile-container {
-      padding: 10px;
-      max-width: 100%; /* 더 작은 화면에서는 최대 너비 100% */
-    }
+
+  .EditProfile-section-content .info-card {
+      padding: 1rem;
   }
+
+  .EditProfile-section-content .info-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .EditProfile-section-content .info-label, .EditProfile-section-content .info-value {
+      width: 100%;
+      text-align: left;
+  }
+
+  .EditProfile-section-content .info-value {
+      width: calc(100% - 20px);
+  }
+}

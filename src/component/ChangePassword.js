@@ -46,24 +46,24 @@ function ChangePassword() {
     };
 
     return (
-        <div className="changepw-container">
-            <div className='changepw-title'>
+        <div className="ChangePassword-section-content">
+            <div className='section-title'>
                 <strong>비밀번호 변경 페이지</strong>
             </div>
-            <form onSubmit={handleSubmit} className='changepw-form'>
-                <div className='changepw-row'>
-                    <label>현재 비밀번호</label>
-                    <input type="password" name="currentPassword" value={currentPassword} onChange={handleChange} required />
+            <form onSubmit={handleSubmit} className='info-card'>
+                <div className='info-item'>
+                    <label className='info-label'>현재 비밀번호</label>
+                    <input type="password" name="currentPassword" value={currentPassword} onChange={handleChange} required className='info-value' />
                 </div>
-                <div className='changepw-row'>
-                    <label>새 비밀번호</label>
-                    <input type="password" name="newPassword" value={newPassword} onChange={handleChange} required />
+                <div className='info-item'>
+                    <label className='info-label'>새 비밀번호</label>
+                    <input type="password" name="newPassword" value={newPassword} onChange={handleChange} required className='info-value' />
                 </div>
-                <div className='changepw-row'>
-                    <label>새 비밀번호 확인</label>
-                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleChange} required />
+                <div className='info-item'>
+                    <label className='info-label'>새 비밀번호 확인</label>
+                    <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleChange} required className='info-value' />
                 </div>
-                <button type="submit">변경</button>
+                <button type="submit" className="submit-btn">변경</button>
                 {message && <p className="message" style={{ color: messageColor }}>{message}</p>}
             </form>
         </div>

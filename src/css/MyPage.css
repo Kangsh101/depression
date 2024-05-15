@@ -50,6 +50,7 @@ body {
 .content {
   flex: 1;
   padding: 20px;
+  padding-top: 6em;
 }
 
 .section-title {
@@ -68,7 +69,7 @@ body {
   margin-right: auto; /* 중앙 정렬 */
 }
 
-input, select, button {
+.mypage input, .mypage select, .mypage button {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -95,11 +96,16 @@ button:hover {
   .sidebar {
     width: 100%;
     text-align: center;
+    box-sizing: border-box;
   }
 
   .section-content {
     padding: 15px;
     max-width: 90%; /* 작은 화면에서는 최대 너비 90% */
+  }
+
+  .content {
+    padding-top: 3em;
   }
 }
 

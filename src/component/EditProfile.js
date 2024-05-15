@@ -34,24 +34,24 @@ function EditProfile() {
     };
 
     return (
-        <div className="editprofile-container">
-            <div className='editprofile-title'>
+        <div className="EditProfile-section-content">
+            <div className='section-title'>
                 <strong>개인정보 수정 페이지</strong>
             </div>
-            <form onSubmit={handleSubmit} className='editprofile-form'>
-                <div className='editprofile-row'>
-                    <label>이름</label>
-                    <input type="text" name="name" value={name} onChange={handleChange} required />
+            <form onSubmit={handleSubmit} className='info-card'>
+                <div className='info-item'>
+                    <label className='info-label'>이름</label>
+                    <input type="text" name="name" value={name} onChange={handleChange} required className='info-value' />
                 </div>
-                <div className='editprofile-row'>
-                    <label>이메일</label>
-                    <input type="email" name="email" value={email} onChange={handleChange} required />
+                <div className='info-item'>
+                    <label className='info-label'>이메일</label>
+                    <input type="email" name="email" value={email} onChange={handleChange} required className='info-value' />
                 </div>
-                <div className='editprofile-row'>
-                    <label>전화번호</label>
-                    <input type="tel" name="phone" value={phone} onChange={handleChange} required />
+                <div className='info-item'>
+                    <label className='info-label'>전화번호</label>
+                    <input type="tel" name="phone" value={phone} onChange={handleChange} required className='info-value' />
                 </div>
-                <button type="submit">수정</button>
+                <button type="submit" className="submit-btn">수정</button>
             </form>
         </div>
     );

@@ -1,24 +1,12 @@
 import React from 'react';
 import banner4Image from '../shared/banner4.png';  // 이미지를 직접 임포트합니다.
+import '../css/Banner4.css'; // 배너4 CSS 파일 임포트
 
 const Banner4 = () => {
-    const bannerStyle = {
-        padding: '6rem 0',
-        display: 'block'
-    };
-
-    const imageStyle = {
-        backgroundImage: `url(${banner4Image})`,  // 직접 임포트한 이미지 사용
-        backgroundSize: '526px 735px',
-        width: '526px',
-        height: '735px'
-    };
-
     return (
-        <div style={bannerStyle}>
-            <div style={{ width: '1024px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={imageStyle}></div>
-                <div>
+        <div className="banner4">
+            <div className="banner4-content">
+                <div className="banner4-text">
                     <h1 style={{ fontSize: '2.5rem', lineHeight: '1.35', marginBottom: '2.4rem', fontWeight: '800' }}>
                         내 근처에서 찾는 <br /> 우리 동네 가게
                     </h1>
@@ -29,6 +17,7 @@ const Banner4 = () => {
                         당근마켓 동네가게 찾기
                     </a>
                 </div>
+                <img src={banner4Image} alt="Banner 4" className="banner4-image" />
             </div>
         </div>
     );

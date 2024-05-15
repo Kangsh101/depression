@@ -1,5 +1,6 @@
 /* Banner3.css */
 
+/* 기존 스타일 */
 .banner3 {
     padding: 6rem 0;
     display: flex;
@@ -14,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* position: relative; */
   }
   
   .banner3-image {
@@ -27,19 +29,48 @@
     max-width: 500px;
   }
   
-  @media (max-width: 768px) {
+  /* 모바일 화면에서만 스타일 변경 */
+  @media (max-width: 1030px) {
     .banner3 {
+      padding: 2rem 0;
+    }
+  
+    .banner3-content {
       flex-direction: column;
       text-align: center;
+      width: 100%;
+      /* position: relative; */
     }
   
     .banner3-image {
       width: 100%;
       height: auto;
+      order: 2;
+      margin-top: 1rem;
     }
   
     .banner3-text {
+      /* order: 1;
       padding: 1rem;
+      width: 100%;
+      box-sizing: border-box; */
+      /* position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -10%); */
+      /* background-color: rgba(255, 255, 255, 0.8); 배경 투명도 추가 */
+      /* z-index: 1; */
+    }
+  
+    .banner3-text h1,
+    .banner3-text p {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+  
+    .banner3-text p {
+      font-size: 1rem;
     }
   }
   

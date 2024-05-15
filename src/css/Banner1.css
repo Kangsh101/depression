@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* position: relative; */
 }
 
 .banner1-image {
@@ -29,30 +30,36 @@
 }
 
 /* 모바일 화면에서만 스타일 변경 */
-@media (max-width: 768px) {
+@media (max-width: 1030px) {
   .banner1 {
-    flex-direction: column;
-    text-align: center;
     padding: 2rem 0;
   }
 
   .banner1-content {
-    position: relative;
+    flex-direction: column;
+    text-align: center;
     width: 100%;
+    /* position: relative; */
   }
 
   .banner1-image {
     width: 100%;
     height: auto;
-    order: 2; /* 이미지가 텍스트 아래에 오도록 설정 */
+    order: 2;
+    margin-top: 1rem;
   }
 
   .banner1-text {
-    order: 1;
+    /* order: 1;
     padding: 1rem;
-    background-color: #fbf7f2;
     width: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box; */
+    /* position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%); */
+    /* background-color: rgba(255, 255, 255, 0.8); 배경 투명도 추가 */
+    /* z-index: 1; */
   }
 
   .banner1-text h1,

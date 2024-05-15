@@ -1,92 +1,66 @@
+/* EditProfile.css */
 .editprofile-container {
-    background-color: white;
-    width: 55%;
-    height: 50vh;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    margin-top: 3em;
+    max-width: 800px; /* 최대 너비 설정 */
+    margin-left: auto; /* 중앙 정렬 */
+    margin-right: auto; /* 중앙 정렬 */
+  }
+  
+  .editprofile-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .editprofile-form {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
     flex-direction: column;
-    margin-left: 5%;
-}
-
-.editprofile-title strong {
-    font-size: 38px;
-    font-weight: bolder;
-    display: block;
-    text-align: center; 
-    padding: 0 30px;
-}
-
-.editprofile-context-container {
-    display: flex;
-    text-align: left;
-    flex-direction: column;
-    margin-top: 70px;
-    padding: 0 30px;
-}
-
-.editprofile-context-container div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 30px;
-    width: 150%;
-}
-
-.editprofile-context-container div label {
-    width: 200px;
-    margin-right: 20px;
-}
-
-.editprofile-context-container div select, 
-.editprofile-context-container div input {
-    flex: 1;
-    height: 30px;
-    border-radius: 7px;
-    border-color: transparent;
-    background-color: rgba(170, 170, 170, 0.2);
-    color: black;
-}
-
-.editprofile-context-container button {
-    width: 30%;
-    text-align: center;
-    font-size: small;
-    height: 100%;
+  }
+  
+  .editprofile-row {
+    margin-bottom: 10px;
+    margin-right: 1em;
+  }
+  
+  .editprofile-row label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .editprofile-row input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    margin-top: 20px;
-    margin-left: 60%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-}
-
-.editprofile-context-container button:active {
-    background-color: skyblue;
-}
-
-.editprofile-context-container button:hover {
-    transition: opacity 0.5s ease;
-    opacity: 0.7;
-}
-
-@media only screen and (max-width: 1100px) {
+  }
+  
+  button:hover {
+    background-color: #4cae4c;
+  }
+  
+  /* 반응형 디자인 추가 */
+@media (max-width: 768px) {
     .editprofile-container {
-        width: 130%;
+      padding: 15px;
+      max-width: 90%; /* 작은 화면에서는 최대 너비 90% */
     }
-
-    .editprofile-context-container div label {
-        width: 40%;
-        margin-right: 5%;
+  }
+  
+  @media (max-width: 480px) {
+    .editprofile-container {
+      padding: 10px;
+      max-width: 100%; /* 더 작은 화면에서는 최대 너비 100% */
     }
-
-    .editprofile-context-container div select, 
-    .editprofile-context-container div input {
-        width: 55%;
-    }
-    .editprofile-title strong{
-        font-size: 26px;
-        width: 100%;
-        margin-left: 10%;
-    }
-}
+  }

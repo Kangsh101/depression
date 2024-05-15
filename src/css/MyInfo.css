@@ -1,85 +1,50 @@
-.myinfo-container {
-    background: linear-gradient(45deg, #66CC99, #97F2C4);
-    width: 50%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 5%;
-    margin-top: -100px;
-    transition: all 0.3s ease;
-}
-
-.myinfo-container:hover {
-    opacity: 1;
-}
-
-@media only screen and (max-width: 1100px) {
-    .myinfo-container {
-        width: 130%;
-        margin-top: 10px;
-    }
-
-    .myinfo-context-container input {
-        width: 100%;
-        margin-right: 0;
-
-    }
-}
-
-.myinfo-title {
-    margin-bottom: 10px;
-    margin-top: 10%;
-    color: white;
-}
-
-
-.myinfo-title strong {
+/* MyInfo.css */
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .info-table th, .info-table td {
+    border: 1px solid #ddd;
+    padding: 8px 12px; /* 셀의 패딩 조정 */
+    font-size: 14px; /* 폰트 크기 조정 */
+  }
+  
+  .info-table th {
+    background-color: #f4f4f4;
     text-align: left;
-    font-size: 28px;
-    margin-left: 40px;
-    font-weight: bolder;
-}
-
-.myinfo-context-container div {
-    text-align: left;
-    margin-top: 60px;
-    margin-bottom: 30px;
-    margin-left: 50px;
-    display: flex;
-}
-
-.myinfo-context-container button {
-    width: 70px;
-    text-align: center;
-    font-size: small;
-    height: 40px;
-    margin-left: 20px;
-    cursor: pointer;
-}
-
-.myinfo-context-container button:active {
-    background-color: skyblue;
-}
-
-.myinfo-context-container input {
-    width: 300px;
-    height: 30px;
-    margin-left: 20px;
-    border-radius: 7px;
-    border-color: transparent;
-    background-color: rgba(170, 170, 170, 0.1);
-    color: black;
-}
-
-input:focus {
-    outline: none
-}
-
-.myinfo-context-container input::placeholder {
-    color: gray;
-}
-
-/* 내 정보 페이지 끝*/
+    width: 150px; /* th 항목 너비 조정 */
+  }
+  
+  .info-table td {
+    width: auto; /* td 항목 너비 자동 조정 */
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .info-table th, .info-table td {
+      padding: 6px 8px; /* 패딩 축소 */
+      font-size: 12px; /* 폰트 크기 축소 */
+    }
+  
+    .info-table th {
+      width: 120px; /* th 항목 너비 축소 */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .info-table th, .info-table td {
+      padding: 4px 6px; /* 패딩 더 축소 */
+      font-size: 10px; /* 폰트 크기 더 축소 */
+    }
+  
+    .info-table th {
+      width: 100px; /* th 항목 너비 더 축소 */
+    }
+  
+    .info-table {
+      margin: 10px 0; /* 테이블 간격 축소 */
+    }
+  }
+  

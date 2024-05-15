@@ -4,22 +4,17 @@ import '../css/MyPage.css';
 import ChangePassword from './ChangePassword';
 import MyInfo from './MyInfo';
 import EditProfile from './EditProfile';
-import Footer from './Footer';
+
 function MyPage() {
     const [selectedSection, setSelectedSection] = useState('myinfo');
-    
     const [userInfo, setUserInfo] = useState('');
-    const [userId, setUserId] = useState(null);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
                 const response = await axios.get(`/api/customers`, { withCredentials: true });
                 if (response.status === 200) {
-                    const userData = response.data;
-                   
-                    setUserInfo(userData);
-                    console.log('유저정보:', userData); 
+                    setUserInfo(response.data);
                 } else {
                     console.error('Failed to fetch user info');
                 }
@@ -27,29 +22,21 @@ function MyPage() {
                 console.error('Error fetching user info:', error);
             }
         };
-    
-        fetchUserInfo();
-    }, [userId]); 
 
-    useEffect(() => {
-        const storedUserId = localStorage.getItem('userId');
-        if (storedUserId) {
-            setUserId(storedUserId);
-        }
+        fetchUserInfo();
     }, []);
 
     return (
         <div className="mypage">
             <div className="sidebar">
                 <div className="logo-container">
-                    <img src="/images/logo-small.png" alt="로고" />
+                    {/* <img src="/images/logo-small.png" alt="로고" /> */}
                     <span>Aging In Place</span>
                 </div>
-
-                <div className='sidebar-title'>
+                <div className="sidebar-title">
                     <h2>마이페이지</h2>
                 </div>
-                <ul className='sidebar-menu'>
+                <ul className="sidebar-menu">
                     <li onClick={() => setSelectedSection('myinfo')}>
                         <span>내 정보</span>
                     </li>
@@ -66,7 +53,6 @@ function MyPage() {
                 {selectedSection === 'changepassword' && <ChangePassword />}
                 {selectedSection === 'editprofile' && <EditProfile />}
             </div>
-            
         </div>
     );
 }

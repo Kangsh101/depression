@@ -1,36 +1,35 @@
-
 import '../css/MyInfo.css';
-
 
 function MyInfo({ userInfo }) {
     const user = userInfo[0];
 
     return (
-        <div className='myinfo-container'>
-            <div className='myinfo-title'>
-                <strong>내 정보 페이지</strong>
-            </div>
-            <div className='myinfo-context-container'>
-                {user ? (
-                    <>
-                        <div>
-                            <p><strong>성별 : </strong> <span>{user.gender}</span> </p>
-                        </div>
-                        <div>
-                            <p><strong>이름</strong> <span>{user.name}</span> </p>
-                        </div>
-                        <div>
-                            <p><strong>번호</strong> <span>{user.phoneNumber}</span> </p>    
-                        </div>
-                        <div>
-                            <p><strong>생일</strong> <span>{user.birthdate}</span> </p>           
-                        </div>
-                    </>
-                ) : (
-                    <div>로그인 해주세요 유저정보를 찾을 수 없음.</div>
-                )}
-            </div>
-            
+        <div className="section-content">
+            <div className="section-title">내 정보</div>
+            {user ? (
+                <table className="info-table">
+                    <tbody>
+                        <tr>
+                            <th>성별</th>
+                            <td>{user.gender}</td>
+                        </tr>
+                        <tr>
+                            <th>이름</th>
+                            <td>{user.name}</td>
+                        </tr>
+                        <tr>
+                            <th>번호</th>
+                            <td>{user.phoneNumber}</td>
+                        </tr>
+                        <tr>
+                            <th>생일</th>
+                            <td>{user.birthdate}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            ) : (
+                <div>로그인 해주세요. 유저 정보를 찾을 수 없습니다.</div>
+            )}
         </div>
     );
 }

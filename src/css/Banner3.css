@@ -1,0 +1,45 @@
+/* Banner3.css */
+
+.banner3 {
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #E6F3E6;
+  }
+  
+  .banner3-content {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .banner3-image {
+    background-size: cover;
+    background-position: center;
+    width: 546px;
+    height: 740px;
+  }
+  
+  .banner3-text {
+    max-width: 500px;
+  }
+  
+  @media (max-width: 768px) {
+    .banner3 {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .banner3-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .banner3-text {
+      padding: 1rem;
+    }
+  }
+  

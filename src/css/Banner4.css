@@ -1,0 +1,44 @@
+/* Banner4.css */
+
+.banner4 {
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .banner4-content {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .banner4-image {
+    background-size: cover;
+    background-position: center;
+    width: 526px;
+    height: 735px;
+  }
+  
+  .banner4-text {
+    max-width: 500px;
+  }
+  
+  @media (max-width: 768px) {
+    .banner4 {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .banner4-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .banner4-text {
+      padding: 1rem;
+    }
+  }
+  

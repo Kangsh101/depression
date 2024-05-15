@@ -103,7 +103,7 @@
 
 /* 마우스 오버 시, 텍스트 밑줄 효과 추가 */
 .nav-container a:hover, .auth-buttons a:hover {
-  text-decoration: underline; /* 밑줄 효과 */
+  /* text-decoration: underline; 밑줄 효과 */
 }
 
 /* 데스크탑 환경 */

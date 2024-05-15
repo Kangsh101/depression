@@ -46,6 +46,7 @@
   margin-right: 20%; /* 로고와의 간격 설정 */
   display: flex;
   align-items: center;
+  margin-top: 0.5%;
 }
 
 /* 중간 크기 화면에서 로고 위치 조정 */

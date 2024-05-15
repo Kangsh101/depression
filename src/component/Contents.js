@@ -1,86 +1,132 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/Contents.css';
 
 const ContentPage = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const videosPerPage = 6;
+
+  const videos = [
+    {
+      url: 'https://www.youtube.com/embed/Zzqhu6Y2i_E',
+      title: '우울하다고요?',
+      description: '우울증 방치하지마세요. 더 우울해집니다',
+    },
+    {
+      url: '',
+      title: '우울하면 먹어라!',
+      description: '우울할 땐 먹어야 산다',
+    },
+    {
+      url: '',
+      title: '많이 웃어라.',
+      description: '우울해요?ㅋㅋㅋ웃으세요 ㅋㅋ',
+    },
+    {
+      url: '',
+      title: '많이 웃어라.',
+      description: '우울해요?ㅋㅋㅋ웃으세요 ㅋㅋ',
+    },
+    {
+      url: 'https://d',
+      title: '많이 웃어라.',
+      description: '우울해요?ㅋㅋㅋ웃으세요 ㅋㅋ',
+    },
+    {
+      url: 'hd',
+      title: '많이 웃어라.',
+      description: '우울해요?ㅋㅋㅋ웃으세요 ㅋㅋ',
+    },
+    {
+      url: 'htd',
+      title: '우울해하지마세요.',
+      description: '우울증은 모든 건강을 해치고 악화시킵니다.',
+    },
+    {
+      url: 'hd',
+      title: '우울해하지마세요.',
+      description: '우울증은 모든 건강을 해치고 악화시킵니다.',
+    },
+    {
+      url: 'hd',
+      title: '우울해하지마세요.',
+      description: '우울증은 모든 건강을 해치고 악화시킵니다.',
+    },
+  ];
+
+  const indexOfLastVideo = currentPage * videosPerPage;
+  const indexOfFirstVideo = indexOfLastVideo - videosPerPage;
+  const currentVideos = videos.slice(indexOfFirstVideo, indexOfLastVideo);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <div className='content-main'>
-    <div className='content-container'>
-      <div>
-        <div className="content-layout">
-          <h2 className='content-lg'>프로그램 콘텐츠</h2>
-
-          <div className="row">
-            <div className="content-box col-lg-2">
-              <div className="video-description-wrapper">
-                <div className="video-box">
-                  <iframe 
-                    
-                    src="https://www.youtube.com/embed/e_UYhqrL8ic" 
-                    title="YouTube" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <div className="description-box">
-                  <a href='https://www.youtube.com/embed/e_UYhqrL8ic'>Understanding the Role of Genetics in Cardiovascular Disease
-                  </a>
-                  <p>Explore the intricate relationship between genetic factors and cardiovascular health. This video provides insights into the latest research findings and how genetic predispositions contribute to the development of heart conditions. Gain a deeper understanding of the molecular mechanisms underlying cardiovascular diseases and potential implications for personalized treatment strategies</p>
-                </div>
+      <div className="content-topbar">
+        <div className='content-topbar-title'>
+          <h2>Content</h2>
+        </div>
+      </div>
+      <div className='content-container'>
+        <div>
+          <div className="content-layout">
+            <div className='content-heBox'>
+              <div className="content-box col-lg-2">
+                {currentVideos.map((video, index) => (
+                  <div key={index} className="video-description-wrapper">
+                    <div className="video-box">
+                      <iframe
+                        src={video.url}
+                        title="YouTube"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                    <div className="description-box">
+                      <a href={video.url}>{video.title}</a>
+                      <p>{video.description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-              
-              <div className="video-description-wrapper">
-                <div className="video-box">
-                  <iframe  
-                    src="https://www.youtube.com/embed/NjgBnx1jVIU" 
-                    title="YouTube" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <div className="description-box">
-                  <a href='https://www.youtube.com/embed/NjgBnx1jVIU'>Unraveling the Mysteries of Neurodegenerative Disorders</a>
-                  <p>Delve into the complexities of neurodegenerative diseases, such as Alzheimer's and Parkinson's. Discover the underlying mechanisms driving these conditions and explore emerging therapies aimed at slowing disease progression. Gain valuable insights into the future of neurology research and potential breakthroughs in treatment.</p>
-                </div>
-              </div>
-              
-              <div className="video-description-wrapper">
-                <div className="video-box">
-                  <iframe 
-                    src="https://www.youtube.com/embed/qqBUw9BR-Us" 
-                    title="YouTube" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <div className="description-box">
-                  <a href='https://www.youtube.com/embed/qqBUw9BR-Us'>Exploring Innovations in Cancer Immunotherapy</a>
-                  <p>Discover the cutting-edge advancements in cancer treatment through immunotherapy. This video explores how harnessing the power of the immune system can revolutionize cancer care. Learn about novel immunotherapeutic approaches, their mechanisms of action, and their potential to enhance patient outcomes and survival rates.</p>
-                </div>
-              </div>
-              <div className="video-description-wrapper">
-                <div className="video-box">
-                  <iframe 
-                    src="https://www.youtube.com/embed/qivFeoW6oMQ" 
-                    title="YouTube" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                  ></iframe>
-                </div>
-                <div className="description-box">
-                  <a href='https://www.youtube.com/embed/qivFeoW6oMQ'>Navigating Mental Health Challenges in Today's Society</a>
-                  <p>Navigate the complexities of mental health in the modern world. Explore the prevalence of mental illnesses, such as depression and anxiety, and the impact of societal factors on mental well-being. Gain insights into effective coping strategies, available resources, and the importance of destigmatizing mental health issues for improved community support and wellness.</p>
-                </div>
-              </div>
+              <Pagination
+                videosPerPage={videosPerPage}
+                totalVideos={videos.length}
+                paginate={paginate}
+                currentPage={currentPage}
+              />
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
+  );
+};
+
+const Pagination = ({ videosPerPage, totalVideos, paginate, currentPage }) => {
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(totalVideos / videosPerPage); i++) {
+    pageNumbers.push(i);
+  }
+
+  const handlePageClick = (event, number) => {
+    event.preventDefault();
+    paginate(number);
+  };
+
+  return (
+    <nav>
+      <ul className='pagination'>
+        {pageNumbers.map(number => (
+          <li key={number} className={`page-item ${currentPage === number ? 'active' : ''}`}>
+            <a onClick={(event) => handlePageClick(event, number)} href='!#' className='page-link'>
+              {number}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

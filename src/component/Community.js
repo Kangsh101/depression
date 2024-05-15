@@ -14,7 +14,6 @@ const Community = () => {
                 <div className='topbar-title'>
                     <h2>Community</h2>
                 </div>
-
             </div>
             <div>
             <ul className='topbar-menu'>

@@ -5,10 +5,9 @@
 }
 
 .topbar {
-    margin-top: 50px;
     width: 100%;
-    background-color: #ffffee;
-    padding: 65px 0; /* 상하 패딩만 제공 */
+    background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98);
+    padding: 5px 0; /* 상하 패딩만 제공 */
     color: black;
     border-bottom: 1.5px solid #ccc;
 }

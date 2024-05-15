@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../css/ChangePassword.css';
 
 function ChangePassword() {
@@ -15,7 +16,7 @@ function ChangePassword() {
         else if (name === 'confirmPassword') setConfirmPassword(value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (currentPassword === '' || newPassword === '' || confirmPassword === '') {
             setMessageColor('red');
@@ -24,11 +25,23 @@ function ChangePassword() {
             setMessageColor('red');
             setMessage('새 비밀번호가 일치하지 않습니다.');
         } else {
-            setMessageColor('green');
-            setMessage('비밀번호가 변경되었습니다.');
-            setCurrentPassword('');
-            setNewPassword('');
-            setConfirmPassword('');
+            try {
+                const response = await axios.post('/api/changepassword', {
+                    currentPassword,
+                    newPassword
+                });
+                if (response.status === 200) {
+                    setMessageColor('green');
+                    setMessage('비밀번호가 변경되었습니다.');
+                    setCurrentPassword('');
+                    setNewPassword('');
+                    setConfirmPassword('');
+                }
+            } catch (error) {
+                console.error('Error changing password:', error);
+                setMessageColor('red');
+                setMessage('현재 비밀번호가 일치하지 않습니다.');
+            }
         }
     };
 

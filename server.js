@@ -193,7 +193,81 @@ app.put('/api/activateUser/:userId', (req, res) => {
     }
   });
 });
+// 사용자 정보 업데이트
+app.post('/api/updateuserinfo', (req, res) => {
+  const userId = req.session.userId;
+  const { name, gender, phoneNumber, role, email } = req.body;
 
+  connection.query(
+    "UPDATE members SET name = ?, gender = ?, phoneNumber = ?, role = ?, email = ? WHERE id = ?",
+    [name, gender, phoneNumber, role, email, userId],
+    (err, result) => {
+      if (err) {
+        console.error('사용자 정보 업데이트 실패:', err);
+        res.status(500).send('사용자 정보 업데이트 실패');
+        return;
+      }
+      console.log('사용자 정보가 성공적으로 업데이트되었습니다.');
+      res.status(200).send('사용자 정보가 성공적으로 업데이트되었습니다.');
+    }
+  );
+});
+
+app.get('/api/userinfo', (req, res) => {
+  const userId = req.session.userId;
+
+  console.log('현재 로그인된 사용자의 세션 ID:', userId);
+  connection.query(
+    "SELECT gender, name, role, phoneNumber, birthdate, email FROM members WHERE id = ?;",
+    [userId], 
+    (err, rows, fields) => {
+      if (err) {
+        console.error('회원 정보 조회 실패: ' + err.stack);
+        res.status(500).send('회원 정보 조회 실패');
+        return;
+      }
+      if (rows.length > 0) {
+        res.send(rows[0]); // 첫 번째 행만 반환
+      } else {
+        res.status(404).send('User not found');
+      }
+    }
+  );
+});
+
+app.post('/api/changepassword', (req, res) => {
+  const userId = req.session.userId;
+  const { currentPassword, newPassword } = req.body;
+
+  connection.query(
+      "SELECT * FROM members WHERE id = ? AND password = ?",
+      [userId, currentPassword],
+      (err, result) => {
+          if (err) {
+              console.error('비밀번호 변경 실패: ' + err.stack);
+              res.status(500).send('비밀번호 변경 실패');
+              return;
+          }
+          if (result.length === 0) {
+              res.status(401).send('현재 비밀번호가 올바르지 않습니다.');
+              return;
+          }
+
+          connection.query(
+              "UPDATE members SET password = ? WHERE id = ?",
+              [newPassword, userId],
+              (updateErr, updateResult) => {
+                  if (updateErr) {
+                      console.error('비밀번호 업데이트 실패: ' + updateErr.stack);
+                      res.status(500).send('비밀번호 업데이트 실패');
+                      return;
+                  }
+                  res.status(200).send('비밀번호가 성공적으로 변경되었습니다.');
+              }
+          );
+      }
+  );
+});
 
 
 // 비번

@@ -8,11 +8,12 @@
   /* background-color:#d2fad2; */
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.9); */
   width: 100%;
-  top: 0;
   box-sizing: border-box;
   z-index: 1000;
+  /* margin-left: -3%; */
+  margin-top: -0.5%;
   /* border-radius: 6px; */
-  border-bottom: 1px solid rgb(104, 104, 104);
+  border-bottom: 1.5px solid rgb(104, 104, 104);
   
 }
 

@@ -1,7 +1,7 @@
-body {
-  background-color: #FFFFFF;
-}
 
+.content-main{
+  background-color: #fafad2;
+}
 .content-container {
   margin: 0 auto;
   background-color: rgb(230, 243, 230);
@@ -11,9 +11,9 @@ body {
   flex-direction: column;
   width: 90%;
   height: auto;
-  border: 5px solid  rgb(158, 183, 158);
-  border-top: 1px solid rgb(158, 183, 158);
-  border-left: 1px solid rgb(158, 183, 158);
+  border: 5px solid  rgb(196, 206, 196);
+  border-top: 1px solid rgb(196, 206, 196);
+  border-left: 1px solid rgb(196, 206, 196);
 }
 
 .content-layout {
@@ -21,6 +21,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  
 }
 
 .content-box {
@@ -31,6 +32,7 @@ body {
 }
 .content-heBox{
   padding-bottom: 4em;
+
 }
 .video-description-wrapper {
   display: flex;
@@ -77,8 +79,10 @@ body {
 
 .content-topbar{
   width: 100%;
-  background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98);
-  padding: 5px 0;
+  /* background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98); */
+  background-color: white;
+  padding: 5px 0px;
+  /* margin-left: -3%; */
   color: black;
   border-bottom: 1.5px solid #ccc;
   margin-bottom: 50px;

@@ -8,7 +8,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
   const [showCustomDomain, setShowCustomDomain] = useState(false);
   const [customDomain, setCustomDomain] = useState('');
   const [gender, setGender] = useState('');
-  // const [role, setRole] = useState('patient');
 
   const isFormComplete = () => {
     return (
@@ -29,7 +28,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
       }
       const email = showCustomDomain ? `${emailId}@${customDomain}` : `${emailId}@${emailDomain}`;
       handleInputChange({ target: { name: 'email', value: email } });
-      // handleInputChange({ target: { name: 'role', value: role } }); 
       handleNext(); 
     } else {
       if (userData.username === '') {
@@ -74,11 +72,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
     handleInputChange({ target: { name: 'gender', value: selectedGender } });
   };
 
-  // const handleRoleChange = (e) => {
-  //   setRole(e.target.value);
-  //   handleInputChange({ target: { name: 'role', value: e.target.value } });
-  // };
-
   return (
     <div className='section-container'>
       <ol className="nav nav-pills nav-pills-step">
@@ -118,30 +111,12 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
               </select>
             )}
           </div>
-          <div className='genderradio-container'>
-            <div className="row gtr-uniform gtr-50">
-              <div className="col-4 col-12-medium">
-                <input type="radio" id="priority-low" name="gender" value="남성" checked={gender === "남성"} onChange={handleGenderChange} />
-                <label htmlFor="priority-low">남성</label>
-                <input type="radio" id="priority-normal" name="gender" value="여성" checked={gender === '여성'} onChange={handleGenderChange} />
-                <label htmlFor="priority-normal">여성</label>
-              </div>
-            </div>
+          <div className='gender-container'>
+            <input type="radio" id="gender-male" name="gender" value="남성" checked={gender === "남성"} onChange={handleGenderChange} />
+            <label htmlFor="gender-male">남성</label>
+            <input type="radio" id="gender-female" name="gender" value="여성" checked={gender === '여성'} onChange={handleGenderChange} />
+            <label htmlFor="gender-female">여성</label>
           </div>
-          {/* <div className='typeradio-container'>
-            <div className='type-radio1'>
-              <label>
-                <input type="radio" name="role" value="patient" checked={role === 'patient'} onChange={handleRoleChange} />
-                환자
-              </label>
-            </div>
-            <div className='type-radio'>
-              <label>
-                <input type="radio" name="role" value="guardian" checked={role === 'guardian'} onChange={handleRoleChange} />
-                보호자
-              </label>
-            </div>
-          </div> */}
         </div>
         <div>
           <input type='text' id='name' name='name' value={userData.name} onChange={handleInputChange} placeholder='이름' className='Section2-field'></input>

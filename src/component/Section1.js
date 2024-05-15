@@ -41,11 +41,12 @@ const Section1 = ({ handleNext }) => {
               <span className='pschecks'>(필수)</span> 개인정보 수집 및 이용 동의 </label>
           </div>
           <div>
-            <textarea rows="15" cols="65" placeholder="약관 내용asdadsadadadadasdadsadadadadasdadsadadadad
-            asdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadad
-            asdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadad
-            asdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadad
-            asdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadadasdadsadadadad" readOnly></textarea>
+            <textarea rows="15" cols="65" placeholder="약관 내용 약관 내용  약관 내용 약관 내용 약관 내용 약관 내용 
+            약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 
+            약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 
+            약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 
+            약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 약관 내용 
+            " readOnly></textarea>
           </div>
         </div>
 

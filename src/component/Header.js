@@ -40,18 +40,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       {/* 로고 섹션 */}
       <div className="div-logo">
         <Link to="/main">
-          {/* <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='hadervar-logo'/> */}
-          <span className='hadervar-logo'>buddy</span>
+          <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='header-logo' />
         </Link>
       </div>
-      {/* <nav className="nav-container">
-        <ul>
-          <li className='Header-nav'><Link to="/newcontent">프로그램 콘텐츠</Link></li>
-          <li className='Header-nav'><Link to="/community">커뮤니티</Link></li>
-          <li className='Header-nav'><Link to="/notice">공지사항</Link></li>
-          <li className='Header-nav'><Link to="/support">고객센터</Link></li>
-        </ul>
-      </nav> */}
+      {/* 모바일에서는 햄버거 메뉴 표시, 데스크탑에서는 네비게이션 메뉴 표시 */}
       <div className="auth-buttons">
         {isLoggedIn ? (
           <>

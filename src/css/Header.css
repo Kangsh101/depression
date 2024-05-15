@@ -39,6 +39,7 @@
 .nav-container {
   order: 2; /* 네비게이션을 두 번째 요소로 */
   flex-grow: 1; /* 남은 공간을 차지하도록 설정 */
+  white-space: nowrap; /* 줄 바꿈 방지 */
 }
 
 .auth-buttons {

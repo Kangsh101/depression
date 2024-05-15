@@ -1,7 +1,7 @@
 .intro-container-main{
-    background-color: #fafad2;
-    padding-top: 20px; 
-    padding-bottom: 20px;
+    background-color: #fafad2; 
+    padding-top: 5em;
+    padding-bottom: 2em;
 }
 .intro-container {
     max-width: 800px;

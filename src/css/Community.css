@@ -1,12 +1,14 @@
 .community {
     display: flex;
     flex-direction: column;
-    
+    background-color: #fafad2;
+    max-width: 970;
 }
+.topbar-container{}
 
 .topbar {
     width: 100%;
-    background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98);
+    background-color: #f4f4f4;;
     padding: 5px 0; /* 상하 패딩만 제공 */
     color: black;
     border-bottom: 1.5px solid #ccc;
@@ -52,5 +54,6 @@
 .content {
     margin-top: 20px; /* 사이드바 높이에 맞춰 조절 */
     padding: 20px; /* 내용 주위에 공간 추가 */
+    background-color: white;
 }
 /* 추가적인 스타일링 */

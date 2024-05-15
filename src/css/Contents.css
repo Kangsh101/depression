@@ -32,7 +32,7 @@
 }
 .content-heBox{
   padding-bottom: 4em;
-
+  
 }
 .video-description-wrapper {
   display: flex;
@@ -80,7 +80,7 @@
 .content-topbar{
   width: 100%;
   /* background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98); */
-  background-color: white;
+  background-color: #f4f4f4;
   padding: 5px 0px;
   /* margin-left: -3%; */
   color: black;

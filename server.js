@@ -196,11 +196,11 @@ app.put('/api/activateUser/:userId', (req, res) => {
 // 사용자 정보 업데이트
 app.post('/api/updateuserinfo', (req, res) => {
   const userId = req.session.userId;
-  const { name, gender, phoneNumber, role, email } = req.body;
+  const { name, gender, phoneNumber, email } = req.body;
 
   connection.query(
-    "UPDATE members SET name = ?, gender = ?, phoneNumber = ?, role = ?, email = ? WHERE id = ?",
-    [name, gender, phoneNumber, role, email, userId],
+    "UPDATE members SET name = ?, gender = ?, phoneNumber = ?, email = ? WHERE id = ?",
+    [name, gender, phoneNumber, email, userId],
     (err, result) => {
       if (err) {
         console.error('사용자 정보 업데이트 실패:', err);
@@ -218,7 +218,7 @@ app.get('/api/userinfo', (req, res) => {
 
   console.log('현재 로그인된 사용자의 세션 ID:', userId);
   connection.query(
-    "SELECT gender, name, role, phoneNumber, birthdate, email FROM members WHERE id = ?;",
+    "SELECT gender, name, phoneNumber, birthdate, email FROM members WHERE id = ?;",
     [userId], 
     (err, rows, fields) => {
       if (err) {

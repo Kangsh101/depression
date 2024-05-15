@@ -3,11 +3,13 @@
   flex-direction: column;
   align-items: center; /* 모든 자식 요소를 중앙에 정렬 */
   width: 100%;
-  max-width: 850px; /* 최대 너비를 900px로 설정 */
+  max-width: 55%; /* 최대 너비를 900px로 설정 */
   margin: 0 auto; 
   padding: 20px;
-  background-color: transparent;
-  
+  background-color: white;
+  border: 1px solid rgb(195, 194, 194);
+  border-radius: 15px;
+  margin-bottom: 5%;
   
 }
 

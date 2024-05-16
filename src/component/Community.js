@@ -33,7 +33,7 @@ const Community = () => {
                     </li>
                 </ul>
             </div>
-            <div className="community-content">
+            <div className="community-content2">
                 {selectedPage === 'QnA' && <QnA />}
                 {selectedPage === 'FAQ' && <FAQ />}
                 {selectedPage === 'Notice' && <Notice />}

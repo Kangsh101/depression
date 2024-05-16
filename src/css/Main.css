@@ -20,7 +20,7 @@ body {
 }
 
 .logo {
-  width: 250px; 
+  width: 200px; 
   height: auto; 
   border-radius: 20%; 
   object-fit: cover;
@@ -33,6 +33,7 @@ body {
 .main-title {
   font-size: 24px; /* 폰트 크기 */
   font-weight: bold; /* 폰트 두께 */
+  margin-top: 20px;
   margin-bottom: 20px;
   color: #000; /* 기본 검은색 */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 텍스트 그림자 */
@@ -41,7 +42,7 @@ body {
 /* 애니메이션 추가 */
 @keyframes color-change {
   0% { color: #006400; } /* 다크 그린 */
-  50% { color: #FFD700; } /* 골드 */
+  50% { color: white; } /* 골드 */
   100% { color: #006400; } /* 다크 그린 */
 }
 
@@ -92,4 +93,10 @@ body {
   margin: 20px; /* 컨텐트 영역 여백 */
   border-radius: 10px; /* 컨텐트 영역 모서리 둥글게 */
   box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* 컨텐트 영역 그림자 */
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 100px; /* 모바일 화면에서 로고 크기 조정 */
+  }
 }

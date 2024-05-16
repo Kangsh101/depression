@@ -1,0 +1,75 @@
+/* Banner1.css */
+
+/* 기존 스타일 */
+.banner1 {
+  padding: 6rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fbf7f2;
+}
+
+.banner1-content {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* position: relative; */
+}
+
+.banner1-image {
+  background-size: cover;
+  background-position: center;
+  width: 754px;
+  height: 635px;
+}
+
+.banner1-text {
+  max-width: 500px;
+}
+
+/* 모바일 화면에서만 스타일 변경 */
+@media (max-width: 1030px) {
+  .banner1 {
+    padding: 2rem 0;
+  }
+
+  .banner1-content {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    /* position: relative; */
+  }
+
+  .banner1-image {
+    width: 100%;
+    height: auto;
+    order: 2;
+    margin-top: 1rem;
+  }
+
+  .banner1-text {
+    /* order: 1;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box; */
+    /* position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%); */
+    /* background-color: rgba(255, 255, 255, 0.8); 배경 투명도 추가 */
+    /* z-index: 1; */
+  }
+
+  .banner1-text h1,
+  .banner1-text p {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .banner1-text p {
+    font-size: 1rem;
+  }
+}

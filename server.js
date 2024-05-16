@@ -127,7 +127,7 @@ app.get('/api/customers', (req, res) => {
   const userId = req.session.userId; 
 
   connection.query(
-    "SELECT gender, name, phoneNumber, birthdate FROM members WHERE id = ?;",
+    "SELECT email, gender, name, phoneNumber, birthdate FROM members WHERE id = ?;",
     [userId], 
     (err, rows, fields) => {
       if (err) {

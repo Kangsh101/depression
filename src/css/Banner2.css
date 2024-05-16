@@ -1,0 +1,81 @@
+/* Banner2.css */
+
+/* 기존 스타일 */
+.banner2 {
+    padding: 6rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .banner2-content {
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* position: relative; */
+  }
+  
+  .banner2-image {
+    background-size: cover;
+    background-position: center;
+    width: 532px;
+    height: 684px;
+  }
+  
+  .banner2-text {
+    max-width: 500px;
+  }
+  
+  /* 모바일 화면에서만 스타일 변경 */
+  @media (max-width: 1030px) {
+    .banner2 {
+      padding: 2rem 0;
+    }
+  
+    .banner2-content {
+      flex-direction: column;
+      text-align: center;
+      width: 100%;
+      /* position: relative; */
+    }
+  
+    .banner2-image {
+      width: 100%;
+      height: auto;
+      order: 2;
+      margin-top: 1rem;
+    }
+  
+    .banner2-text {
+      /* order: 1;
+      padding: 1rem;
+      width: 100%;
+      box-sizing: border-box; */
+      /* position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -10%); */
+      /* background-color: rgba(255, 255, 255, 0.8); 배경 투명도 추가 */
+      /* z-index: 1; */
+    }
+  
+    .banner2-text h1,
+    .banner2-text p {
+      margin: 0;
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+  
+    .banner2-text p {
+      font-size: 1rem;
+    }
+  
+    .banner2-text button,
+    .banner2-text a {
+      font-size: 1rem;
+      padding: 10px 15px;
+    }
+  }
+  

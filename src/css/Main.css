@@ -97,6 +97,6 @@ body {
 
 @media (max-width: 768px) {
   .logo {
-    width: 100px; /* 모바일 화면에서 로고 크기 조정 */
+    width: 150px; /* 모바일 화면에서 로고 크기 조정 */
   }
 }

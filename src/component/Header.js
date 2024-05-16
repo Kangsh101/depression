@@ -3,12 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../css/Header.css';
 
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
-  // 상태 관리를 위한 훅 설정
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // 창 크기 변화에 따라 모바일 뷰 상태 업데이트
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -18,12 +16,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // 햄버거 메뉴 토글 함수
   const handleMenuToggle = () => {
     setMenuOpen(prevMenuOpen => !prevMenuOpen);
   };
 
-  // 로그아웃 처리 함수
   const handleLogout = async () => {
     try {
       setIsLoggedIn(false);
@@ -37,13 +33,11 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   return (
     <header className={isMobile ? "header mobile-header" : "header desktop-header"}>
-      {/* 로고 섹션 */}
       <div className="div-logo">
-        <Link to="/main">
-          <img src="/images/free-icon-home-icon-63988.png" alt="Your Logo" className='header-logo' />
+        <Link to="/main" className='header-logo'>
+          Buddy
         </Link>
       </div>
-      {/* 모바일에서는 햄버거 메뉴 표시, 데스크탑에서는 네비게이션 메뉴 표시 */}
       <div className="auth-buttons">
         {isLoggedIn ? (
           <>

@@ -4,6 +4,7 @@
   justify-content: flex-end;
   align-items: center;
   padding: 20px;
+  padding-left: 10px;
   background-color: #66CC99; /* #f8f9fa */
   position: fixed;
   box-shadow: 0 0 10px #000000e6;
@@ -15,6 +16,19 @@
   height: 55px;
   left: 50%; /* 왼쪽 끝을 기준으로 50% 이동 */
   transform: translateX(-50%); /* 이동한 만큼 다시 왼쪽으로 이동하여 가운데 정렬 */
+}
+
+.header-logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header-logo:hover {
+  color: #0056b3;
 }
 
 .div-logo {

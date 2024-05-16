@@ -43,9 +43,12 @@ const Login = ({ onLogin }) => {
   return (
     <div className='login-container'>
       <div>
+      <div className="login-topbar">
+              <div className='login-topbar-title'>
+                    <h2>Login</h2>
+                </div>
+            </div>
         <div className="login-layout">
-          {/* <h1 >로그인</h1> */}
-          
           <div className="row">       
             <div className="login-box col-lg-2">
               <form onSubmit={handleSubmit}>

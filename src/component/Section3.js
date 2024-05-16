@@ -5,6 +5,11 @@ import '../css/Section.css';
 const Section3 = () => {
   return (
     <div className='section-container'>
+      <div className="Signup-topbar">
+          <div className='Signup-topbar-title'>
+            <h2>Singup</h2>
+          </div>
+      </div>
       <ol className="nav nav-pills nav-pills-step">
         <li className="nav-item"><span className="num">01</span> 약관동의</li>
         <li className="nav-item"><span className="num">02</span> 가입정보입력</li>

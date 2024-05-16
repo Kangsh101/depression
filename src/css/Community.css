@@ -12,6 +12,7 @@
     padding: 5px 0; /* 상하 패딩만 제공 */
     color: black;
     border-bottom: 1.5px solid #ccc;
+    margin-top: 50px;
 }
 .topbar-title {
     /* border-bottom: 0.1em solid #66cc99; */

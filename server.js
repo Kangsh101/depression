@@ -94,6 +94,33 @@ app.post('/api/login', (req, res) => {
   });
 });
 
+app.post('/api/buddy/login', (req, res) => {
+  const { username, password } = req.body;
+
+  const query = `SELECT * FROM members WHERE username = ? AND password = ?`;
+
+  connection.query(query, [username, password], (err, result) => {
+    if (err) {
+      console.error('로그인 실패: ' + err.stack);
+      res.status(500).send('로그인 실패');
+      return;
+    }
+    if (result.length === 0) {
+      res.status(401).send('아이디 또는 비밀번호가 올바르지 않습니다.');
+      return;
+    }
+    const user = result[0];
+    if (user.is_active !== 1) {
+      res.status(401).send('비활성화된 계정입니다');
+      return;
+    }
+    req.session.userId = user.id;
+
+    console.log('세션에 저장된 기본키:', req.session.userId);
+
+    res.status(200).json(user);
+  });
+});
 
 
 app.get('/api/customers', (req, res) => {
@@ -304,7 +331,125 @@ app.post('/findUserPhone2', (req, res) => {
     res.json({ password  });
   });
 });
+// 안드로이드 api
+app.post('/api/buddy/login', (req, res) => {
+  const { username, password } = req.body;
 
+  const query = `SELECT * FROM members WHERE username = ? AND password = ?`;
+
+  connection.query(query, [username, password], (err, result) => {
+      if (err) {
+          console.error('로그인 실패: ' + err.stack);
+          res.status(500).send('로그인 실패');
+          return;
+      }
+      if (result.length === 0) {
+          res.status(401).send('아이디 또는 비밀번호가 올바르지 않습니다.');
+          return;
+      }
+      const user = result[0];
+      if (user.is_active !== 1) {
+          res.status(401).send('비활성화된 계정입니다');
+          return;
+      }
+      req.session.userId = user.id;
+
+      console.log('세션에 저장된 기본키:', req.session.userId);
+
+      res.status(200).json(user);
+  });
+});
+
+app.post('/api/buddy/signup', (req, res) => {
+  const { username, password, email, name, birthdate, phoneNumber } = req.body;
+
+  const insertGuardianQuery = `INSERT INTO members (username, password, email, name, birthdate, phoneNumber, is_active) VALUES (?, ?, ?, ?, ?, ?, 1)`;
+
+  connection.query(insertGuardianQuery, [username, password, email, name, birthdate, phoneNumber], (err, result) => {
+      if (err) {
+          console.error('회원가입 실패: ' + err.stack);
+          res.status(500).send('회원가입 실패');
+          return;
+      } else {
+          res.status(200).send('회;원가입 성공');
+      }
+  });
+});
+
+app.post('/api/buddy/score/surveyscore', (req, res) => {
+  const surveyScore = req.body;
+  const userId = req.session.userId;
+
+  const insertScoreQuery = `
+  INSERT INTO score (surveyScore, user_id)
+  SELECT ?, members.id
+  FROM members
+  WHERE members.id = ?;
+  `;
+
+  connection.query(insertScoreQuery, [surveyScore, userId], (err, result) => {
+      if (err) {
+          console.error('검사점수 추가 실패: ' + err.stack);
+          res.status(500).send('검사점수 추가 실패');
+          return;
+      }
+      res.status(200).send('검사점수 추가 성공');
+  });
+});
+
+
+app.post('/api/buddy/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('세션 삭제 실패:', err);
+      res.status(500).send('세션 삭제 실패');
+      return;
+    }
+    console.log('세션 삭제 완료');
+    res.status(200).send('로그아웃 성공');
+  });
+});
+
+
+app.get('/api/buddy/userinfo', (req, res) => {
+  // 쿠키에서 사용자 ID를 추출합니다.
+  const userId = req.session.userId;
+  if (!userId) {
+      console.error('사용자 ID가 세션에 없습니다.');
+      res.status(401).json({ error: '사용자 ID가 세션에 없습니다.' });
+      return;
+  }
+  // 사용자 ID를 사용하여 데이터베이스에서 사용자 정보를 가져옵니다.
+  connection.query(
+      "SELECT username, email, password, name, birthdate, phoneNumber FROM members WHERE id = ?;",
+      [userId], // userId 값을 플레이스홀더에 전달
+      (err, rows, fields) => {
+          if (err) {
+              console.error('회원 정보 조회 실패: ' + err.stack);
+              res.status(500).json({ error: '회원 정보 조회 실패' }); // JSON 형식으로 오류 응답
+              return;
+          }
+
+          if (rows.length === 0) {
+              console.error('사용자 정보가 없습니다.');
+              res.status(404).json({ error: '사용자 정보가 없습니다.' }); // JSON 형식으로 오류 응답
+              return;
+          }
+
+          // 조회된 사용자 정보를 JSON 형식으로 응답
+          const user = rows[0];
+          const userInfo = {
+              username: user.username,
+              email: user.email,
+              password: user.password,
+              birthdate : user.birthdate,
+              name : user.name,
+              phoneNumber : user.phoneNumber,
+          };
+          res.status(200).json(userInfo); // JSON 형식으로 사용자 정보 응답
+      }
+  );
+});
 
 
 

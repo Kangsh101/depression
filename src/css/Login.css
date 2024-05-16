@@ -22,7 +22,7 @@
     color: rgb(0, 0, 0);
   }
   .login-layout{
-    margin-top: 10%;
+    margin-top: 5%;
     
   }
   .row {
@@ -103,6 +103,24 @@
     padding-left: 10px;
   }
   
+  .login-topbar{
+    width: 100%;
+    /* background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98); */
+    background-color: #f4f4f4;
+    padding: 5px 0px;
+    /* margin-left: -3%; */
+    color: black;
+    border-bottom: 1.5px solid #ccc;
+    margin-bottom: 50px;
+    margin-top: 40px;
+  }
+  .login-topbar-title{
+    width: 8em;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(42, 42, 42);
+    padding: 0px 60px;
+  }
   @media only screen and (max-width: 768px) {
     .login-box {
       width: 80%;

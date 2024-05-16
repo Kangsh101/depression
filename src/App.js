@@ -51,7 +51,7 @@ function App() {
       
         <Routes>
         {/* <Route path="/" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer/></>} /> */}
-          <Route path="/" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /></>} />
+          <Route path="/" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer /></>} />
           <Route path="/login" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Login onLogin={handleLogin}  /><Footer /></>} />
           <Route path="/signup" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Signup /><Footer /></>} />
           <Route path="/Idppl" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Idppl /><Footer /></>} />

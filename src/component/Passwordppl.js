@@ -117,14 +117,14 @@ const Passwordppl = () => {
               <div className='info-item'>
                 <label className='info-label'>이메일</label>
                 <input type="text" name="email" value={email} onChange={handleEmailChange} required className='info-value' />
-                <button onClick={handleSendVerificationCode} className="submit-btn">인증번호 받기</button>
+                <button onClick={handleSendVerificationCode} className="submit-btn submit-btn-num">인증번호 받기</button>
               </div>
             )}
             {findMethod === 'phoneNumber' && (
               <div className='info-item'>
                 <label className='info-label'>전화번호</label>
                 <input type="text" name="phoneNumber" value={phoneNumber} onChange={handlePhoneChange} required className='info-value' />
-                <button onClick={handleSendVerificationCode} className="submit-btn">인증번호 받기</button>
+                <button onClick={handleSendVerificationCode} className="submit-btn submit-btn-num">인증번호 받기</button>
               </div>
             )}
             {verificationCodeSent && (

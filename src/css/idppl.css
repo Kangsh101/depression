@@ -8,51 +8,51 @@
   margin: 3em auto;
 }
 
-.section-title {
+.Idppl-section-content .section-title {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.info-card {
+.Idppl-section-content .info-card {
   background-color: white;
   padding: 1.5rem;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.info-group {
+.Idppl-section-content .info-group {
   margin-bottom: 1.5rem;
 }
 
-.info-item {
+.Idppl-section-content .info-item {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 }
 
-.info-label {
+.Idppl-section-content .info-label {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.info-value {
+.Idppl-section-content .info-value {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.radio-group {
+.Idppl-section-content .radio-group {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
 }
 
-.radio-option {
+.Idppl-section-content .radio-option {
   margin-right: 1rem;
 }
 
-.submit-btn {
+.Idppl-section-content .submit-btn {
   display: block;
   width: 100%;
   padding: 0.75rem;
@@ -65,17 +65,17 @@
   font-size: 1rem;
 }
 
-.submit-btn:hover {
+.Idppl-section-content .submit-btn:hover {
   background-color: #0056b3;
 }
 
-.button-group {
+.Idppl-section-content .button-group {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 1rem;
 }
 
-.info-result {
+.Idppl-section-content .info-result {
   text-align: center;
 }

@@ -130,7 +130,7 @@ const Passwordppl = () => {
             {verificationCodeSent && (
               <div className='info-item'>
                 <input type="text" name="verificationCode" value={verificationCode} onChange={handleVerificationCodeChange} required className='info-value' />
-                <button onClick={handleVerify} className="submit-btn">확인</button>
+                <button onClick={handleVerify} className="submit-btn submit-btn-yes">확인</button>
               </div>
             )}
           </div>

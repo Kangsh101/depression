@@ -1,93 +1,100 @@
-.intro-container-main{
-    background-color: #fafad2; 
-    padding-top: 5em;
-    padding-bottom: 2em;
+/* src/css/Introduction.css */
+.intro-container-main {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
 }
+
 .intro-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-top: 3em;
+  max-width: 800px;
+  width: 100%;
+  line-height: 1.6;
+  position: relative;
+}
+
+.intro-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.intro-container h2 {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.intro-container p,
+.intro-container ul,
+.intro-container li {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  text-align: justify; /* 양쪽 정렬 */
+}
+
+.intro-container ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+}
+
+.intro-container li {
+  margin-bottom: 0.5rem;
+}
+
+/* 줄 노트 스타일 추가 */
+.intro-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 30px,
+    rgba(0, 0, 0, 0.1) 31px
+  );
+  pointer-events: none; /* 줄 노트 스타일이 클릭을 방해하지 않도록 설정 */
+  z-index: 0;
+}
+
+.intro-container * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    padding: 1rem;
   }
-  
+
   .intro-container h1 {
-    font-size: 2.5rem;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .intro-container h2 { /* h2 스타일 추가 */
     font-size: 2rem;
-    color: #333;
-    margin-bottom: 15px;
   }
-  
-  .intro-container p {
-    font-size: 1.2rem;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
+
+  .intro-container h2 {
+    font-size: 1.5rem;
   }
-  
-  .intro-container ul {
-    list-style-type: disc;
-    padding-left: 40px;
-    margin-bottom: 20px; /* ul 요소 하단 여백 추가 */
-  }
-  
+
+  .intro-container p,
+  .intro-container ul,
   .intro-container li {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 10px;
+    font-size: 1rem;
   }
-  
-  /* 반응형 디자인 적용 */
-  @media (max-width: 768px) {
-    .intro-container {
-      padding: 15px;
-    }
-  
-    .intro-container h1 {
-      font-size: 2rem;
-    }
-  
-    .intro-container h2 { /* h2 반응형 스타일 추가 */
-      font-size: 1.7rem;
-    }
-  
-    .intro-container p,
-    .intro-container li {
-      font-size: 1rem;
-    }
-  
-    .intro-container ul {
-      padding-left: 20px;
-    }
+
+  .intro-container:before {
+    left: 0.5rem;
+    right: 0.5rem;
   }
-  
-  @media (max-width: 480px) {
-    .intro-container {
-      padding: 10px;
-    }
-  
-    .intro-container h1 {
-      font-size: 1.5rem;
-    }
-  
-    .intro-container h2 { /* h2 반응형 스타일 추가 */
-      font-size: 1.3rem;
-    }
-  
-    .intro-container p,
-    .intro-container li {
-      font-size: 0.9rem;
-    }
-  
-    .intro-container ul {
-      padding-left: 15px;
-    }
-  }
-  
+}

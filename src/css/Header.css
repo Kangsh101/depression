@@ -14,6 +14,7 @@
   border-bottom: 1px solid #b8b7b7;
   border-radius: 0px;
   height: 55px;
+  z-index: 1000; /* z-index 추가 */
   left: 50%; /* 왼쪽 끝을 기준으로 50% 이동 */
   transform: translateX(-50%); /* 이동한 만큼 다시 왼쪽으로 이동하여 가운데 정렬 */
 }

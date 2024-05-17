@@ -31,6 +31,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     }
   };
 
+  const handleMenuItemClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header className={isMobile ? "header mobile-header" : "header desktop-header"}>
       <div className="div-logo">
@@ -69,10 +73,10 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       {isMobile && menuOpen && (
         <div className="mobile-menu">
           <ul>
-            <li className='Header-nav'><Link to="/introduction">우울증이란</Link></li>
-            <li className='Header-nav'><Link to="/contents">프로그램 콘텐츠</Link></li>
-            <li className='Header-nav'><Link to="/community">커뮤니티</Link></li>
-            <li className='Header-nav'><Link to="/support">고객센터</Link></li>
+            <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/introduction">우울증이란</Link></li>
+            <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/contents">프로그램 콘텐츠</Link></li>
+            <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/community">커뮤니티</Link></li>
+            <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/support">고객센터</Link></li>
           </ul>
         </div>
       )}

@@ -9,6 +9,7 @@ import Idppl from './component/Idppl';
 import Passwordppl from './component/Passwordppl';
 import QnA from './component/QnA';
 import QnAUp from './component/QnAUp';
+import QnADetailPage from './component/QnADetailPage';
 import Notice from './component/Notice';
 import FAQ from './component/FAQ';
 import MyPage from './component/MyPage';
@@ -58,6 +59,7 @@ function App() {
           <Route path="/Passwordppl" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Passwordppl /><Footer /></>} />
           <Route path="/qna" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnA /><Footer /></>} />
           <Route path="/qnaup" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnAUp /><Footer /></>} />
+          <Route path="/qna/:id" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnADetailPage /><Footer /></>} />
           <Route path="/notice" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Notice /><Footer /></>} />
           <Route path="/faq" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><FAQ /><Footer /></>} />
           <Route path="/main" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer /></>} />

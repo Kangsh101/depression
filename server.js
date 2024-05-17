@@ -296,6 +296,107 @@ app.post('/api/changepassword', (req, res) => {
   );
 });
 
+// QnA 글 작성
+app.post('/api/qna/posts', (req, res) => {
+  const { title, content } = req.body;
+  const userId = req.session.userId;
+
+  if (!title || !content || !userId) {
+    return res.status(400).json({ error: '모든 필드를 채워주세요.' });
+  }
+
+  // 회원 이름을 가져오는 쿼리
+  const getUserQuery = `SELECT name FROM members WHERE id = ?`;
+
+  connection.query(getUserQuery, [userId], (err, result) => {
+    if (err) {
+      console.error('회원 이름 조회 중 오류 발생:', err);
+      return res.status(500).json({ error: '회원 이름 조회 중 오류 발생' });
+    }
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: '사용자를 찾을 수 없습니다.' });
+    }
+
+    const userName = result[0].name;
+
+    // 글을 저장하는 쿼리
+    const insertQuery = `INSERT INTO boards (title, content, board_type, is_answer, name, create_at)
+                         VALUES (?, ?, 'QnA', 'N', ?, CURRENT_TIMESTAMP)`;
+
+    connection.query(insertQuery, [title, content, userName], (err, result) => {
+      if (err) {
+        console.error('글 저장 중 오류 발생:', err);
+        return res.status(500).json({ error: '글 저장 중 오류 발생' });
+      }
+
+      res.status(200).json({ message: '글이 성공적으로 저장되었습니다.' });
+    });
+  });
+});
+
+
+// QnA 게시글 목록 가져오기
+app.get('/api/qna/posts', (req, res) => {
+  const query = `SELECT board_id AS id, title, name AS author, create_at AS date FROM boards WHERE board_type = 'QnA'`;
+
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('게시글 목록 가져오기 실패:', err);
+      res.status(500).json({ error: '게시글 목록 가져오기 실패' });
+      return;
+    }
+    res.status(200).json(results);
+  });
+});
+// 게시글 상세 정보 가져오기
+app.get('/api/qna/posts/:id', (req, res) => {
+  const postId = req.params.id;
+
+  const query = `
+    SELECT b.board_id AS id, b.title, b.content, m.name AS author, b.create_at AS date, m.id AS user_id
+    FROM boards b
+    JOIN members m ON b.name = m.name
+    WHERE b.board_id = ?`;
+
+  connection.query(query, [postId], (err, result) => {
+    if (err) {
+      console.error('게시글 상세 정보 가져오기 실패:', err);
+      res.status(500).json({ error: '게시글 상세 정보 가져오기 실패' });
+      return;
+    }
+
+    if (result.length === 0) {
+      res.status(404).json({ error: '게시글을 찾을 수 없습니다.' });
+      return;
+    }
+
+    res.status(200).json(result[0]);
+  });
+});
+// 현재 로그인한 사용자 이름 가져오기
+app.get('/api/getUserName', (req, res) => {
+  const userId = req.session.userId;
+
+  if (!userId) {
+    return res.status(401).json({ error: '로그인된 사용자가 없습니다.' });
+  }
+
+  const query = `SELECT name FROM members WHERE id = ?`;
+
+  connection.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error('사용자 이름 가져오기 실패:', err);
+      return res.status(500).json({ error: '사용자 이름 가져오기 실패' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: '사용자를 찾을 수 없습니다.' });
+    }
+
+    res.status(200).json({ userName: results[0].name });
+  });
+});
 
 // 비번
 app.post('/findUser1', (req, res) => {
@@ -450,8 +551,14 @@ app.get('/api/buddy/userinfo', (req, res) => {
       }
   );
 });
-
-
+//로그인 여부 확인
+app.get('/api/checklogin', (req, res) => {
+  if (req.session.userId) {
+    res.status(200).json({ isLoggedIn: true });
+  } else {
+    res.status(200).json({ isLoggedIn: false });
+  }
+});
 
 app.get('/api/members', (req, res) => {
   connection.query(

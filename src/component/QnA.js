@@ -1,26 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/QnA.css';
 
 const QnAPage = () => {
-  const [posts] = useState([
-    { id: 1, title: '질문 있습니다.', author: '강석현', date: '2024-01-01' },
-    { id: 2, title: '질문 있습니다.', author: '오징어', date: '2024-01-01' },
-    { id: 3, title: '질문 있습니다.', author: '강석현', date: '2024-01-01' },
-    { id: 4, title: '질문 있습니다.', author: '홍길동', date: '2024-01-01' },
-    { id: 5, title: '질문 있습니다.', author: '122', date: '2024-01-01' },
-    { id: 6, title: '질문 있습니다.', author: '112', date: '2024-01-01' },
-    { id: 7, title: '질문 있습니다.', author: '333', date: '2024-01-01' },
-    { id: 8, title: '질문 있습니다.', author: '3332', date: '2024-01-01' }
-  ]);
+  const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(3); 
+  const [postsPerPage] = useState(3);
 
+  useEffect(() => {
+    fetch('/api/qna/posts')
+      .then(response => response.json())
+      .then(data => setPosts(data))
+      .catch(error => console.error('게시글 목록 가져오기 실패:', error));
+  }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -28,7 +24,6 @@ const QnAPage = () => {
     <div className="qna-page">
       <div className="qna-header">
         <div className="qna-options">
-          {/* <h2 className='QnA-HTitle'>QnA</h2> */}
           <select className="qna-select">
             <option value="title">제목</option>
             <option value="author">작성자</option>
@@ -51,26 +46,22 @@ const QnAPage = () => {
             </tr>
           </thead>
           <tbody>
-            {currentPosts.map(post => (
+            {currentPosts.map((post, index) => (
               <tr className='QnA-tdcss' key={post.id}>
-                <td>{post.id}</td>
-                <td><Link to={`/post/${post.id}`}>{post.title}</Link></td>
+                <td>{indexOfFirstPost + index + 1}</td>
+                <td><Link to={`/qna/${post.id}`}>{post.title}</Link></td>
                 <td>{post.author}</td>
                 <td>{post.date}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={posts.length}
           paginate={paginate}
-          
         />
-
       </div>
-      
     </div>
   );
 };
@@ -91,7 +82,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
           </button>
         ))}
       </div>
-      
     </div>
   );
 };

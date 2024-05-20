@@ -42,24 +42,26 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           Buddy
         </Link>
       </div>
-      <div className="auth-buttons">
-        {isLoggedIn ? (
-          <>
-            <button className='Header-nav' onClick={handleLogout}>로그아웃</button>
-            <button className='Header-nav'><Link to="/mypage">내정보</Link></button>
-          </>
-        ) : (
-          <>
-            <button className='Header-loginbtt'><Link to="/login">로그인</Link></button>
-            <button className='Header-signupbtt'><Link to="/signup">회원가입</Link></button>
-          </>
-        )}
-        {isMobile && (
-          <div className="hamburger-menu" onClick={handleMenuToggle}>
-            ☰
-          </div>
-        )}
-      </div>
+      {isMobile && (
+        <div className="hamburger-menu" onClick={handleMenuToggle}>
+          ☰
+        </div>
+      )}
+      {!isMobile && (
+        <div className="auth-buttons">
+          {isLoggedIn ? (
+            <>
+              <button className='Header-nav' onClick={handleLogout}>로그아웃</button>
+              <button className='Header-nav'><Link to="/mypage">내정보</Link></button>
+            </>
+          ) : (
+            <>
+              <button className='Header-loginbtt'><Link to="/login">로그인</Link></button>
+              <button className='Header-signupbtt'><Link to="/signup">회원가입</Link></button>
+            </>
+          )}
+        </div>
+      )}
       {!isMobile && (
         <nav className="nav-container">
           <ul>
@@ -73,6 +75,17 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       {isMobile && menuOpen && (
         <div className="mobile-menu">
           <ul>
+            {isLoggedIn ? (
+              <>
+                <li className='Header-nav' onClick={handleMenuItemClick}><button onClick={handleLogout}>로그아웃</button></li>
+                <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/mypage">내정보</Link></li>
+              </>
+            ) : (
+              <>
+                <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/login">로그인</Link></li>
+                <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/signup">회원가입</Link></li>
+              </>
+            )}
             <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/introduction">우울증이란</Link></li>
             <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/contents">프로그램 콘텐츠</Link></li>
             <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/community">커뮤니티</Link></li>

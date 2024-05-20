@@ -13,6 +13,10 @@ const Banner3 = () => {
                     <p style={{ fontSize: '17px', lineHeight: '1.5' }}>
                         CES-D 검사를 통해 우울증 증상을 확인하고, 버디와 함께 하루를 기록하며 성장하세요.
                     </p>
+                    <p style={{ fontSize: '17px', color: 'gray' }}>
+                        <br />
+                        ※ 이미지는 어플 화면 예시입니다.
+                    </p>
                 </div>
                 <img src={banner3Image} alt="Banner 3" className="banner3-image" />
             </div>

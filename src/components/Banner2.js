@@ -23,6 +23,10 @@ const Banner2 = ({ onPopularClick, onTrustClick }) => {
                             믿을 수 있는 중고거래
                         </a> */}
                     </div>
+                    <p style={{ fontSize: '17px', color: 'gray' }}>
+                        <br />
+                        ※ 이미지는 어플 화면 예시입니다.
+                    </p>
                 </div>
                 <img src={banner2Image} alt="Banner 2" className="banner2-image" />
             </div>

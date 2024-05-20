@@ -17,6 +17,10 @@ const Banner1 = () => {
                         <br />
                         일상을 기록하고 함께 성장합니다.
                     </p>
+                    <p style={{ fontSize: '17px', color: 'gray' }}>
+                        <br />
+                        ※ 이미지는 어플 화면 예시입니다.
+                    </p>
                 </div>
                 <img src={banner1Image} alt="Banner 1" className="banner1-image" />
             </div>

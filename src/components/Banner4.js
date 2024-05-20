@@ -16,6 +16,10 @@ const Banner4 = () => {
                     {/* <a href="https://town.daangn.com/" style={{ backgroundColor: '#f1f3f5', color: '#212529', textDecoration: 'none', padding: '15px 20px', display: 'inline-block', fontSize: '18px', fontWeight: '900' }}>
                         당근마켓 동네가게 찾기
                     </a> */}
+                    <p style={{ fontSize: '17px', color: 'gray' }}>
+                        <br />
+                        ※ 이미지는 어플 화면 예시입니다.
+                    </p>
                 </div>
                 <img src={banner4Image} alt="Banner 4" className="banner4-image" />
             </div>

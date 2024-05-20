@@ -21,8 +21,13 @@
   .banner3-image {
     background-size: cover;
     background-position: center;
-    width: 546px;
-    height: 740px;
+    /* width: 546px;
+    height: 740px; */
+    height: 590px; /* height: 639px; */
+    width: 295px;
+    margin-left: 3rem;
+    border: 2px solid black; /* Add border to the image */
+    border-radius: 10px; /* Make the corners rounded */
   }
   
   .banner3-text {
@@ -43,10 +48,11 @@
     }
   
     .banner3-image {
-      width: 100%;
+      width: 80%;
       height: auto;
       order: 2;
       margin-top: 1rem;
+      margin-left: 0;
     }
   
     .banner3-text {

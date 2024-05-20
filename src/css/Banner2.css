@@ -20,8 +20,13 @@
   .banner2-image {
     background-size: cover;
     background-position: center;
-    width: 532px;
-    height: 684px;
+    /* width: 532px;
+    height: 684px; */
+    height: 590px; /* height: 639px; */
+    width: 590px;
+    margin-left: 3rem;
+    border: 2px solid black; /* Add border to the image */
+    border-radius: 10px; /* Make the corners rounded */
   }
   
   .banner2-text {
@@ -42,10 +47,11 @@
     }
   
     .banner2-image {
-      width: 100%;
+      width: 80%;
       height: auto;
       order: 2;
       margin-top: 1rem;
+      margin-left: 0;
     }
   
     .banner2-text {

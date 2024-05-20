@@ -8,7 +8,7 @@ const Banner4 = () => {
             <div className="banner4-content">
                 <div className="banner4-text">
                     <h1 style={{ fontSize: '2.5rem', lineHeight: '1.35', marginBottom: '2.4rem', fontWeight: '800' }}>
-                        당신은 더 <br /> 행복한 삶을
+                        우리 모두 <br /> 행복한 삶을
                     </h1>
                     <p style={{ fontSize: '17px', lineHeight: '1.5' }}>
                         버디를 함께 한다면 <br /> 하루를 한 번 더 생각하고 감정을 추스를 수 있습니다.

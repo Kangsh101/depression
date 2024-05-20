@@ -8,12 +8,12 @@ const Banner2 = ({ onPopularClick, onTrustClick }) => {
             <div className="banner2-content">
                 <div className="banner2-text">
                     <h1 style={{ fontSize: '2.5rem', lineHeight: '1.35', marginBottom: '2.4rem', fontWeight: '800' }}>
-                        당신이 더 나은 행복을 위해
+                        더 나은 행복을 위해
                         <br />
                         함께합니다.
                     </h1>
                     <p style={{ fontSize: '17px', lineHeight: '1.5' }}>
-                        평사시 처럼 일기를 기록하듯, 버디와 함께 하루를 기록하고 성장하세요.
+                        평사시 처럼 일기를 기록하듯, <br /> 버디와 함께 하루를 기록하고 성장하세요.
                     </p>
                     <div style={{ marginTop: '3.2rem' }}>
                         {/* <button onClick={onPopularClick} style={{ backgroundColor: '#f1f3f5', color: '#212529', border: 'none', borderRadius: '6px', padding: '15px 20px', fontSize: '18px', fontWeight: '900', margin: '0px 10px' }}>

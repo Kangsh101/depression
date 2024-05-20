@@ -8,10 +8,10 @@ const Banner3 = () => {
             <div className="banner3-content">
                 <div className="banner3-text">
                     <h1 style={{ fontSize: '2.5rem', lineHeight: '1.35', marginBottom: '2.4rem', fontWeight: '800' }}>
-                        버디와 함께 하기전 <br /> 간단한 검사를 통해
+                        버디와 함께 하기전 <br /> 간단한 검사를
                     </h1>
                     <p style={{ fontSize: '17px', lineHeight: '1.5' }}>
-                        CES-D 검사를 통해 우울증 증상을 확인하고, 버디와 함께 하루를 기록하며 성장하세요.
+                        CES-D 검사를 통해 우울증 증상을 확인하고, <br /> 버디와 함께 하루를 기록하며 성장하세요.
                     </p>
                     <p style={{ fontSize: '17px', color: 'gray' }}>
                         <br />

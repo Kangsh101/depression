@@ -470,6 +470,131 @@ app.delete('/api/qna/posts/:id', (req, res) => {
   });
 });
 
+// 공지사항 등록
+app.post('/api/notices', (req, res) => {
+  const { title, content } = req.body;
+  const userId = req.session.userId;
+
+  if (!title || !content || !userId) {
+    return res.status(400).json({ error: '모든 필드를 채워주세요.' });
+  }
+
+  const getUserQuery = `SELECT name FROM members WHERE id = ?`;
+
+  connection.query(getUserQuery, [userId], (err, result) => {
+    if (err) {
+      console.error('회원 이름 조회 중 오류 발생:', err);
+      return res.status(500).json({ error: '회원 이름 조회 중 오류 발생' });
+    }
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: '사용자를 찾을 수 없습니다.' });
+    }
+
+    const userName = result[0].name;
+
+    const query = `
+      INSERT INTO boards (title, content, board_type, name, create_at, is_answer)
+      VALUES (?, ?, '공지사항', ?, CURRENT_TIMESTAMP, 'N')
+    `;
+
+    connection.query(query, [title, content, userName], (err, result) => {
+      if (err) {
+        console.error('공지사항 등록 중 오류 발생:', err);
+        return res.status(500).json({ error: '공지사항 등록 중 오류 발생' });
+      }
+
+      res.status(200).json({ message: '공지사항이 성공적으로 등록되었습니다.' });
+    });
+  });
+});
+
+// 공지사항 목록 가져오기
+app.get('/api/notices', (req, res) => {
+  const query = `SELECT board_id AS id, title, name AS author, create_at AS date, content FROM boards WHERE board_type = '공지사항'`;
+
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('공지사항 목록 가져오기 실패:', err);
+      res.status(500).json({ error: '공지사항 목록 가져오기 실패' });
+      return;
+    }
+    res.status(200).json(results);
+  });
+});
+
+// 공지사항 상세 정보 가져오기
+app.get('/api/notices/:id', (req, res) => {
+  const postId = req.params.id;
+
+  const query = `
+    SELECT board_id AS id, title, content, name AS author, create_at AS date
+    FROM boards
+    WHERE board_id = ? AND board_type = '공지사항'`;
+
+  connection.query(query, [postId], (err, result) => {
+    if (err) {
+      console.error('공지사항 상세 정보 가져오기 실패:', err);
+      res.status(500).json({ error: '공지사항 상세 정보 가져오기 실패' });
+      return;
+    }
+
+    if (result.length === 0) {
+      res.status(404).json({ error: '공지사항을 찾을 수 없습니다.' });
+      return;
+    }
+
+    res.status(200).json(result[0]);
+  });
+});
+// 공지사항 삭제
+app.delete('/api/notices/:id', (req, res) => {
+  const postId = req.params.id;
+
+  const deleteQuery = `DELETE FROM boards WHERE board_id = ?`;
+
+  connection.query(deleteQuery, [postId], (err, result) => {
+    if (err) {
+      console.error('공지사항 삭제 중 오류 발생:', err);
+      return res.status(500).json({ error: '공지사항 삭제 중 오류 발생' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: '공지사항을 찾을 수 없습니다.' });
+    }
+
+    res.status(200).json({ success: true, message: '공지사항이 성공적으로 삭제되었습니다.' });
+  });
+});
+// 공지사항 수정
+app.put('/api/notices/:id', (req, res) => {
+  const postId = req.params.id;
+  const { title, content } = req.body;
+
+  if (!title || !content) {
+    return res.status(400).json({ error: '제목과 내용을 모두 작성해주세요.' });
+  }
+
+  const updateQuery = `
+    UPDATE boards 
+    SET title = ?, content = ? 
+    WHERE board_id = ?`;
+
+  connection.query(updateQuery, [title, content, postId], (err, result) => {
+    if (err) {
+      console.error('공지사항 수정 중 오류 발생:', err);
+      return res.status(500).json({ error: '공지사항 수정 중 오류 발생' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: '공지사항을 찾을 수 없습니다.' });
+    }
+
+    res.status(200).json({ message: '공지사항이 성공적으로 수정되었습니다.' });
+  });
+});
+
+
 // 현재 로그인한 사용자 이름 가져오기
 app.get('/api/getUserName', (req, res) => {
   const userId = req.session.userId;

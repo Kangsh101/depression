@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/QnA.css';
 import '../css/Notice.css';
 
 const Notice = () => {
-  const [posts, setPosts] = useState([
-    { id: 1, set:'공지사항', title: '오늘의 공지', author: '매니저', date: '2024-01-01' },
-    { id: 2, set:'공지사항', title: '내일의 공지', author: '관리자', date: '2024-01-02' },
-    { id: 3, set:'공지사항', title: '약 복 공지', author: '매니저', date: '2024-01-03' },
-    { id: 4, set:'공지사항', title: '알림', author: '관리자', date: '2024-01-04' },
-  ]);
+  const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(7);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('/api/notices')
+      .then(response => response.json())
+      .then(data => setPosts(data))
+      .catch(error => console.error('공지사항 목록 가져오기 실패:', error));
+  }, []);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -23,7 +26,6 @@ const Notice = () => {
     <div className='notice-page'>
       <div className="notice-header">
         <div className="notice-options">
-          {/* <h2 className='aaaaaa'>공지사항</h2> */}
           <select className="notice-select">
             <option value="title">제목</option>
             <option value="author">작성자</option>
@@ -45,13 +47,13 @@ const Notice = () => {
             </tr>
           </thead>
           <tbody>
-            {currentPosts.map(post => (
-              <tr className='notice-tdcss' key={post.id}>
-                <td>{post.id}</td>
-                <td>{post.set}</td>
+            {currentPosts.map((post, index) => (
+              <tr className='notice-tdcss' key={post.id} onClick={() => navigate(`/noticedetail/${post.id}`)}>
+                <td>{indexOfFirstPost + index + 1}</td>
+                <td>공지사항</td>
                 <td>{post.title}</td>
                 <td>{post.author}</td>
-                <td>{post.date}</td>
+                <td>{new Date(post.date).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>
@@ -77,7 +79,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   return (
     <div className="pagebtt">
       {pageNumbers.map(number => (
-        <button  key={number} onClick={() => paginate(number)}>
+        <button key={number} onClick={() => paginate(number)}>
           {number}
         </button>
       ))}

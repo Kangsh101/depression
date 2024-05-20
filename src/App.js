@@ -23,7 +23,8 @@ import Community from './component/Community';
 import NewContent from './component/NewContent';
 import Ehddudtkd from './component/Ehddudtkd';
 import Introduction from './component/Introduction';
-
+import NoticeUp from './admin/NoticeUp';
+import NoticeDetail from './admin/NoticeDetail';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -75,7 +76,10 @@ function App() {
           <Route path='/cmscontents' element={<Cmscontents />}/>
           <Route path='/cmsuser' element={<Cmsuser />}/>
           <Route path="/cms" element={<CmsLayout />} />
-          {/* <Route path="/noticeup" element={<noticeUp />} /> */}
+          <Route path="/noticeup" element={<NoticeUp />} />
+          <Route path="/noticeup/:id" element={<NoticeUp />} />
+          <Route path="/notice/:id" element={<NoticeDetail />} />
+          <Route path="/noticedetail/:id" element={<NoticeDetail />} />
           <Route path="/cmsfaq" element={<Cmsfaq />} />
         </Routes>
       

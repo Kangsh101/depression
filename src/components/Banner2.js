@@ -15,14 +15,14 @@ const Banner2 = ({ onPopularClick, onTrustClick }) => {
                     <p style={{ fontSize: '17px', lineHeight: '1.5' }}>
                         평사시 처럼 일기를 기록하듯, <br /> 버디와 함께 하루를 기록하고 성장하세요.
                     </p>
-                    <div style={{ marginTop: '3.2rem' }}>
+                    {/* <div style={{ marginTop: '3.2rem' }}> */}
                         {/* <button onClick={onPopularClick} style={{ backgroundColor: '#f1f3f5', color: '#212529', border: 'none', borderRadius: '6px', padding: '15px 20px', fontSize: '18px', fontWeight: '900', margin: '0px 10px' }}>
                             인기매물 보기
                         </button> */}
                         {/* <a href="https://www.daangn.com/trust" style={{ backgroundColor: '#f1f3f5', color: '#212529', textDecoration: 'none', padding: '15px 20px', display: 'inline-block', fontSize: '18px', fontWeight: '900', margin: '0px 10px' }}>
                             믿을 수 있는 중고거래
                         </a> */}
-                    </div>
+                    {/* </div> */}
                     <p style={{ fontSize: '17px', color: 'gray' }}>
                         <br />
                         <br />

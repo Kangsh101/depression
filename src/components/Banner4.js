@@ -1,5 +1,5 @@
 import React from 'react';
-import banner4Image from '../shared/Banner4.jpeg';  // 이미지를 직접 임포트합니다.
+import banner4Image from '../shared/banner4.webp';  // 이미지를 직접 임포트합니다.
 import '../css/Banner4.css'; // 배너4 CSS 파일 임포트
 
 const Banner4 = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import banner2Image from '../shared/banner2-1.png';  // 이미지를 직접 임포트합니다.
+import banner2Image from '../shared/banner2-1.webp';  // 이미지를 직접 임포트합니다.
 import '../css/Banner2.css'; // 배너2 CSS 파일 임포트
 
 const Banner2 = ({ onPopularClick, onTrustClick }) => {

@@ -397,7 +397,7 @@ app.get('/api/qna/posts', (req, res) => {
     res.status(200).json(results);
   });
 });
-// 게시글 상세 정보 가져오기
+// QnA 게시글 상세 정보 가져오기
 app.get('/api/qna/posts/:id', (req, res) => {
   const postId = req.params.id;
 
@@ -422,6 +422,54 @@ app.get('/api/qna/posts/:id', (req, res) => {
     res.status(200).json(result[0]);
   });
 });
+
+// QnA 게시글 수정
+app.put('/api/qna/posts/:id', (req, res) => {
+  const postId = req.params.id;
+  const { title, content } = req.body;
+
+  if (!title || !content) {
+    return res.status(400).json({ error: '제목과 내용을 모두 작성해주세요.' });
+  }
+
+  const updateQuery = `
+    UPDATE boards 
+    SET title = ?, content = ? 
+    WHERE board_id = ?`;
+
+  connection.query(updateQuery, [title, content, postId], (err, result) => {
+    if (err) {
+      console.error('게시글 수정 중 오류 발생:', err);
+      return res.status(500).json({ error: '게시글 수정 중 오류 발생' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: '게시글을 찾을 수 없습니다.' });
+    }
+
+    res.status(200).json({ message: '게시글이 성공적으로 수정되었습니다.' });
+  });
+});
+// QnA 게시글 삭제
+app.delete('/api/qna/posts/:id', (req, res) => {
+  const postId = req.params.id;
+
+  const deleteQuery = `DELETE FROM boards WHERE board_id = ?`;
+
+  connection.query(deleteQuery, [postId], (err, result) => {
+    if (err) {
+      console.error('게시글 삭제 중 오류 발생:', err);
+      return res.status(500).json({ error: '게시글 삭제 중 오류 발생' });
+    }
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: '게시글을 찾을 수 없습니다.' });
+    }
+
+    res.status(200).json({ message: '게시글이 성공적으로 삭제되었습니다.' });
+  });
+});
+
 // 현재 로그인한 사용자 이름 가져오기
 app.get('/api/getUserName', (req, res) => {
   const userId = req.session.userId;

@@ -45,22 +45,22 @@ const QnADetailPage = () => {
   };
 
   const handleGoBackToList = () => {
-    navigate('/qnapage');
+    navigate(-1);
   };
 
   const handleEditPost = () => {
-    // 글 수정 로직 추가
+    navigate(`/qnaup/${id}`); // 수정 페이지로 이동
   };
 
   const handleDeletePost = () => {
-    fetch(`/api/qnaposts/${id}`, {
+    fetch(`/api/qna/posts/${id}`, {
       method: 'DELETE',
     })
     .then(res => res.json())
     .then(data => {
-      if (data.success) {
+      if (data.message) {
         alert('게시글이 삭제되었습니다.');
-        navigate('/qnapage');
+        navigate(-1);
       } else {
         alert('게시글 삭제에 실패했습니다.');
       }

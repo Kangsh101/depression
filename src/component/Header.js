@@ -77,7 +77,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           <ul>
             {isLoggedIn ? (
               <>
-                <li className='Header-nav' onClick={handleMenuItemClick}><button onClick={handleLogout}>로그아웃</button></li>
+                <li className='Header-nav' onClick={handleMenuItemClick}><button className='Header-nav'  onClick={handleLogout}>로그아웃</button></li>
                 <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/mypage">내정보</Link></li>
               </>
             ) : (

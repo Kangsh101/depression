@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Cms.css';
 
 const Cmsfaq = () => {
-  const [posts, setPosts] = useState([
-    { id: '1', title: '계정을 어떻게 만드나요?', content: '우측 상단의 회원가입을 클릭하여 필요한 정보를 입력해주세요.', create_at: '2023-05-01' },
-    { id: '2', title: '비밀번호를 잊어버렸어요. 어떻게 해야 하나요?', content: '로그인 페이지에서 비밀번호 찾기를 클릭하고 등록한 이메일 주소를 입력해주세요.', create_at: '2023-04-25' },
-    { id: '3', title: '환불 정책은 어떻게 되나요?', content: '구매 후 30일 이내에는 전액 환불이 가능합니다.', create_at: '2023-04-20' }
-  ]);
+  const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5); 
   const [selectedPostIndex, setSelectedPostIndex] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('/api/faqs')
+      .then(response => response.json())
+      .then(data => setPosts(data))
+      .catch(error => console.error('FAQ 목록 가져오기 실패:', error));
+  }, []);
 
   const handleClick = (index) => {
     if (selectedPostIndex === index) {
@@ -21,8 +25,17 @@ const Cmsfaq = () => {
   };
 
   const handleDelete = (id, index) => {
-    const updatedPosts = posts.filter(post => post.id !== id);
-    setPosts(updatedPosts);
+    fetch(`/api/faqs/${id}`, {
+      method: 'DELETE',
+    })
+    .then(response => {
+      if (response.ok) {
+        const updatedPosts = [...posts];
+        updatedPosts.splice(index, 1);
+        setPosts(updatedPosts);
+      }
+    })
+    .catch(error => console.error('게시글 삭제 중 에러 발생:', error));
   };
 
   const formatDate = (dateString) => {
@@ -84,16 +97,16 @@ const Cmsfaq = () => {
                   <tr className='Cms-trtdcss' onClick={() => handleClick(indexOfFirstPost + index)}>
                     <td>{indexOfFirstPost + index + 1}</td>
                     <td className="ellipsis">{post.title}</td>
-                    <td className="ellipsis">{post.content}</td>
+                    <td className="ellipsis">{post.content.replace(/<\/?[^>]+(>|$)/g, "")}</td>
                   </tr>
                   {selectedPostIndex === indexOfFirstPost + index && (
                     <tr className='sang-trtag'>
                       <td colSpan="5">
                         <div className="selected-post">
                           <p className='sang-title wrap-text'><span className='cms-QA'>Q </span> : {post.title}</p>
-                          <p className='sang-description wrap-text'><span className='cms-QA'>A </span> : {post.content}</p>
+                          <p className='sang-description wrap-text'><span className='cms-QA'>A </span> : <div dangerouslySetInnerHTML={{ __html: post.content }} /></p>
                           <div className='sang-bttcon'>
-                            <button  id='notice-u'>게시글 수정</button>
+                            <button id='notice-u' onClick={() => navigate(`/faqup/${post.id}`)}>게시글 수정</button>
                             <button id='notice-x' onClick={() => handleDelete(post.id, indexOfFirstPost + index)}>게시글 삭제</button>
                           </div>
                         </div>

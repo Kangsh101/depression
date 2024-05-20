@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import '../css/Community.css';
 import QnA from './QnA';
 import FAQ from './FAQ';
 import Notice from './Notice';
 
 const Community = () => {
-    const [selectedPage, setSelectedPage] = useState('QnA');
+    const [selectedPage, setSelectedPage] = useState(localStorage.getItem('selectedPage') || 'QnA');
+
+    useEffect(() => {
+        localStorage.setItem('selectedPage', selectedPage);
+    }, [selectedPage]);
 
     return (
         <div className="community">
@@ -16,13 +19,11 @@ const Community = () => {
                 </div>
             </div>
             <div>
-            
-            <ul className='topbar-menu'>
+                <ul className='topbar-menu'>
                     <li onClick={() => setSelectedPage('QnA')}
                         className={selectedPage === 'QnA' ? 'active' : ''}>
                         <span>QnA</span>
                     </li>
-
                     <li onClick={() => setSelectedPage('Notice')}
                         className={selectedPage === 'Notice' ? 'active' : ''}>
                         <span>공지사항</span>
@@ -41,7 +42,5 @@ const Community = () => {
         </div>
     );
 }
-
-
 
 export default Community;

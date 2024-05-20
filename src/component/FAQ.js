@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import '../css/FAQ.css';
 
-
 const FAQ = () => {
-
+  const [faqItems, setFaqItems] = useState([]);
   const [answersVisible, setAnswersVisible] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/faqs')
+      .then(response => response.json())
+      .then(data => {
+        setFaqItems(data);
+        setAnswersVisible(new Array(data.length).fill(false));
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('FAQ 목록 가져오기 실패:', error);
+        setLoading(false);
+      });
+  }, []);
 
   const toggleAnswer = (index) => {
     const newAnswersVisible = [...answersVisible];
@@ -13,39 +26,24 @@ const FAQ = () => {
     setAnswersVisible(newAnswersVisible);
   };
 
-  const faqItems = [
-    { question: 'Q 질문 : 치매 예방 알림 확인은 어디서 할 수 있나요?', answer: 'A 답변 : 워치 앱을 켜서 확인하시면 됩니다. 워치 앱을 켜서 확인하시면 됩니다2.워치 앱을 켜서 확인하시면 됩니다3' },
-    { question: 'Q 질문 : 치매 예방 알림 확인은 어디서 할 수 있나요?', answer: 'A 답변 : 워치 앱을 켜서 확인하시면 됩니다. 워치 앱을 켜서 확인하시면 됩니다2.워치 앱을 켜서 확인하시면 됩니다3' },
-    { question: 'Q 질문 : 치매 예방 알림 확인은 어디서 할 수 있나요?', answer: 'A 답변 : 워치 앱을 켜서 확인하시면 됩니다. 워치 앱을 켜서 확인하시면 됩니다2.워치 앱을 켜서 확인하시면 됩니다3' },
-    { question: 'Q 질문 : 치매 예방 알림 확인은 어디서 할 수 있나요?', answer: 'A 답변 : 워치 앱을 켜서 확인하시면 됩니다. 워치 앱을 켜서 확인하시면 됩니다2.워치 앱을 켜서 확인하시면 됩니다3' },
-    { question: 'Q 질문 2', answer: "A 답변 2 답변 2 답변 2 답변 2 답변 2 답변 2 답변 2 답변 2 답변 2 답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2답변 2" },
-   
-  ];
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className='faq-page'>
-      {/* <div className='page5555'>
-        <div className="qna-header">
-          <div className="qna-options">
-            <h2 className='aaaaaa'>FAQ</h2>
-            <select className="qna-select">
-              <option value="title">제목</option>
-              <option value="author">작성자</option>
-            </select>
-            <input type="text" placeholder="검색어를 입력하세요" className="qna-search" />
-            <button className="qna-button">검색</button>
-          </div>
-        </div>
-      </div> */}
-
       <div className="faq-content">
         {faqItems.map((item, index) => (
-          <div key={index} className="faq-item">
+          <div key={item.id} className="faq-item">
             <div className="faq-question" onClick={() => toggleAnswer(index)}>
-              {item.question}
+              Q 질문 : {item.title}
             </div>
-            <div className="faq-answer" onClick={() => toggleAnswer(index)}>
-              {answersVisible[index] ? item.answer : item.answer.substring(0, 40)}
+            <div className="faq-answer">
+              {answersVisible[index] ? (
+                <div dangerouslySetInnerHTML={{ __html: item.content }} />
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: item.content.substring(0, 40) }} />
+              )}
             </div>
           </div>
         ))}

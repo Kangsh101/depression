@@ -25,6 +25,7 @@ import Ehddudtkd from './component/Ehddudtkd';
 import Introduction from './component/Introduction';
 import NoticeUp from './admin/NoticeUp';
 import NoticeDetail from './admin/NoticeDetail';
+import FaqUp from './admin/FaqUp';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -64,6 +65,7 @@ function App() {
           <Route path="/qnaup/:id" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnAUp /><Footer /></>} />
           <Route path="/notice" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Notice /><Footer /></>} />
           <Route path="/faq" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><FAQ /><Footer /></>} />
+          
           <Route path="/main" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer /></>} />
           <Route path="/MyPage" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><MyPage /><Footer /></>} />
           <Route path="/contents" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Contents /><Footer /></>} />
@@ -71,9 +73,11 @@ function App() {
           <Route path="/newcontent" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><NewContent /><Footer /></>} />
           <Route path="/Ehddudtkd" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Ehddudtkd /><Footer /></>} />
           <Route path="/introduction" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Introduction /><Footer /></>} />
-
+       
+          <Route path="/faqup" element={<FaqUp />} />
           <Route path='/cms' element={<Cms />}/>
           <Route path='/cmscontents' element={<Cmscontents />}/>
+          <Route path='/faqup/:id' element={<FaqUp />}/>
           <Route path='/cmsuser' element={<Cmsuser />}/>
           <Route path="/cms" element={<CmsLayout />} />
           <Route path="/noticeup" element={<NoticeUp />} />

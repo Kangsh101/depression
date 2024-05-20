@@ -32,7 +32,8 @@ const NoticeDetail = () => {
   }, [id]);
 
   const handleGoBackToList = () => {
-    navigate(-1);
+    const selectedPage = localStorage.getItem('selectedPage') || 'QnA';
+    navigate(`/community?tab=${selectedPage}`);
   };
 
   const handleEditPost = () => {
@@ -47,7 +48,7 @@ const NoticeDetail = () => {
     .then(data => {
       if (data.success) {
         alert('공지사항이 삭제되었습니다.');
-        navigate('/Cms');
+        navigate(`/community?tab=Notice`);
       } else {
         alert('공지사항 삭제에 실패했습니다.');
       }

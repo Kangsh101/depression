@@ -81,7 +81,8 @@
 
 .hamburger-menu {
   margin-left: 1em; /* 필요한 간격 추가 */
-  padding-bottom: 5%;
+  /* padding-bottom: 5%; */
+  order: 2;
 }
 
 .div-logo img {
@@ -180,11 +181,13 @@
   cursor: pointer;
 }
 
-.mobile-menu a {
+.mobile-menu a, .mobile-menu button {
   color: #333; /* 링크 색상 설정 */
   text-decoration: none; /* 밑줄 제거 */
   font-size: 16px; /* 글자 크기 설정 */
   font-weight: bold; /* 글자 두께 설정 */
+  display: block; /* 블록 레벨 요소로 변경 */
+  width: 100%; /* 전체 너비 사용 */
 }
 
 /* 화면 크기에 따른 메뉴 스타일 */

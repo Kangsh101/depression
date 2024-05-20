@@ -32,6 +32,25 @@
   .banner4-text {
     max-width: 500px;
   }
+
+  #a-download-button {
+    background-color: white; /* f1f3f5 */
+    color: #212529;
+    text-decoration: none;
+    padding: 15px 20px;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 900;
+
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0.5em;
+  }
+  #a-download-button:hover {
+    background-color: #333;
+    color: white;
+  }
   
   /* 모바일 화면에서만 스타일 변경 */
   @media (max-width: 1030px) {

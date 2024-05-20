@@ -19,6 +19,7 @@ const Banner1 = () => {
                     </p>
                     <p style={{ fontSize: '17px', color: 'gray' }}>
                         <br />
+                        <br />
                         ※ 이미지는 어플 화면 예시입니다.
                     </p>
                 </div>

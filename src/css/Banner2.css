@@ -20,8 +20,11 @@
   .banner2-image {
     background-size: cover;
     background-position: center;
-    width: 532px;
-    height: 684px;
+    /* width: 532px;
+    height: 684px; */
+    height: 590px; /* height: 639px; */
+    width: 590px;
+    padding-left: 3rem;
   }
   
   .banner2-text {

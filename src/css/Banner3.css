@@ -21,8 +21,11 @@
   .banner3-image {
     background-size: cover;
     background-position: center;
-    width: 546px;
-    height: 740px;
+    /* width: 546px;
+    height: 740px; */
+    height: 590px; /* height: 639px; */
+    width: 295px;
+    padding-left: 3rem;
   }
   
   .banner3-text {

@@ -24,7 +24,9 @@
     height: 735px; */
     height: 590px; /* height: 639px; */
     width: 295px;
-    padding-left: 3rem;
+    margin-left: 3rem;
+    border: 2px solid black; /* Add border to the image */
+    border-radius: 10px; /* Make the corners rounded */
   }
   
   .banner4-text {
@@ -49,7 +51,7 @@
       height: auto;
       order: 2;
       margin-top: 1rem;
-      padding-left: 0;
+      margin-left: 0;
     }
   
     .banner4-text {

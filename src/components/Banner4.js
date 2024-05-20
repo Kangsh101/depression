@@ -11,7 +11,7 @@ const Banner4 = () => {
                         우리 모두 <br /> 행복한 삶을
                     </h1>
                     <p style={{ fontSize: '17px', lineHeight: '1.5' }}>
-                        버디를 함께 한다면 <br /> 하루를 한 번 더 생각하고 감정을 추스를 수 있습니다.
+                        버디와 함께 한다면 <br /> 하루를 한 번 더 생각하고 감정을 추스를 수 있습니다.
                     </p>
                     <a href="https://play.google.com/" id='a-download-button'>
                         지금 바로 다운로드

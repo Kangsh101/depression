@@ -13,13 +13,10 @@ const NoticeUp = () => {
   const quillRef = useRef(null);
 
   useEffect(() => {
-    // 세션에서 사용자 이름을 가져옴
     fetch('/api/getUserName')
       .then(response => response.json())
       .then(data => setName(data.userName))
       .catch(error => console.error('사용자 이름 가져오기 실패:', error));
-
-    // 수정 모드인 경우 기존 공지사항 데이터 가져오기
     if (id) {
       fetch(`/api/notices/${id}`)
         .then(response => response.json())
@@ -99,7 +96,7 @@ const NoticeUp = () => {
 
     try {
       const response = await fetch(`/api/notices${id ? `/${id}` : ''}`, {
-        method: id ? 'PUT' : 'POST', // id가 존재하면 PUT 메소드, 아니면 POST 메소드 사용
+        method: id ? 'PUT' : 'POST',
         headers: {
           'Content-Type': 'application/json',
         },

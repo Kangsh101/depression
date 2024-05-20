@@ -124,19 +124,21 @@ const QnAUp = () => {
 
   return (
     <div className="qnaup-page">
-      <div id='QnA-Plus' className="qnaplus">
+      <div className="qnaplus-container">
         <h2>{id ? 'QnA 게시글 수정' : 'QnA 게시글 작성'}</h2>
         <div className="form-group">
+          <label htmlFor="title">제목</label>
           <input
             type="text"
+            id="title"
             value={title}
             onChange={handleTitleChange}
             placeholder="제목"
-            className="title-input"
-            id='QnA-titlecss'
           />
+        </div>
+        <div className="form-group">
+          <label htmlFor="content">내용</label>
           <ReactQuill
-            id='QnAup-content'
             ref={quillRef}
             value={content}
             onChange={handleContentChange}
@@ -145,8 +147,8 @@ const QnAUp = () => {
           />
         </div>
         <div className="button-group">
-          <button id='QnAbtt' className='button' onClick={handleCancel}>취소</button>
-          <button className='button primary' onClick={handleSave}>{id ? '글 수정' : '글 작성'}</button>
+          <button className="button" onClick={handleCancel}>취소</button>
+          <button className="button primary" onClick={handleSave}>{id ? '글 수정' : '글 작성'}</button>
         </div>
       </div>
     </div>

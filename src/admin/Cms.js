@@ -40,7 +40,7 @@ const Cms = () => {
     <div className="cms-container">
       <div className="cms-sidebar">
         <h2 className='Cms-Depression'>Depression</h2>
-        <h2>관리자</h2>
+        <h2 id='cms-h2id'>관리자</h2>
         <ul>
           <li className={`cms-item2 ${location.pathname === "/Cms" ? "cms-active" : ""}`}><Link to="/Cms">게시판 관리</Link></li>
           <li className="cms-item"><Link to="/Cmsuser">사용자 관리</Link></li>

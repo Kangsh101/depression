@@ -1,65 +1,77 @@
 .noticeup-page {
-    width: 60%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .noticeup-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  h2 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    color: #666;
-  }
-  
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  textarea {
-    height: 200px;
-  }
-  
-  .button-group {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .button.primary {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .button:hover {
-    opacity: 0.9;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.noticeup-container {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 800px;
+  width: 100%;
+  margin: 20px;
+}
+
+.noticeup-container h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.noticeup-container .form-group {
+  margin-bottom: 20px;
+}
+
+.noticeup-container .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.noticeup-container .form-group input,
+.noticeup-container .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.noticeup-container .form-group textarea {
+  height: 200px;
+  resize: none;
+}
+
+.noticeup-container .button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.noticeup-container .button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.noticeup-container .button:hover {
+  background-color: #0056b3;
+}
+
+.noticeup-container .button.primary {
+  background-color: #28a745;
+}
+
+.noticeup-container .button.primary:hover {
+  background-color: #218838;
+}

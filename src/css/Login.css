@@ -157,13 +157,13 @@
     } */
 
     .find-group a{
-      font-size: 14px;
+      font-size: 13px;
     }
 
   }
 
   @media only screen and (max-width: 235px) { 
     .find-group a{
-      font-size: 7px;
+      font-size: 10px;
     }
   }

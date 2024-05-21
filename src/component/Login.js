@@ -64,10 +64,10 @@ const Login = ({ onLogin }) => {
                   </div>
                   <div className="find-group">
                     <Link to="/signup" className="text-primary">
-                      회원가입 |
+                      회원가입&nbsp;&nbsp;|&nbsp;&nbsp;
                     </Link>
                     <Link to="/Idppl" className="findPd">
-                      아이디 찾기 |
+                      아이디 찾기&nbsp;&nbsp;|&nbsp;&nbsp;
                     </Link>
                     <Link to="/Passwordppl" className="findPd">
                       비밀번호 찾기

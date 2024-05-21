@@ -1,32 +1,30 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import '../css/QnAUp.css'; 
 import { useNavigate, useParams } from 'react-router-dom';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import '../css/NoticeUp.css';
 
-const QnAUp = () => {
-  const { id } = useParams();
+const NoticeUp = () => {
+  const { id } = useParams(); // id 파라미터 가져오기
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [name, setName] = useState('');
   const navigate = useNavigate();
   const quillRef = useRef(null);
 
   useEffect(() => {
+    fetch('/api/getUserName')
+      .then(response => response.json())
+      .then(data => setName(data.userName))
+      .catch(error => console.error('사용자 이름 가져오기 실패:', error));
     if (id) {
-      fetch(`/api/qna/posts/${id}`)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('게시글을 불러오는 중 오류가 발생했습니다.');
-          }
-          return response.json();
-        })
+      fetch(`/api/notices/${id}`)
+        .then(response => response.json())
         .then(data => {
           setTitle(data.title);
           setContent(data.content);
         })
-        .catch(error => {
-          console.error('게시글 가져오기 실패:', error);
-        });
+        .catch(error => console.error('공지사항 정보 가져오기 실패:', error));
     }
   }, [id]);
 
@@ -97,7 +95,7 @@ const QnAUp = () => {
     };
 
     try {
-      const response = await fetch(id ? `/api/qna/posts/${id}` : '/api/qna/posts', {
+      const response = await fetch(`/api/notices${id ? `/${id}` : ''}`, {
         method: id ? 'PUT' : 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,26 +104,26 @@ const QnAUp = () => {
       });
 
       if (response.ok) {
-        alert('글이 성공적으로 저장되었습니다.');
-        navigate('/community');
+        alert('공지사항이 성공적으로 저장되었습니다.');
+        navigate('/Cms');
       } else {
         const errorResponse = await response.json();
         console.error('Error response:', errorResponse);
-        throw new Error('글을 저장하지 못했습니다.');
+        throw new Error('공지사항을 저장하지 못했습니다.');
       }
     } catch (error) {
-      console.error('글 저장 중 오류 발생:', error);
+      console.error('공지사항 저장 중 오류 발생:', error);
     }
   };
 
   const handleCancel = () => {
-    navigate(-1);
+    navigate('/Cms');
   };
 
   return (
-    <div className="qnaup-page">
-      <div className="qnaplus-container">
-        <h2>{id ? 'QnA 게시글 수정' : 'QnA 게시글 작성'}</h2>
+    <div className="noticeup-page">
+      <div className="noticeup-container">
+        <h2>공지사항 {id ? '수정' : '등록'}</h2>
         <div className="form-group">
           <label htmlFor="title">제목</label>
           <input
@@ -148,11 +146,11 @@ const QnAUp = () => {
         </div>
         <div className="button-group">
           <button className="button" onClick={handleCancel}>취소</button>
-          <button className="button primary" onClick={handleSave}>{id ? '글 수정' : '글 작성'}</button>
+          <button className="button primary" onClick={handleSave}>저장</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default QnAUp;
+export default NoticeUp;

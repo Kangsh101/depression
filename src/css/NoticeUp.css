@@ -1,4 +1,4 @@
-.qnaup-page {
+.noticeup-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +6,7 @@
   background-color: #f9f9f9;
 }
 
-.qnaplus-container {
+.noticeup-container {
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
   margin: 20px;
 }
 
-.qnaplus-container h2 {
+.noticeup-container h2 {
   font-size: 2em;
   font-weight: bold;
   margin-bottom: 20px;
@@ -24,18 +24,18 @@
   text-align: center;
 }
 
-.qnaplus-container .form-group {
+.noticeup-container .form-group {
   margin-bottom: 20px;
 }
 
-.qnaplus-container .form-group label {
+.noticeup-container .form-group label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.qnaplus-container .form-group input,
-.qnaplus-container .form-group textarea {
+.noticeup-container .form-group input,
+.noticeup-container .form-group textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -43,17 +43,17 @@
   font-size: 1em;
 }
 
-.qnaplus-container .form-group textarea {
+.noticeup-container .form-group textarea {
   height: 200px;
   resize: none;
 }
 
-.qnaplus-container .button-group {
+.noticeup-container .button-group {
   display: flex;
   justify-content: space-between;
 }
 
-.qnaplus-container .button {
+.noticeup-container .button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -64,34 +64,14 @@
   transition: background-color 0.3s;
 }
 
-.qnaplus-container .button:hover {
+.noticeup-container .button:hover {
   background-color: #0056b3;
 }
 
-.qnaplus-container .button.primary {
+.noticeup-container .button.primary {
   background-color: #28a745;
 }
 
-.qnaplus-container .button.primary:hover {
+.noticeup-container .button.primary:hover {
   background-color: #218838;
-}
-
-@media only screen and (max-width: 600px) {
-  .qnaplus-container {
-    padding: 20px;
-  }
-
-  .qnaplus-container h2 {
-    font-size: 1.5em;
-  }
-
-  .qnaplus-container .form-group input,
-  .qnaplus-container .form-group textarea {
-    font-size: 0.9em;
-  }
-
-  .qnaplus-container .button {
-    font-size: 0.9em;
-    padding: 8px 15px;
-  }
 }

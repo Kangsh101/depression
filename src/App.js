@@ -23,7 +23,9 @@ import Community from './component/Community';
 import NewContent from './component/NewContent';
 import Ehddudtkd from './component/Ehddudtkd';
 import Introduction from './component/Introduction';
-
+import NoticeUp from './admin/NoticeUp';
+import NoticeDetail from './admin/NoticeDetail';
+import FaqUp from './admin/FaqUp';
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -58,10 +60,12 @@ function App() {
           <Route path="/Idppl" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Idppl /><Footer /></>} />
           <Route path="/Passwordppl" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Passwordppl /><Footer /></>} />
           <Route path="/qna" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnA /><Footer /></>} />
-          <Route path="/qnaup" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnAUp /><Footer /></>} />
+          
           <Route path="/qna/:id" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnADetailPage /><Footer /></>} />
+          <Route path="/qnaup/:id" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><QnAUp /><Footer /></>} />
           <Route path="/notice" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Notice /><Footer /></>} />
           <Route path="/faq" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><FAQ /><Footer /></>} />
+          
           <Route path="/main" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Main /><Footer /></>} />
           <Route path="/MyPage" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><MyPage /><Footer /></>} />
           <Route path="/contents" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Contents /><Footer /></>} />
@@ -69,12 +73,17 @@ function App() {
           <Route path="/newcontent" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><NewContent /><Footer /></>} />
           <Route path="/Ehddudtkd" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Ehddudtkd /><Footer /></>} />
           <Route path="/introduction" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Introduction /><Footer /></>} />
-
+          <Route path="/qnaup" element={<QnAUp />} />
+          <Route path="/faqup" element={<FaqUp />} />
           <Route path='/cms' element={<Cms />}/>
           <Route path='/cmscontents' element={<Cmscontents />}/>
+          <Route path='/faqup/:id' element={<FaqUp />}/>
           <Route path='/cmsuser' element={<Cmsuser />}/>
           <Route path="/cms" element={<CmsLayout />} />
-          {/* <Route path="/noticeup" element={<noticeUp />} /> */}
+          <Route path="/noticeup" element={<NoticeUp />} />
+          <Route path="/noticeup/:id" element={<NoticeUp />} />
+          <Route path="/notice/:id" element={<NoticeDetail />} />
+          <Route path="/noticedetail/:id" element={<NoticeDetail />} />
           <Route path="/cmsfaq" element={<Cmsfaq />} />
         </Routes>
       

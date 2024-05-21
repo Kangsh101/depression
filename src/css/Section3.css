@@ -61,16 +61,10 @@
   cursor: pointer; 
 
 }
-.terms-text {
+textarea {
   border-radius: 15px; 
   border: 1px solid #ccc;
-  padding: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  /* white-space: pre-line; 줄바꿈 상태 그대로 유지 */
-  background-color: #FFFFFF;
-  width: 30%;
-  margin: 0 auto;
+  padding: 10px; 
 }
 .pschecks{
   color: red;
@@ -128,14 +122,13 @@
   font-size: 30px;
   color: rgb(42, 42, 42);
   padding: 0px 60px;
-  margin-top: 0.5em;
 }
 @media only screen and (max-width: 768px) {
   .section-container {
     margin-top: 20%;
   }
 
-  .terms-scroll .terms-text {
+  .terms-scroll textarea {
     width: 90%; 
     margin: 0 auto; 
   }
@@ -146,7 +139,7 @@
     padding: 15px; 
   }
 
-  .terms-scroll .terms-text {
+  .terms-scroll textarea {
     width: 95%; 
   }
 

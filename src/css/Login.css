@@ -1,3 +1,11 @@
+.section-content-Login {
+  background-color: #e5f3e6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0000001a;
+  margin: 6em auto 3em;
+  max-width: 350px;
+  padding: 20px;
+}
 
 .login-container {
   
@@ -26,26 +34,30 @@
     
   }
   .row {
-    display: flex;
-    /* justify-content: center; */
-    margin-left: 38%;
+    /* display: flex;
+    justify-content: center; */
+    /* margin-left: 38%; */
     
+  }
+
+  .section-content-Login .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
   }
   
   .login-box {
-    background-color: rgb(230, 243, 230);
-    border: 1px solid #fbfbd5;
-    padding: 55px;
-    border-radius: 20px;
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    border: 5px solid  #e2e2e2;
-    border-top: 1px solid #e2e2e2;
-    border-left: 1px solid #e2e2e2;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #0000001a;
+    padding: 1.5rem 2em;
   }
 
   .form-group {
     margin-bottom: 15px;
-    
+    display: flex;
+    justify-content: center;
   }
   
   .form-control {
@@ -66,19 +78,20 @@
     font-size: 15px;
     display: flex;
     justify-content: center;
+    white-space: nowrap; /* 줄 바꿈 방지 */
 }
   
 .btn-primary {
   width: 100%; 
   border-radius: 7px; 
   padding: 10px 0;
-  background-color: #0e787c;
+  background-color: #4CAF50;/* #0e787c; */
   border: none;
   margin-top: 1rem;
 }
   
 .btn-primary:hover {
-  background-color:#0b7074;
+  background-color: #45a049;
 }
   
   .social-login {
@@ -122,29 +135,35 @@
     padding: 0px 60px;
   }
   @media only screen and (max-width: 768px) {
-    .login-box {
+    /* .login-box {
       width: 80%;
       padding: 30px;
-    }
+    } */
   }
   
   @media only screen and (max-width: 576px) {
-    .login-box {
+    /* .login-box {
       width: 90%;
       padding: 25px;
       margin-left: -35%;
-    }
+    } */
   
     .btn-primary {
       margin-left: 0;
     }
 
-    .login-layout{
+    /* .login-layout{
       margin-top: 45%;
-    }
+    } */
 
     .find-group a{
-      font-size: 11px;
+      font-size: 13px;
     }
 
+  }
+
+  @media only screen and (max-width: 235px) { 
+    .find-group a{
+      font-size: 10px;
+    }
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; 
-import '../css/Section.css';
+import '../css/Section3.css';
 
 const Section3 = () => {
   return (

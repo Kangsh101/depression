@@ -1,8 +1,21 @@
 
+.faq-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+  max-width: 45%;
+  margin: 0 auto; 
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgb(195, 194, 194);
+  border-radius: 15px;
+  margin-bottom: 5%;
+}
+
 .faq-item {
-    /* margin-bottom: 20px; */
     margin: 15px auto;
-    width: 33%;
+    width: 500px;
     padding-top: 10px;
   }
 
@@ -27,30 +40,28 @@
   }
   @media (max-width: 1024px) {
     .faq-item {
-      width: 50%;  /* 화면이 줄어들면서 FAQ 항목 너비도 조금 줄어듦 */
+      width: 350px;  
     }
   }
   
-  /* 모바일 디바이스 */
   @media (max-width: 768px) {
     .faq-item {
-      width: 70%;  /* 모바일 디바이스에 맞게 최대 너비 확장 */
+      width: 250px;  
     }
   
     .faq-question, .faq-answer {
-      font-size: 16px;  /* 모바일에서 적절한 폰트 크기 조정 */
-      padding: 12px;  /* 조금 더 큰 패딩 제공 */
+      font-size: 16px;  
+      padding: 12px;  
     }
   }
   
-  /* 작은 모바일 디바이스 */
   @media (max-width: 480px) {
     .faq-item {
-      width: 100%;  /* 가장 작은 화면에서는 FAQ 항목이 전체 너비를 차지 */
+      width: 100%; 
     }
   
     .faq-question, .faq-answer {
-      font-size: 14px;  /* 더 작은 화면에서 폰트 크기 줄임 */
-      padding: 10px;  /* 패딩 감소 */
+      font-size: 14px; 
+      padding: 10px;  
     }
   }

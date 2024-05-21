@@ -2,17 +2,21 @@
 .notice-page{
   display: flex;
   flex-direction: column;
-  align-items: center; /* 모든 자식 요소를 중앙에 정렬 */
+  align-items: center; 
   width: 100%;
-  max-width: 850px; /* 최대 너비를 900px로 설정 */
+  max-width: 55%; 
   margin: 0 auto; 
   padding: 20px;
-  background-color: transparent;
+  background-color: white;
+  border: 1px solid rgb(195, 194, 194);
+  border-radius: 15px;
+  margin-bottom: 5%;
+  
   
 }
 .notice-header{
-  text-align: center; /* 헤더 요소들을 중앙으로 정렬 */
-  width: 100%; /* 너비를 100%로 설정 */
+  text-align: center; 
+  width: 100%; 
 }
 .notice-options{
   flex-grow: 1;
@@ -33,7 +37,16 @@
   background-color: #E9ECEF;
   color: rgb(0, 0, 0);
   border: 1px solid #959696;;
-  padding: 5px 10px 5px 10px;
+  padding: 9px 15px 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.notice-button:hover{
+  background-color: #c6cdd6;
+  color: rgb(0, 0, 0);
+  border: 1px solid #959696;;
+  padding: 9px 15px 9px 15px;
 }
 .notice-content{
   width: 100%;

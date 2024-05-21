@@ -14,8 +14,8 @@
 }
 
 .qna-header {
-  text-align: center; /* 헤더 요소들을 중앙으로 정렬 */
-  width: 100%; /* 너비를 100%로 설정 */
+  text-align: center; 
+  width: 100%;
 }
 
 
@@ -35,6 +35,7 @@
   width: 300px;
   padding: 10px;
   margin-right: 10px;
+
 }
 
 .qna-write-button {
@@ -52,14 +53,16 @@
   background-color: #E9ECEF;
   color: rgb(0, 0, 0);
   border: 1px solid #959696;;
-  padding: 5px 10px 5px 10px;
+  padding: 9px 15px 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .qna-button:hover{
-  background-color: #E9ECEF;
+  background-color: #c6cdd6;
   color: rgb(0, 0, 0);
   border: 1px solid #959696;;
-  padding: 5px 10px 5px 10px;
+  padding: 9px 15px 9px 15px;
 }
 .qna-content {
   width: 100%;

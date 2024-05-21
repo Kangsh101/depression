@@ -7,6 +7,7 @@ const Cmsfaq = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(5); 
   const [selectedPostIndex, setSelectedPostIndex] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,9 +52,13 @@ const Cmsfaq = () => {
 
   const location = useLocation();
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="cms-container">
-      <div className="cms-sidebar">
+    <div className={`cms-container ${isSidebarOpen ? 'open' : ''}`}>
+      <div className={`cms-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <h2 className='Cms-Depression'>Depression</h2>
         <h2 id='cms-h2id'>관리자</h2>
         <ul>
@@ -62,9 +67,12 @@ const Cmsfaq = () => {
         </ul>
       </div>
       <div className="cms-main-content">
-        <header className='major' id='major-rest'> 
-          {/* <h2 className='Cms-Htitle'>FAQ</h2> */}
+        <header className='major' id='major-rest'>
+          <button className="mobile-menu-icon" onClick={toggleSidebar}>
+            &#9776;
+          </button>
         </header>
+        {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
         <div className="Cmss-header">
           <div className='Cmss-chch'>
             <Link to="/Cms"><button id='cms-nodice'>공지사항 게시판</button></Link>
@@ -78,9 +86,11 @@ const Cmsfaq = () => {
             <input type="text" placeholder="검색어를 입력하세요" className="Cmss-search" />
             <button id='search-btt'>검색</button>
           </div>
-          <Link to="/faqup">
-            <button id='saddasdasd'>FAQ 등록</button>
-          </Link>
+          <div className='faqup-btt'>
+            <Link to="/faqup">
+              <button id='saddasdasd'>FAQ 등록</button>
+            </Link>
+          </div>
         </div>
         <div className="Cmss-content">
           <table>
@@ -104,7 +114,7 @@ const Cmsfaq = () => {
                       <td colSpan="5">
                         <div className="selected-post">
                           <p className='sang-title wrap-text'><span className='cms-QA'>Q </span> : {post.title}</p>
-                          <p className='sang-description wrap-text'><span className='cms-QA'>A </span> : <div dangerouslySetInnerHTML={{ __html: post.content }} /></p>
+                          <p id='CmsFAQ-A' className='sang-description wrap-text'><span className='cms-QA'></span>  <div dangerouslySetInnerHTML={{ __html: post.content }} /></p>
                           <div className='sang-bttcon'>
                             <button id='notice-u' onClick={() => navigate(`/faqup/${post.id}`)}>게시글 수정</button>
                             <button id='notice-x' onClick={() => handleDelete(post.id, indexOfFirstPost + index)}>게시글 삭제</button>

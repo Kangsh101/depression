@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../css/Cms.css';
 
@@ -7,13 +7,16 @@ const Cmsuser = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(7);
   const [selectedUserIndex, setSelectedUserIndex] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     fetch('/api/cmsusers')
       .then(response => response.json())
-      .then(data => setUsers(data.map(user => ({ ...user, joinDate: user.joinDate.split('T')[0],
-            birthdate: user.birthdate.split('T')[0] 
-    }))))
+      .then(data => setUsers(data.map(user => ({ 
+        ...user, 
+        joinDate: user.joinDate.split('T')[0],
+        birthdate: user.birthdate.split('T')[0] 
+      }))))
       .catch(error => console.error('Error fetching users:', error));
   }, []);
 
@@ -58,10 +61,13 @@ const Cmsuser = () => {
     .catch(error => console.error('사용자 활성화 오류:', error));
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
 
   return (
-    <div className="cms-container">
-      <div className="cms-sidebar">
+    <div className={`cms-container ${isSidebarOpen ? 'open' : ''}`}>
+      <div className={`cms-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <h2 className='Cms-Depression'>Depression</h2>
         <h2 id='cms-h2id'>관리자</h2>
         <ul>
@@ -70,6 +76,12 @@ const Cmsuser = () => {
         </ul>
       </div>
       <div className="cms-main-content">
+        <header className='major' id='major-rest'>
+          <button className="mobile-menu-icon" onClick={toggleSidebar}>
+            &#9776;
+          </button>
+        </header>
+        {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
         <div className="Cmss-header">
           <header className='major' id='major-rest'> 
             <h2 className='Cms-Htitle'>사용자 관리</h2>
@@ -89,7 +101,6 @@ const Cmsuser = () => {
               <tr>
                 <th>No</th>
                 <th>아이디</th>
-                {/* <th>타입</th> */}
                 <th>성함</th>
                 <th>성별</th>
                 <th>가입일</th>
@@ -101,7 +112,6 @@ const Cmsuser = () => {
                   <tr className='Cms-trtdcss' onClick={() => handleUserClick(index)}>
                     <td>{indexOfFirstPost + index + 1}</td>
                     <td>{user.username}</td>
-                    {/* <td>{user.role}</td> */}
                     <td>{user.name}</td>
                     <td>{user.gender}</td>
                     <td>{user.joinDate}</td>
@@ -111,7 +121,6 @@ const Cmsuser = () => {
                       <td colSpan="6">
                         <div className="user-details">
                           <p>아이디: {user.username}</p>
-                          {/* <p>타입: {user.role}</p> */}
                           <p>이름: {user.name}</p>
                           <p>성별: {user.gender}</p>
                           <p>이메일: {user.email}</p>

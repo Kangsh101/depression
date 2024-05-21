@@ -1,102 +1,47 @@
-/* Footer.css */
-
 .footer-container {
   position: relative;
   width: 100%;
-  background-color: #FFECF1; 
+  background-color: #ffffff; 
   color: #5C3A6B;
   text-align: center;
-  /* margin-left: -3%; */
-  /* margin-top: 40px; */
-
-}
-
-
-.footer-container div,
-.footer-container p,
-.footer-container a,
-.footer-container span {
-  color: #5C3A6B; 
-  font-size: 1rem;
-}
-
-.babago {
-  font-weight: bold;
-  color: #F78FB3; 
-  text-decoration: none; 
-  transition: color 0.3s ease; 
-}
-
-.babago:hover {
-  color: #FC6DAB; 
-}
-
-.upper-section::before,
-.lower-section::before {
-  content: '';
-  display: block;
-  height: 2px;
-  background-color: #5C3A6B;
-  margin: 20px auto; 
-  width: 80%;
-}
-
-.footit {
-  font-weight: bold; 
-}
-
-.fooati {
-  font-weight: bold;
-  font-size: 1.2rem; 
-}
-
-.lower-section span {
-  margin: 0 5px; 
-  cursor: pointer;
-}
-
-.lower-section span:hover {
-  text-decoration: underline; 
-}
-
-@media only screen and (max-width: 768px) {
-  .footer-container {
-    padding: 20px 15px;
-  }
-
-  .abcds,
-  .babago,
-  .footit,
-  .fooati,
-  .fontwhwjd {
-    font-size: 0.9rem; 
-  }
-
-  .upper-section::before,
-  .lower-section::before {
-    width: 95%; 
-  }
-}
-/* Footer.css */
-.footer-container {
-  background-color: white;
   padding: 20px 0;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.footer-logo {
-  width: 120px; 
-  height: auto;
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   margin-bottom: 10px;
 }
 
+.footer-logo img {
+  width: 60px; /* 로고 크기 조절 */
+  height: auto;
+  margin-right: 20px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
 .footer-link {
-  display: inline-block;
-  margin: 0 15px;
+  display: block;
+  margin: 5px 0;
   color: #5C3A6B;
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s;
+  margin-right: 10px;
+}
+
+.footer-link1 {
+  border-right: 1px solid rgb(154, 154, 154);
+  padding-right: 10px; 
 }
 
 .footer-link:hover {
@@ -104,7 +49,8 @@
 }
 
 .footer-info {
-  font-size: 14px;
+  font-size: 15px;
   color: #5C3A6B;
+  text-align: center;
   margin-top: 15px;
 }

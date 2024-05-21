@@ -470,6 +470,93 @@ app.delete('/api/qna/posts/:id', (req, res) => {
   });
 });
 
+// 댓글 추가 API
+app.post('/api/qna/posts/:id/comments', (req, res) => {
+  const postId = req.params.id;
+  const { content } = req.body;
+  const userId = req.session.userId;
+
+  if (!content || !userId) {
+    return res.status(400).json({ error: '댓글 내용을 입력해주세요.' });
+  }
+
+  const query = 'INSERT INTO boards_comment (post_id, user_id, content) VALUES (?, ?, ?)';
+  connection.query(query, [postId, userId, content], (err, result) => {
+    if (err) {
+      console.error('댓글 추가 중 오류 발생:', err);
+      return res.status(500).json({ error: '댓글 추가 중 오류 발생' });
+    }
+    res.status(201).json({ id: result.insertId, post_id: postId, user_id: userId, content, created_at: new Date() });
+  });
+});
+
+// 특정 게시글의 댓글 조회 API
+app.get('/api/qna/posts/:id/comments', (req, res) => {
+  const postId = req.params.id;
+  
+  const query = `
+    SELECT c.comment_id AS id, c.content, c.created_at, m.name AS author
+    FROM boards_comment c
+    JOIN members m ON c.user_id = m.id
+    WHERE c.post_id = ?
+    ORDER BY c.created_at ASC
+  `;
+  connection.query(query, [postId], (err, results) => {
+    if (err) {
+      console.error('댓글 조회 중 오류 발생:', err);
+      return res.status(500).json({ error: '댓글 조회 중 오류 발생' });
+    }
+    res.status(200).json(results);
+  });
+});
+// 댓글 수정 API
+app.put('/api/qna/posts/:postId/comments/:commentId', (req, res) => {
+  const { postId, commentId } = req.params;
+  const { content } = req.body;
+  const userId = req.session.userId;
+
+  if (!content) {
+    return res.status(400).json({ error: '내용을 입력해주세요.' });
+  }
+
+  const updateQuery = `
+    UPDATE boards_comment 
+    SET content = ? 
+    WHERE comment_id = ? AND post_id = ? AND user_id = ?
+  `;
+  connection.query(updateQuery, [content, commentId, postId, userId], (err, result) => {
+    if (err) {
+      console.error('댓글 수정 중 오류 발생:', err);
+      return res.status(500).json({ error: '댓글 수정 중 오류 발생' });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: '댓글을 찾을 수 없거나 권한이 없습니다.' });
+    }
+    res.status(200).json({ message: '댓글이 성공적으로 수정되었습니다.' });
+  });
+});
+
+// 댓글 삭제 API
+app.delete('/api/qna/posts/:postId/comments/:commentId', (req, res) => {
+  const { postId, commentId } = req.params;
+  const userId = req.session.userId;
+
+  const deleteQuery = `
+    DELETE FROM boards_comment 
+    WHERE comment_id = ? AND post_id = ? AND user_id = ?
+  `;
+  connection.query(deleteQuery, [commentId, postId, userId], (err, result) => {
+    if (err) {
+      console.error('댓글 삭제 중 오류 발생:', err);
+      return res.status(500).json({ error: '댓글 삭제 중 오류 발생' });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: '댓글을 찾을 수 없거나 권한이 없습니다.' });
+    }
+    res.status(200).json({ message: '댓글이 성공적으로 삭제되었습니다.' });
+  });
+});
+
 // 공지사항 등록
 app.post('/api/notices', (req, res) => {
   const { title, content } = req.body;
@@ -692,6 +779,7 @@ app.delete('/api/faqs/:id', (req, res) => {
     res.status(200).json({ message: 'FAQ가 성공적으로 삭제되었습니다.' });
   });
 });
+
 
 // 현재 로그인한 사용자 이름 가져오기
 app.get('/api/getUserName', (req, res) => {

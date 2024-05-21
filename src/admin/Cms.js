@@ -1,3 +1,4 @@
+// React 컴포넌트 코드
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Cms.css';
@@ -6,6 +7,7 @@ const Cms = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,9 +38,13 @@ const Cms = () => {
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="cms-container">
-      <div className="cms-sidebar">
+    <div className={`cms-container ${isSidebarOpen ? 'open' : ''}`}>
+      <div className={`cms-sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <h2 className='Cms-Depression'>Depression</h2>
         <h2 id='cms-h2id'>관리자</h2>
         <ul>
@@ -48,8 +54,11 @@ const Cms = () => {
       </div>
       <div className="cms-main-content">
         <header className='major' id='major-rest'>
-          {/* <h2 className='Cms-Htitle'>공지사항</h2> */}
+          <button className="mobile-menu-icon" onClick={toggleSidebar}>
+            &#9776;
+          </button>
         </header>
+        {isSidebarOpen && <div className="overlay" onClick={toggleSidebar}></div>}
         <div className="Cmss-header">
           <div className='Cmss-chch'>
             <Link to="/Cms"><button id='cms-nodicego'>공지사항 게시판</button></Link>
@@ -64,9 +73,11 @@ const Cms = () => {
             <input type="text" placeholder="검색어를 입력하세요" className="Cmss-search" />
             <button id='search-btt'>검색</button>
           </div>
-          <Link to="/noticeup">
-            <button id='saddasdasd'>공지사항 등록</button>
-          </Link>
+          <div className='nticeup-btt'>
+            <Link to="/noticeup">
+              <button id='saddasdasd'>공지사항 등록</button>
+            </Link>
+          </div>
         </div>
 
         <div className="Cmss-content">

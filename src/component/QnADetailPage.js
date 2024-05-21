@@ -6,6 +6,8 @@ const QnADetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInUserName, setLoggedInUserName] = useState(null);
 
@@ -15,6 +17,11 @@ const QnADetailPage = () => {
       .then(data => setPost(data))
       .catch(error => console.error('게시글 상세 정보 가져오기 실패:', error));
     
+    fetch(`/api/qna/posts/${id}/comments`)
+      .then(response => response.json())
+      .then(data => setComments(data))
+      .catch(error => console.error('댓글 가져오기 실패:', error));
+
     fetch('/api/checklogin')
       .then(response => response.json())
       .then(data => {
@@ -49,7 +56,7 @@ const QnADetailPage = () => {
   };
 
   const handleEditPost = () => {
-    navigate(`/qnaup/${id}`); // 수정 페이지로 이동
+    navigate(`/qnaup/${id}`); 
   };
 
   const handleDeletePost = () => {
@@ -68,6 +75,64 @@ const QnADetailPage = () => {
     .catch(err => console.error('게시글 삭제 실패:', err));
   };
 
+  const handleAddComment = () => {
+    if (!newComment.trim()) return;
+
+    fetch(`/api/qna/posts/${id}/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content: newComment })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.id) {
+        setComments([...comments, data]);
+        setNewComment('');
+      } else {
+        alert('댓글 추가에 실패했습니다.');
+      }
+    })
+    .catch(error => console.error('댓글 추가 실패:', error));
+  };
+
+  const handleEditComment = (commentId, newContent) => {
+    fetch(`/api/qna/posts/${id}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ content: newContent })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        setComments(comments.map(comment => comment.id === commentId ? { ...comment, content: newContent } : comment));
+        alert('댓글이 수정되었습니다.');
+      } else {
+        alert('댓글 수정에 실패했습니다.');
+      }
+    })
+    .catch(error => console.error('댓글 수정 실패:', error));
+  };
+
+  const handleDeleteComment = (commentId) => {
+    fetch(`/api/qna/posts/${id}/comments/${commentId}`, {
+      method: 'DELETE'
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        setComments(comments.filter(comment => comment.id !== commentId));
+        alert('댓글이 삭제되었습니다.');
+      } else {
+        alert('댓글 삭제에 실패했습니다.');
+      }
+    })
+    .catch(error => console.error('댓글 삭제 실패:', error));
+  };
+
   return (
     <div className="qnadetail-page">
       <div className="qna-content-container">
@@ -84,6 +149,37 @@ const QnADetailPage = () => {
               <div dangerouslySetInnerHTML={{ __html: post.content }} />
             </div>
           </>
+        )}
+      </div>
+      <div className="qna-comments-container">
+        <h3>댓글</h3>
+        {comments.map((comment) => (
+          <div key={comment.id} className="qna-comment">
+            <div className="qna-comment-author">{comment.author}</div>
+            <div className="qna-comment-content">{comment.content}</div>
+            <div className="qna-comment-date">{formatDateTime(comment.created_at)}</div>
+            {isLoggedIn && loggedInUserName === comment.author && (
+              <div className="qna-comment-actions">
+                <button onClick={() => {
+                  const newContent = prompt('댓글을 수정하세요:', comment.content);
+                  if (newContent !== null) {
+                    handleEditComment(comment.id, newContent);
+                  }
+                }}>수정</button>
+                <button onClick={() => handleDeleteComment(comment.id)}>삭제</button>
+              </div>
+            )}
+          </div>
+        ))}
+        {isLoggedIn && (
+          <div className="qna-add-comment">
+            <textarea
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="댓글을 입력하세요"
+            />
+            <button className="button" onClick={handleAddComment}>댓글 추가</button>
+          </div>
         )}
       </div>
       <div className="qna-content-buttons">

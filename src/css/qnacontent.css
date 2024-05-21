@@ -1,66 +1,121 @@
+.qnadetail-page {
+  width: 50%;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 15%;
+}
 
-  .qnadetail-page {
-    width: 50%;
-    margin: 0 auto;
-    font-size: 16px;
-    color: #333;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 15%;
-  }
-  
-  .qna-content-container {
-    margin-bottom: 20px;
-  }
-  
-  .qna-title h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .qna-author-date {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .qna-content {
-    font-size: 16px;
-    line-height: 1.6;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
-  }
-  
-  .qna-content img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 10px 0;
-  }
-  
-  .qna-content-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #28a745;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #218838;
-  }
-  
-  
+.qna-content-container {
+  margin-bottom: 20px;
+}
+
+.qna-title h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.qna-author-date {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.qna-content {
+  font-size: 16px;
+  line-height: 1.6;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.qna-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px 0;
+}
+
+.qna-comments-container {
+  margin-top: 30px;
+}
+
+.qna-comment {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.qna-comment-author {
+  font-weight: bold;
+}
+
+.qna-comment-content {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.qna-comment-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.qna-comment-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.qna-comment-actions button {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.qna-comment-actions button:hover {
+  background-color: #0056b3;
+}
+
+.qna-add-comment {
+  margin-top: 20px;
+}
+
+.qna-add-comment textarea {
+  width: 100%;
+  height: 80px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.qna-content-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #218838;
+}

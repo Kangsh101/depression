@@ -24,7 +24,8 @@
 
 .cms-main-content {
   flex-grow: 1; 
-  padding: 20px;
+  padding: 50px;
+  border-radius: 30px;
 }
 
 .cms-item a{
@@ -102,17 +103,28 @@
   background-color: rgb(152, 193, 134);
   font-weight: bold;
   color: black;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(138, 138, 138);
+  cursor: pointer;
 }
 #cms-nodicego1{
   margin-left: 10px;
   background-color: rgb(152, 193, 134);
   font-weight: bold;
   color: black;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(138, 138, 138);
+  cursor: pointer;
 }
 #cms-nodice{
   background-color: rgb(235, 235, 235);
   color: black;
   border: 1px solid rgb(173, 173, 173);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .sang-title{
   border-bottom: 1px solid rgb(255, 255, 255, 0.3);
@@ -159,6 +171,7 @@
   padding: 10px;
   border-radius: 10px;
   font-size: 15px;
+  cursor: pointer;
 
 }
 .Cmss-search{
@@ -168,12 +181,15 @@
   font-size: 15px;
 }
 #search-btt{
-  padding: 5px 13px 5px 13px;
+  padding: 10px 10px 10px 10px;
   margin-bottom: 15px;
   background-color: rgb(242, 242, 242);
   border: 1px solid rgb(122, 122, 122);
   color: black;
   font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid #959696;
+  cursor: pointer;
 }
 
 #search-btt:hover{
@@ -190,6 +206,10 @@ margin-left: 27%;
   background-color: rgb(152, 193, 134);
   font-weight: bold;
   color: black;
+  padding: 10px;
+  border: 1px solid rgb(173, 173, 173);
+  border-radius: 10px;
+  cursor: pointer;
 }
 #saddasdasd:hover{
 
@@ -205,11 +225,13 @@ margin-left: 27%;
   padding: 0 0 0 0;
   font-size: 17px;
   margin-left: 10px;
+  line-height: 4em;
 }
 .user-details p{
-  border-bottom: 1px solid #939393;
+  border-bottom: 1px solid #dadada;
   padding-bottom: 10px;
-  font-size: 19px;
+  font-size: 16px;
+  padding: 20px;
 }
 
 .cmsuser-bttt{
@@ -219,6 +241,8 @@ margin-left: 27%;
     color: #fff;
     cursor: pointer;
     font-size: 15px;
+    padding: 8px;
+    margin-top: 10px;
 }
 .cmsuser-btt{
     background-color: #0d0d0d;
@@ -228,6 +252,7 @@ margin-left: 27%;
     cursor: pointer;
     font-size: 15px;
     margin-left: 10px;
+    padding: 8px;
 }
 .cmsuser-bttt:hover{
   background-color: #2c2c2c;
@@ -274,12 +299,19 @@ margin-left: 27%;
   font-size: 40px;
   text-align: center;
   margin-left: 0.5em;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 #notice-u{
   background-color: rgb(152, 193, 134);
   margin-right: 10px;
   color: black;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 5px;
+  border: 1px solid #8a8a8a;
 }
 #notice-x{
   background-color: rgb(152, 193, 134);

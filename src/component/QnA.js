@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/QnA.css';
 
 const QnAPage = () => {
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
+  const navigate = useNavigate();
 
   useEffect(() => {
+    // 로그인 상태 확인 로직 (예: API 호출 또는 로컬 스토리지 확인)
+    const checkLoginStatus = () => {
+      // 로그인 상태를 확인하는 실제 로직 추가
+      // 여기서는 예제로 로컬 스토리지 사용
+      const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      setIsLoggedIn(loggedIn);
+    };
+
+    checkLoginStatus();
+
     fetch('/api/qna/posts')
       .then(response => response.json())
       .then(data => setPosts(data))
@@ -20,6 +32,15 @@ const QnAPage = () => {
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
+  const handleWriteButtonClick = () => {
+    if (!isLoggedIn) {
+      alert('로그인을 해주세요');
+      navigate('/login'); // 로그인 페이지로 이동
+    } else {
+      navigate('/qnaup'); // 글쓰기 페이지로 이동
+    }
+  };
+
   return (
     <div className="qna-page">
       <div className="qna-header">
@@ -31,9 +52,9 @@ const QnAPage = () => {
           <input type="text" placeholder="검색어를 입력하세요" className="qna-search" />
           <button className="qna-button">검색</button>
         </div>
-        <Link to="/qnaup">
-          <button className="qna-write-button">글쓰기</button>
-        </Link>
+        <button className="qna-write-button" onClick={handleWriteButtonClick}>
+          글쓰기
+        </button>
       </div>
       <div className="qna-content">
         <table>
@@ -51,7 +72,7 @@ const QnAPage = () => {
                 <td>{indexOfFirstPost + index + 1}</td>
                 <td><Link to={`/qna/${post.id}`}>{post.title}</Link></td>
                 <td>{post.author}</td>
-                <td>{post.date}</td>
+                <td>{new Date(post.date).toLocaleDateString('ko-KR')}</td>
               </tr>
             ))}
           </tbody>

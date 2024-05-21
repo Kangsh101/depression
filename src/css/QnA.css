@@ -40,19 +40,25 @@
 
 .qna-write-button {
   display: block;
-  width: auto;
-  /* margin-top: 10px; */
+  width: 0 auto;
   padding: 10px 10px 10px 10px;
   background-color: #E9ECEF;
   color: rgb(0, 0, 0);
   border: none;
   cursor: pointer;
-  margin-left: 40em;
+  margin-left: auto;
+  margin-right: 5%;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #959696;
+}
+.qna-write-button:hover{
+  background-color: #c6cdd6;
 }
 .qna-button{
   background-color: #E9ECEF;
   color: rgb(0, 0, 0);
-  border: 1px solid #959696;;
+  border: 1px solid #959696;
   padding: 9px 15px 9px 15px;
   border-radius: 8px;
   cursor: pointer;
@@ -106,6 +112,9 @@ table td {
 .pagebtt button:hover {
   background-color:#47c586;
 }
+.QnA-tdcss{
+  line-height: 4em;
+}
 .QnA-tdcss td{
   padding: 0 0 0 0;
   font-size: 17px;
@@ -120,13 +129,13 @@ table td {
   }
 
   .qna-search {
-    width: 250px;
+    width: 200px;
     padding: 8px;
   }
 
   .qna-write-button {
     padding: 8px;
-    margin-left: auto; /* 오른쪽 정렬 */
+    margin-left: auto;
     margin-right: 20px;
   }
 }
@@ -147,24 +156,25 @@ table td {
     align-items: center;
   }
 
-  .qna-select, .qna-search, .qna-button, .qna-write-button {
-    width: auto;  /* 너비 자동 조절 */
-    display: block;  /* 블록 레벨 요소로 변경 */
-    margin: 10px auto;  /* 자동 마진으로 중앙 정렬 */
+  .qna-select, .qna-search {
+
   }
 
   .qna-button, .qna-write-button {
-    width: 90%;
+    width: auto;
   }
 }
 
 /* 작은 모바일 디바이스 */
 @media (max-width: 480px) {
-  .qna-select, .qna-search {
-    width: 100%;  /* 전체 너비 사용 */
+  /* .qna-select, .qna-search {
+    width: 90%; 
   }
 
   .qna-button, .qna-write-button {
-    width: 100%;  /* 버튼 전체 너비 사용 */
+    width: 60%;
+  } */
+  .qna-button{
+    margin-top: 5px;
   }
 }

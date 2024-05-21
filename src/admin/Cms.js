@@ -48,7 +48,7 @@ const Cms = () => {
       </div>
       <div className="cms-main-content">
         <header className='major' id='major-rest'>
-          <h2 className='Cms-Htitle'>공지사항</h2>
+          {/* <h2 className='Cms-Htitle'>공지사항</h2> */}
         </header>
         <div className="Cmss-header">
           <div className='Cmss-chch'>
@@ -88,7 +88,7 @@ const Cms = () => {
                     <td>공지사항</td>
                     <td>{post.title}</td>
                     <td>{post.author}</td>
-                    <td>{post.date}</td>
+                    <td>{new Date(post.date).toLocaleDateString('ko-KR')}</td>
                   </tr>
                 </React.Fragment>
               ))}

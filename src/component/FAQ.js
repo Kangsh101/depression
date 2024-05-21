@@ -36,7 +36,7 @@ const FAQ = () => {
         {faqItems.map((item, index) => (
           <div key={item.id} className="faq-item">
             <div className="faq-question" onClick={() => toggleAnswer(index)}>
-              Q 질문 : {item.title}
+              Q  : {item.title}
             </div>
             <div className="faq-answer">
               {answersVisible[index] ? (

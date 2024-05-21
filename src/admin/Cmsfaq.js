@@ -63,7 +63,7 @@ const Cmsfaq = () => {
       </div>
       <div className="cms-main-content">
         <header className='major' id='major-rest'> 
-          <h2 className='Cms-Htitle'>FAQ</h2>
+          {/* <h2 className='Cms-Htitle'>FAQ</h2> */}
         </header>
         <div className="Cmss-header">
           <div className='Cmss-chch'>

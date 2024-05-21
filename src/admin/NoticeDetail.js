@@ -33,7 +33,7 @@ const NoticeDetail = () => {
 
   const handleGoBackToList = () => {
     const selectedPage = localStorage.getItem('selectedPage') || 'QnA';
-    navigate(`/community?tab=${selectedPage}`);
+    navigate(-1);
   };
 
   const handleEditPost = () => {

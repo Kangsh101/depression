@@ -28,7 +28,7 @@ const Section1 = ({ handleNext }) => {
     <div className="section-container">
       <div className="Signup-topbar">
         <div className="Signup-topbar-title">
-          <h2>회원가입</h2>
+          <h2>Signup</h2>
         </div>
       </div>
       <ol className="nav nav-pills nav-pills-step">

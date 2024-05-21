@@ -24,11 +24,11 @@
   padding: 20px;
   justify-content: center;
   align-items: center; 
-  
+  margin-bottom: 20px;
 }
 .nav-item {
   background-color: #f0f0f0;
-  padding: 10px;
+  padding: 17px;
   margin-right: 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -45,8 +45,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh;
+  height: 95vh;
   margin-top: 3%;
+  background-color:#fafad2;
 } 
 .pscheck-box1{
   padding-bottom: 15px;
@@ -109,7 +110,7 @@ textarea {
   width: 100%;
   /* background: linear-gradient(135deg, #FBF7F2, #66CC99, #FFDAB9, #98FB98); */
   background-color: #f4f4f4;
-  padding: 5px 0px;
+  padding: 50px 0px;
   /* margin-left: -3%; */
   color: black;
   border-bottom: 1.5px solid #ccc;

@@ -130,6 +130,9 @@
   padding: 0px 60px;
   margin-top: 0.5em;
 }
+.Signup-topbar-title h2{
+  font-size: 40px;
+}
 @media only screen and (max-width: 768px) {
   .section-container {
     margin-top: 20%;

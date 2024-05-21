@@ -7,6 +7,7 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
   const [emailDomain, setEmailDomain] = useState('');
   const [showCustomDomain, setShowCustomDomain] = useState(false);
   const [customDomain, setCustomDomain] = useState('');
+  const [role, setRole] = useState('');
 
   const isFormComplete = () => {
     return (
@@ -15,7 +16,8 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
       userData.confirmPassword !== '' &&
       userData.name !== '' &&
       userData.birthdate !== '' &&
-      userData.phoneNumber !== ''
+      userData.phoneNumber !== '' &&
+      role !== ''
     );
   };
 
@@ -27,6 +29,7 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
       }
       const email = showCustomDomain ? `${emailId}@${customDomain}` : `${emailId}@${emailDomain}`;
       handleInputChange({ target: { name: 'email', value: email } });
+      handleInputChange({ target: { name: 'role', value: role } });
       handleNext(); 
     } else {
       if (userData.username === '') {
@@ -43,7 +46,9 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
         alert('생년월일을 입력하세요.');
       } else if (userData.phoneNumber === '') {
         alert('휴대전화번호를 입력하세요.');
-      } 
+      } else if (role === '') {
+        alert('역할을 선택하세요.');
+      }
     }
   };
 
@@ -63,11 +68,17 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
     setCustomDomain(value);
   };
 
+  const handleRoleChange = (e) => {
+    const selectedRole = e.target.value;
+    setRole(selectedRole);
+    handleInputChange({ target: { name: 'role', value: selectedRole } });
+  };
+
   return (
     <div className='section-container'>
       <div className="Signup-topbar">
           <div className='Signup-topbar-title'>
-              <h2>Singup</h2>
+              <h2>Signup</h2>
           </div>
       </div>
       <ol className="nav nav-pills nav-pills-step">
@@ -106,6 +117,14 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
                 <option value='daum.com'>daum.com</option>
               </select>
             )}
+          </div>
+          <div>
+            <label>유저 타입: </label>
+            <select id='role' value={role} onChange={handleRoleChange} className='select-field'>
+              <option value=''>역할 선택</option>
+              <option value='환자'>환자</option>
+              <option value='일반인'>일반인</option>
+            </select>
           </div>
         </div>
         <div>

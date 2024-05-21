@@ -58,7 +58,11 @@ function generateRandomCode() {
 
 //회원가입
 app.post('/api/signup', (req, res) => {
-  const { username, password, email, name, birthdate, phoneNumber } = req.body;
+  const { username, password, email, name, birthdate, phoneNumber, role } = req.body;
+
+  function generateRandomCode() {
+    return Math.random().toString(36).substr(2, 6);
+  }
 
   function generateUniqueHashcode(callback) {
     let hashcode = generateRandomCode();
@@ -70,19 +74,17 @@ app.post('/api/signup', (req, res) => {
         return;
       }
       if (result.length > 0) {
-        // 해시코드가 중복되면 다시 생성
         generateUniqueHashcode(callback);
       } else {
-        // 중복되지 않는 해시코드가 생성되면 콜백 함수 호출
         callback(hashcode);
       }
     });
   }
 
   generateUniqueHashcode((hashcode) => {
-    const query = `INSERT INTO members (username, password, email, name, birthdate, phoneNumber, is_active, hashcode) VALUES (?, ?, ?, ?, ?, ?, 1, ?)`;
+    const query = `INSERT INTO members (username, password, email, name, birthdate, phoneNumber, is_active, hashcode, role) VALUES (?, ?, ?, ?, ?, ?, 1, ?, ?)`;
 
-    connection.query(query, [username, password, email, name, birthdate, phoneNumber, hashcode], (err, result) => {
+    connection.query(query, [username, password, email, name, birthdate, phoneNumber, hashcode, role], (err, result) => {
       if (err) {
         console.error('회원가입 실패: ' + err.stack);
         res.status(500).send('회원가입 실패');

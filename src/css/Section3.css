@@ -45,7 +45,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 95vh;
   margin-top: 3%;
   background-color:#fafad2;
 } 
@@ -73,12 +72,14 @@ textarea {
 }
 
 .signup3-Btt{
-  background-color: #5a5a5a;
+  background-color: #28a745;
   border: none;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
   font-size: 15px;
+  padding: 7px;
+  margin-top: 5px;
 }
 .signup3-Btt:hover{
   background-color: #2c2c2c;;

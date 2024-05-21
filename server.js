@@ -47,21 +47,50 @@ connection.connect((err) => {
   }
   console.log('DB 연결 성공');
 });
+function generateRandomCode() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 6; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
 
 //회원가입
 app.post('/api/signup', (req, res) => {
-  const { username, password, email, name, birthdate, gender, phoneNumber} = req.body;
+  const { username, password, email, name, birthdate, phoneNumber } = req.body;
 
-  const query = `INSERT INTO members (username, password, email, name, birthdate, gender, phoneNumber ,is_active) VALUES (?,?, ?, ?, ?, ?, ? , 1)`;
+  function generateUniqueHashcode(callback) {
+    let hashcode = generateRandomCode();
 
-  connection.query(query, [username, password, email, name, birthdate, gender,  phoneNumber], (err, result) => {
-    if (err) {
-      console.error('회원가입 실패: ' + err.stack);
-      res.status(500).send('회원가입 실패');
-      return;
-    }
-    console.log('회원가입 성공');
-    res.status(200).send('회원가입 성공');
+    connection.query('SELECT * FROM members WHERE hashcode = ?', [hashcode], (err, result) => {
+      if (err) {
+        console.error('해시코드 중복 검사 실패: ' + err.stack);
+        res.status(500).send('회원가입 실패');
+        return;
+      }
+      if (result.length > 0) {
+        // 해시코드가 중복되면 다시 생성
+        generateUniqueHashcode(callback);
+      } else {
+        // 중복되지 않는 해시코드가 생성되면 콜백 함수 호출
+        callback(hashcode);
+      }
+    });
+  }
+
+  generateUniqueHashcode((hashcode) => {
+    const query = `INSERT INTO members (username, password, email, name, birthdate, phoneNumber, is_active, hashcode) VALUES (?, ?, ?, ?, ?, ?, 1, ?)`;
+
+    connection.query(query, [username, password, email, name, birthdate, phoneNumber, hashcode], (err, result) => {
+      if (err) {
+        console.error('회원가입 실패: ' + err.stack);
+        res.status(500).send('회원가입 실패');
+        return;
+      }
+      console.log('회원가입 성공');
+      res.status(200).send('회원가입 성공');
+    });
   });
 });
 
@@ -99,7 +128,7 @@ app.get('/api/customers', (req, res) => {
   const userId = req.session.userId; 
 
   connection.query(
-    "SELECT email, gender, name, phoneNumber, birthdate FROM members WHERE id = ?;",
+    "SELECT email, name, phoneNumber, birthdate FROM members WHERE id = ?;",
     [userId], 
     (err, rows, fields) => {
       if (err) {
@@ -191,7 +220,7 @@ app.get('/api/buddy/userinfo', (req, res) => {
 
 app.get('/api/cmsusers', (req, res) => {
   connection.query(
-    "SELECT id, username, email, name, birthdate, gender, phoneNumber, joinDate FROM members",
+    "SELECT id, username, email, name, birthdate, phoneNumber, joinDate FROM members",
     (err, rows, fields) => {
       if (err) {
         console.error('사용자 정보 조회 실패: ' + err.stack);
@@ -271,11 +300,11 @@ app.put('/api/activateUser/:userId', (req, res) => {
 // 사용자 정보 업데이트
 app.post('/api/updateuserinfo', (req, res) => {
   const userId = req.session.userId;
-  const { name, gender, phoneNumber, email } = req.body;
+  const { name, phoneNumber, email } = req.body;
 
   connection.query(
-    "UPDATE members SET name = ?, gender = ?, phoneNumber = ?, email = ? WHERE id = ?",
-    [name, gender, phoneNumber, email, userId],
+    "UPDATE members SET name = ?, phoneNumber = ?, email = ? WHERE id = ?",
+    [name, phoneNumber, email, userId],
     (err, result) => {
       if (err) {
         console.error('사용자 정보 업데이트 실패:', err);
@@ -293,7 +322,7 @@ app.get('/api/userinfo', (req, res) => {
 
   console.log('현재 로그인된 사용자의 세션 ID:', userId);
   connection.query(
-    "SELECT gender, name, phoneNumber, birthdate, email FROM members WHERE id = ?;",
+    "SELECT name, phoneNumber, birthdate, email FROM members WHERE id = ?;",
     [userId], 
     (err, rows, fields) => {
       if (err) {
@@ -777,6 +806,35 @@ app.delete('/api/faqs/:id', (req, res) => {
     }
 
     res.status(200).json({ message: 'FAQ가 성공적으로 삭제되었습니다.' });
+  });
+});
+// 사용자 역할 가져오기
+app.get('/api/getUserRole', (req, res) => {
+  const userId = req.session.userId;
+
+  if (!userId) {
+    return res.status(401).json({ error: '로그인된 사용자가 없습니다.' });
+  }
+
+  const query = `SELECT name FROM members WHERE id = ?`;
+
+  connection.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error('사용자 역할 가져오기 실패:', err);
+      return res.status(500).json({ error: '사용자 역할 가져오기 실패' });
+    }
+
+    if (results.length === 0) {
+      return res.status(404).json({ error: '사용자를 찾을 수 없습니다.' });
+    }
+
+    const userName = results[0].name;
+
+    if (userName === 'admin') {
+      res.status(200).json({ role: 'admin' });
+    } else {
+      res.status(403).json({ error: '접근 권한이 없습니다.' });
+    }
   });
 });
 

@@ -1,4 +1,3 @@
-// React 컴포넌트 코드
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Cms.css';
@@ -8,14 +7,26 @@ const Cms = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(3);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [userRole, setUserRole] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    fetch('/api/getUserRole')
+      .then(response => response.json())
+      .then(data => {
+        if (data.role !== 'admin') {
+          navigate('/accessdenied');
+        } else {
+          setUserRole(data.role);
+        }
+      })
+      .catch(error => console.error('사용자 역할 가져오기 실패:', error));
+
     fetch('/api/notices')
       .then(response => response.json())
       .then(data => setPosts(data))
       .catch(error => console.error('공지사항 목록 가져오기 실패:', error));
-  }, []);
+  }, [navigate]);
 
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
@@ -41,6 +52,10 @@ const Cms = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  if (userRole === null) {
+    return <div>Loading...</div>; // 로딩 화면 표시
+  }
 
   return (
     <div className={`cms-container ${isSidebarOpen ? 'open' : ''}`}>

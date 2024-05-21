@@ -7,7 +7,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
   const [emailDomain, setEmailDomain] = useState('');
   const [showCustomDomain, setShowCustomDomain] = useState(false);
   const [customDomain, setCustomDomain] = useState('');
-  const [gender, setGender] = useState('');
 
   const isFormComplete = () => {
     return (
@@ -45,10 +44,8 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
       } else if (userData.phoneNumber === '') {
         alert('휴대전화번호를 입력하세요.');
       } 
-      
     }
   };
-  
 
   const handleEmailIdChange = (e) => {
     const { value } = e.target;
@@ -64,12 +61,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
   const handleCustomDomainChange = (e) => {
     const { value } = e.target;
     setCustomDomain(value);
-  };
-
-  const handleGenderChange = (e) => {
-    const selectedGender = e.target.value;
-    setGender(selectedGender);
-    handleInputChange({ target: { name: 'gender', value: selectedGender } });
   };
 
   return (
@@ -115,12 +106,6 @@ const Section2 = ({ userData, handleInputChange, handleNext }) => {
                 <option value='daum.com'>daum.com</option>
               </select>
             )}
-          </div>
-          <div className='gender-container'>
-            <input type="radio" id="gender-male" name="gender" value="남성" checked={gender === "남성"} onChange={handleGenderChange} />
-            <label htmlFor="gender-male">남성</label>
-            <input type="radio" id="gender-female" name="gender" value="여성" checked={gender === '여성'} onChange={handleGenderChange} />
-            <label htmlFor="gender-female">여성</label>
           </div>
         </div>
         <div>

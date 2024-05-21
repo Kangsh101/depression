@@ -114,7 +114,7 @@ const Cmsfaq = () => {
                       <td colSpan="5">
                         <div className="selected-post">
                           <p className='sang-title wrap-text'><span className='cms-QA'>Q </span> : {post.title}</p>
-                          <p id='CmsFAQ-A' className='sang-description wrap-text'><span className='cms-QA'></span>  <div dangerouslySetInnerHTML={{ __html: post.content }} /></p>
+                          <p id='CmsFAQ-A' className='sang-description wrap-text'><span id='cms-FAQQ' className='cms-QA'></span>  <div dangerouslySetInnerHTML={{ __html: post.content }} /></p>
                           <div className='sang-bttcon'>
                             <button id='notice-u' onClick={() => navigate(`/faqup/${post.id}`)}>게시글 수정</button>
                             <button id='notice-x' onClick={() => handleDelete(post.id, indexOfFirstPost + index)}>게시글 삭제</button>

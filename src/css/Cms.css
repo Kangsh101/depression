@@ -275,24 +275,24 @@
   margin-top: 20px;
 }
 #notice-u {
-  background-color: rgb(152, 193, 134);
+  background-color: #28a745;;
   margin-right: 10px;
-  color: black;
+  color: rgb(255, 255, 255);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 5px;
-  border: 1px solid #8a8a8a;
+  border: 1px solid #28a745;
 }
 #notice-x {
   background-color: #cbcbcb;
   margin-right: 10px;
   color: black;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   margin-top: 5px;
-  border: 1px solid #8a8a8a;
+  border: 1px solid #cbcbcb;
 }
 #notice-u:hover {
   background-color: rgb(130, 173, 111);
@@ -303,6 +303,12 @@
 .wrap-text {
   white-space: normal;
   word-break: break-word; 
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+#cms-FAQQ{
+  margin-top: 10px;
+  font-size: 12px;
 }
 @media (max-width: 1024px) {
   .cms-sidebar {

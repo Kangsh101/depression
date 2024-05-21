@@ -102,7 +102,6 @@ const Cmsuser = () => {
                 <th>No</th>
                 <th>아이디</th>
                 <th>성함</th>
-                <th>성별</th>
                 <th>가입일</th>
               </tr>
             </thead>
@@ -113,7 +112,6 @@ const Cmsuser = () => {
                     <td>{indexOfFirstPost + index + 1}</td>
                     <td>{user.username}</td>
                     <td>{user.name}</td>
-                    <td>{user.gender}</td>
                     <td>{user.joinDate}</td>
                   </tr>
                   {selectedUserIndex === index && (
@@ -122,7 +120,6 @@ const Cmsuser = () => {
                         <div className="user-details">
                           <p>아이디: {user.username}</p>
                           <p>이름: {user.name}</p>
-                          <p>성별: {user.gender}</p>
                           <p>이메일: {user.email}</p>
                           <p>생년월일: {user.birthdate}</p>
                           <p>전화번호: {user.phoneNumber}</p>

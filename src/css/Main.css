@@ -41,9 +41,9 @@ body {
 }
 /* 애니메이션 추가 */
 @keyframes color-change {
-  0% { color: #006400; } /* 다크 그린 */
+  0% { color: #000; } /* 다크 그린 */
   50% { color: white; } /* 골드 */
-  100% { color: #006400; } /* 다크 그린 */
+  100% { color: #000; } /* 다크 그린 */
 }
 
 .header-buttons {

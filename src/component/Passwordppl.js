@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/Passwordppl.css';
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 const Passwordppl = () => {
   const [findMethod, setFindMethod] = useState('email');
@@ -157,7 +158,8 @@ const Passwordppl = () => {
           )}
         </div>
       </div>
-    </div>
+      <Footer />
+    </div>    
   );
 };
 

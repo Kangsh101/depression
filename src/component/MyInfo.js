@@ -3,6 +3,12 @@ import '../css/MyInfo.css';
 function MyInfo({ userInfo }) {
     const user = userInfo[0];
 
+    // Function to format the date
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+
     return (
         <div className="MyInfo-section-content">
             <div className="section-title">내 정보</div>
@@ -22,10 +28,10 @@ function MyInfo({ userInfo }) {
                     </div>
                     <div className="info-item">
                         <span className="info-label">생일:</span>
-                        <span className="info-value">{user.birthdate}</span>
+                        <span className="info-value">{formatDate(user.birthdate)}</span>
                     </div>
                     <div className='info-item'>
-                        <span className='info-label'>워치 암호 : </span>
+                        <span className='info-label'>워치 암호:</span>
                         <span className='info-value'>{user.hashcode}</span>
                     </div>
                 </div>

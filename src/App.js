@@ -27,6 +27,8 @@ import NoticeUp from './admin/NoticeUp';
 import NoticeDetail from './admin/NoticeDetail';
 import FaqUp from './admin/FaqUp';
 import AccessDenied from './admin/AccessDenied';
+import Support from './component/Support';
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -71,7 +73,7 @@ function App() {
           <Route path="/Ehddudtkd" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Ehddudtkd /><Footer /></>} />
           <Route path="/introduction" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Introduction /><Footer /></>} />
           <Route path="/accessdenied" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><AccessDenied /><Footer /></>} />
-          
+          <Route path="/support" element={<><Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} /><Support /><Footer /></>} />
           <Route path="/qna/:id" element={<QnADetailPage />} />
           <Route path="/qnaup/:id" element={<QnAUp />} />
           <Route path="/qnaup" element={<QnAUp />} />

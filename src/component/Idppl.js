@@ -89,66 +89,73 @@ const Idppl = () => {
   };
 
   return (
-    <div className="Idppl-section-content">
-      <div className='section-title'>
-        <strong>아이디 찾기</strong>
-      </div>
-      <div className='info-card'>
-        {showRadioButtons && (
-          <div className="radio-group">
-            <label className="radio-option">
-              <input type="radio" name="findMethod" value="email" checked={findMethod === 'email'} onChange={handleFindMethodChange} />
-              이메일로 찾기
-            </label>
-            <label className="radio-option">
-              <input type="radio" name="findMethod" value="phoneNumber" checked={findMethod === 'phoneNumber'} onChange={handleFindMethodChange} />
-              전화번호로 찾기
-            </label>
+    <div>
+        <div className="login-topbar">
+          <div className='login-topbar-title'>
+            <h2>아이디</h2>
           </div>
-        )}
-
-        {showInputFields && (
-          <div className='info-group'>
-            <div className='info-item'>
-              <label className='info-label'>이름</label>
-              <input type="text" name="name" value={name} onChange={handleNameChange} required className='info-value' />
+        </div>
+      <div className="Idppl-section-content">
+        <div className='section-title'>
+          <strong>아이디 찾기</strong>
+        </div>
+        <div className='info-card'>
+          {showRadioButtons && (
+            <div className="radio-group">
+              <label className="radio-option">
+                <input type="radio" name="findMethod" value="email" checked={findMethod === 'email'} onChange={handleFindMethodChange} />
+                이메일로 찾기
+              </label>
+              <label className="radio-option">
+                <input type="radio" name="findMethod" value="phoneNumber" checked={findMethod === 'phoneNumber'} onChange={handleFindMethodChange} />
+                전화번호로 찾기
+              </label>
             </div>
-            {findMethod === 'email' && (
+          )}
+
+          {showInputFields && (
+            <div className='info-group'>
               <div className='info-item'>
-                <label className='info-label'>이메일</label>
-                <input type="text" name="email" value={email} onChange={handleEmailChange} required className='info-value' />
-                <button onClick={handleSendVerificationCode} className="submit-btn submit-btn-num">인증번호 받기</button>
+                <label className='info-label'>이름</label>
+                <input type="text" name="name" value={name} onChange={handleNameChange} required className='info-value' />
               </div>
-            )}
-            {findMethod === 'phoneNumber' && (
-              <div className='info-item'>
-                <label className='info-label'>전화번호</label>
-                <input type="text" name="phoneNumber" value={phoneNumber} onChange={handlePhoneChange} required className='info-value' />
-                <button onClick={handleSendVerificationCode} className="submit-btn submit-btn-num">인증번호 받기</button>
-              </div>
-            )}
-            {verificationCodeSent && (
-              <div className='info-item'>
-                <input type="text" name="verificationCode" value={verificationCode} onChange={handleVerificationCodeChange} required className='info-value' />
-                <button onClick={handleVerify} className="submit-btn submit-btn-yes">확인</button>
-              </div>
+              {findMethod === 'email' && (
+                <div className='info-item'>
+                  <label className='info-label'>이메일</label>
+                  <input type="text" name="email" value={email} onChange={handleEmailChange} required className='info-value' />
+                  <button onClick={handleSendVerificationCode} className="submit-btn submit-btn-num">인증번호 받기</button>
+                </div>
+              )}
+              {findMethod === 'phoneNumber' && (
+                <div className='info-item'>
+                  <label className='info-label'>전화번호</label>
+                  <input type="text" name="phoneNumber" value={phoneNumber} onChange={handlePhoneChange} required className='info-value' />
+                  <button onClick={handleSendVerificationCode} className="submit-btn submit-btn-num">인증번호 받기</button>
+                </div>
+              )}
+              {verificationCodeSent && (
+                <div className='info-item'>
+                  <input type="text" name="verificationCode" value={verificationCode} onChange={handleVerificationCodeChange} required className='info-value' />
+                  <button onClick={handleVerify} className="submit-btn submit-btn-yes">확인</button>
+                </div>
+              )}
+            </div>
+          )}
+          <div className="button-group">
+            {!searched && (
+              <button onClick={findMethod === 'email' ? handleFindUsername : handleFindUserPhone} className="submit-btn">아이디 찾기</button>
             )}
           </div>
-        )}
-        <div className="button-group">
-          {!searched && (
-            <button onClick={findMethod === 'email' ? handleFindUsername : handleFindUserPhone} className="submit-btn">아이디 찾기</button>
+          {searched && (
+            <div className='info-result'>
+              <p>아이디: {foundUsername}</p>
+              <div className="button-group">
+                <button><Link to="/Passwordppl">비밀번호 찾기</Link></button>
+                <button><Link to="/Login">로그인</Link></button>
+              </div>
+            </div>
           )}
         </div>
-        {searched && (
-          <div className='info-result'>
-            <p>아이디: {foundUsername}</p>
-            <div className="button-group">
-              <button><Link to="/Passwordppl">비밀번호 찾기</Link></button>
-              <button><Link to="/Login">로그인</Link></button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

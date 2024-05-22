@@ -8,14 +8,26 @@ const Cmsfaq = () => {
   const [postsPerPage] = useState(5); 
   const [selectedPostIndex, setSelectedPostIndex] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [userRole, setUserRole] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
+    fetch('/api/getUserRole')
+      .then(response => response.json())
+      .then(data => {
+        if (data.role !== 'admin') {
+          navigate('/accessdenied');
+        } else {
+          setUserRole(data.role);
+        }
+      })
+      .catch(error => console.error('사용자 역할 가져오기 실패:', error));
+
     fetch('/api/faqs')
       .then(response => response.json())
       .then(data => setPosts(data))
       .catch(error => console.error('FAQ 목록 가져오기 실패:', error));
-  }, []);
+  }, [navigate]);
 
   const handleClick = (index) => {
     if (selectedPostIndex === index) {
@@ -56,6 +68,9 @@ const Cmsfaq = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  if (userRole !== 'admin') {
+    return null;
+  }
   return (
     <div className={`cms-container ${isSidebarOpen ? 'open' : ''}`}>
       <div className={`cms-sidebar ${isSidebarOpen ? 'open' : ''}`}>

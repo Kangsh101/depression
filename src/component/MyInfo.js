@@ -24,6 +24,10 @@ function MyInfo({ userInfo }) {
                         <span className="info-label">생일:</span>
                         <span className="info-value">{user.birthdate}</span>
                     </div>
+                    <div className='info-item'>
+                        <span className='info-label'>워치 암호 : </span>
+                        <span className='info-value'>{user.hashcode}</span>
+                    </div>
                 </div>
             ) : (
                 <div>로그인 해주세요. 유저 정보를 찾을 수 없습니다.</div>

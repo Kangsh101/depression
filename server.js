@@ -130,7 +130,7 @@ app.get('/api/customers', (req, res) => {
   const userId = req.session.userId; 
 
   connection.query(
-    "SELECT email, name, phoneNumber, birthdate FROM members WHERE id = ?;",
+    "SELECT email, name, phoneNumber, birthdate , hashcode FROM members WHERE id = ?;",
     [userId], 
     (err, rows, fields) => {
       if (err) {
@@ -333,7 +333,7 @@ app.get('/api/userinfo', (req, res) => {
         return;
       }
       if (rows.length > 0) {
-        res.send(rows[0]); // 첫 번째 행만 반환
+        res.send(rows[0]); 
       } else {
         res.status(404).send('User not found');
       }

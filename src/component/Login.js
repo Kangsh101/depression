@@ -45,7 +45,7 @@ const Login = ({ onLogin }) => {
       <div>
         <div className="login-topbar">
           <div className='login-topbar-title'>
-            <h2>Login</h2>
+            <h2>아이디</h2>
           </div>
         </div>
         <div className="section-content-Login">

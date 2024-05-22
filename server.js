@@ -18,6 +18,7 @@ app.use(session({
   saveUninitialized: false
 }));
 
+
 app.use(cors({
   origin: 'http://3.37.54.62',
   credentials: true,
@@ -1123,6 +1124,8 @@ app.get('/api/buddy/userinfo', (req, res) => {
   );
 });
 
+
+
 app.post('/api/buddy/board', (req, res) => {
   const { title, content } = req.body;
   const userId = req.session.userId;
@@ -1147,6 +1150,8 @@ app.post('/api/buddy/board', (req, res) => {
 //게시판 조회
 app.get('/api/buddy/getboard', (req, res) => {
   // 사용자 ID를 사용하지 않고 모든 게시물의 제목과 내용을 가져옵니다.
+  const userId = req.session.userId;
+
   connection.query(
       "SELECT b.title, b.content, b.created_at, m.username FROM mobile_boards b JOIN members m ON b.user_id = m.id ORDER BY b.post_id;",
       (err, rows, fields) => {

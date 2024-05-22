@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../css/Cms.css';
 
 const Cmsuser = () => {
@@ -8,8 +8,21 @@ const Cmsuser = () => {
   const [postsPerPage] = useState(7);
   const [selectedUserIndex, setSelectedUserIndex] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [userRole, setUserRole] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    fetch('/api/getUserRole')
+      .then(response => response.json())
+      .then(data => {
+        if (data.role !== 'admin') {
+          navigate('/accessdenied');
+        } else {
+          setUserRole(data.role);
+        }
+      })
+      .catch(error => console.error('사용자 역할 가져오기 실패:', error));
+
     fetch('/api/cmsusers')
       .then(response => response.json())
       .then(data => setUsers(data.map(user => ({ 
@@ -18,7 +31,7 @@ const Cmsuser = () => {
         birthdate: user.birthdate.split('T')[0] 
       }))))
       .catch(error => console.error('Error fetching users:', error));
-  }, []);
+  }, [navigate]);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -64,6 +77,10 @@ const Cmsuser = () => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
+  if (userRole !== 'admin') {
+    return null;
+  }
 
   return (
     <div className={`cms-container ${isSidebarOpen ? 'open' : ''}`}>

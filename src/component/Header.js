@@ -22,9 +22,21 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const handleLogout = async () => {
     try {
-      setIsLoggedIn(false);
-      localStorage.removeItem('isLoggedIn');
-      navigate('/main');
+      const response = await fetch('/api/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsLoggedIn(false);
+        localStorage.removeItem('isLoggedIn');
+        navigate('/main');
+      } else {
+        console.error('로그아웃 오류:', response.statusText);
+        alert('로그아웃에 실패했습니다.');
+      }
     } catch (error) {
       console.error('로그아웃 오류:', error);
       alert('로그아웃에 실패했습니다.');
@@ -77,7 +89,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           <ul>
             {isLoggedIn ? (
               <>
-                <li className='Header-nav' onClick={handleMenuItemClick}><button className='Header-nav'  onClick={handleLogout}>로그아웃</button></li>
+                <li className='Header-nav' onClick={handleMenuItemClick}><button className='Header-nav' onClick={handleLogout}>로그아웃</button></li>
                 <li className='Header-nav' onClick={handleMenuItemClick}><Link to="/mypage">내정보</Link></li>
               </>
             ) : (

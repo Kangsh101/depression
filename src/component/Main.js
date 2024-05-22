@@ -32,7 +32,7 @@ const Main = () => {
   return (
     <div className='main-main'>
       <header className='main-header'>
-        <img src={`${process.env.PUBLIC_URL}/images/mascot.webp`} alt="로고" className="logo" />
+        <img src={`${process.env.PUBLIC_URL}/images/mascot.png`} alt="로고" className="logo" />
         <h1 className="main-title">{title}</h1>
         <div className="header-buttons">
           <Link to="/download" className="download-button">Google Play</Link>

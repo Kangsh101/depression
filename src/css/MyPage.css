@@ -109,6 +109,7 @@ button:hover {
   }
   .sidebar-menu {
     align-self: center;
+    white-space: nowrap; /* 줄바꿈 방지 */
   }
   .sidebar-menu li {
     display: inline-flex;

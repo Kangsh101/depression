@@ -1167,7 +1167,13 @@ app.get('/api/buddy/getboard', (req, res) => {
       }
   );
 });
-
+app.get('/api/checklogin', (req, res) => {
+  if (req.session.userId) {
+    res.status(200).json({ isLoggedIn: true });
+  } else {
+    res.status(200).json({ isLoggedIn: false });
+  }
+});
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');

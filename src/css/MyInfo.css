@@ -47,8 +47,8 @@
   margin-top: 12px;
   flex: 2;
   text-align: right;
-  white-space: nowrap; /* Prevent text from wrapping */
-  overflow: hidden; /* Hide overflow text */
+  white-space: nowrap; 
+  /* overflow: hidden;  */
   text-overflow: ellipsis; /* Add ellipsis (...) for overflow text */
 }
 

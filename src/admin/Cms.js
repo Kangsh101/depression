@@ -65,6 +65,7 @@ const Cms = () => {
         <ul>
           <li className={`cms-item2 ${location.pathname === "/Cms" ? "cms-active" : ""}`}><Link to="/Cms">게시판 관리</Link></li>
           <li className="cms-item"><Link to="/Cmsuser">사용자 관리</Link></li>
+          <li className="cms-item"><Link to="/Cmsuser">프로그램 콘텐츠</Link></li>
         </ul>
       </div>
       <div className="cms-main-content">

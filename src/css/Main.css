@@ -39,12 +39,6 @@ body {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 텍스트 그림자 */
   animation: color-change 5s infinite alternate; /* 색상 변경 애니메이션 */
 }
-/* 애니메이션 추가 */
-@keyframes color-change {
-  0% { color: #000; } /* 다크 그린 */
-  50% { color: white; } /* 골드 */
-  100% { color: #000; } /* 다크 그린 */
-}
 
 .header-buttons {
   display: flex;

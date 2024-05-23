@@ -1,14 +1,14 @@
 require("dotenv").config();
 const express = require('express');
-const mysql = require('mysql2');
+const mysql = require('mysql');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-
+const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 app.use(cookieParser());
-
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

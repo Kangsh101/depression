@@ -63,8 +63,8 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
         <div className="auth-buttons">
           {isLoggedIn ? (
             <>
-              <button className='Header-nav' onClick={handleLogout}>로그아웃</button>
-              <button className='Header-nav'><Link to="/mypage">내정보</Link></button>
+              <button  onClick={handleLogout}>로그아웃</button>
+              <button ><Link to="/mypage">내정보</Link></button>
             </>
           ) : (
             <>
